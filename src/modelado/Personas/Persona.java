@@ -1,3 +1,3 @@
-public class Persona {
+public abstract class Persona {
 
 }
