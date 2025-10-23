@@ -10,5 +10,27 @@ public class Veterinario extends Persona { // herencia de Persona
         this.sueldo = sueldo;
     }
 
+    // getters y setters
+    public String getEspecialidad() {
+        return especialidad;
+    }
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+    public float getSueldo() {
+        return sueldo;
+    }
+    public void setSueldo(float sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    // metodos
+    public void registrarTurno(Turno turno) {
+
+    }
+
+    public void aplicarTratamiento(Tratamiento tratamiento, Mascota mascota) {
+        // Lógica para aplicar el tratamiento a la mascota
+    }   
 
 }
