@@ -30,7 +30,7 @@ public class Veterinario extends Persona { // herencia de Persona
     }
 
     public void aplicarTratamiento(Tratamiento tratamiento, Mascota mascota) {
-        // Lógica para aplicar el tratamiento a la mascota
+
     }   
 
 }
