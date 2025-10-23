@@ -15,7 +15,7 @@ public class Mascota {
         this.dueno = dueno;
         this.vacunado = vacunado;
         this.edad = edad;
-        this.historiaClinica = new HistoriaClinica();
+        // this.historiaClinica = historiaClinica;
     }
 
     // getters y setters
