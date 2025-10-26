@@ -37,7 +37,7 @@ public class Tratamiento {
     }
 
     public void administrarMedicamento(Medicamento medicamento) {
-        
+        System.out.println("El tratamiento ha sido realizado para con el medicamento: " +medicamento);
     }
 
 
