@@ -55,7 +55,7 @@ public class Mascota {
 
     // metodos
     public void mostrarFichaClinica() {
-        
+        System.out.println(getHistoriaClinica());
     }
 
     public void vacunar() {
