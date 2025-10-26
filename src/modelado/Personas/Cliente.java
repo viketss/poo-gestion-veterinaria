@@ -25,11 +25,11 @@ public class Cliente extends Persona {
 
     // metodos
     public void agregarMascota(Mascota mascota) {
-
+        mascotas.add(mascota);  // agrega una mascota a la lista de mascotas
     }
 
     public void obtenerInfoDeContacto() {
-
+        System.out.println(getTelefono());
     }
 
     public void solicitarTurno(Turno turno) {

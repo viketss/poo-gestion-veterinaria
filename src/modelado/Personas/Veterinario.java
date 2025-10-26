@@ -30,7 +30,7 @@ public class Veterinario extends Persona { // herencia de Persona
     }
 
     public void aplicarTratamiento(Tratamiento tratamiento, Mascota mascota) {
-
-    }   
+        System.out.println("El veterinario aplico el tratamiento:" + tratamiento+ " a la mascota" + mascota);
+    }   //Funcion simple que imprime a la mascota
 
 }
