@@ -7,7 +7,7 @@ import modelado.HistoriaClinica.Turno;
 
 public class Cliente extends Persona {
     // atributos:
-    private List<Mascota> mascotas;
+    private List<Mascota> mascotas; // 1 cliente .. n mascotas - composicion
     private long telefono;
 
     // constructor
