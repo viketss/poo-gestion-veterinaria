@@ -10,7 +10,7 @@ public class Mascota {
     private Cliente dueno; // dueño de la mascota
     private boolean vacunado;
     private int edad;
-    private HistoriaClinica historiaClinica;
+    private HistoriaClinica historiaClinica;// cardinalidad 1..1
 
     // constructor
     public Mascota(String nombre, String raza, Cliente dueno, boolean vacunado, int edad) {
@@ -19,7 +19,7 @@ public class Mascota {
         this.dueno = dueno;
         this.vacunado = vacunado;
         this.edad = edad;
-        this.historiaClinica = new HistoriaClinica(0000);
+        this.historiaClinica = new HistoriaClinica(0000); // composicion 
     }
 
     // getters y setters
