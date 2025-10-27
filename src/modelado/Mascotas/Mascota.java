@@ -5,7 +5,7 @@ import modelado.Personas.Cliente;
 public class Mascota {
     // atributos
     private String nombre;
-    // tipoMascota
+    private TipoMascota especie; // especie de la mascota
     private String raza;
     private Cliente dueno; // dueño de la mascota
     private boolean vacunado;
@@ -13,9 +13,10 @@ public class Mascota {
     private HistoriaClinica historiaClinica;// cardinalidad 1..1
 
     // constructor
-    public Mascota(String nombre, String raza, Cliente dueno, boolean vacunado, int edad) {
+    public Mascota(String nombre, String raza, TipoMascota especie, Cliente dueno, boolean vacunado, int edad) {
         this.nombre = nombre;
         this.raza = raza;
+        this.especie = especie;
         this.dueno = dueno;
         this.vacunado = vacunado;
         this.edad = edad;
@@ -34,6 +35,12 @@ public class Mascota {
     }
     public void setRaza(String raza) {
         this.raza = raza;
+    }
+    public TipoMascota getEspecie() {
+        return especie;
+    }
+    public void setEspecie(TipoMascota especie) {
+        this.especie = especie;
     }
     public Cliente getDueno() {
         return dueno;
