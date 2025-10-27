@@ -5,14 +5,14 @@ import java.util.List;
 
 public class HistoriaClinica {
     // atributos
-    private List<Turno> historialDeTurnos;
+    private List<Turno> historialDeTurnos; // cardinalidad 1..n
     private List<Tratamiento> historialDeTratamientos;
     private int id;
 
     // constructor
     public HistoriaClinica(int id) {
         this.id = id;
-        this.historialDeTurnos = new ArrayList<>();
+        this.historialDeTurnos = new ArrayList<>(); // composicion
         this.historialDeTratamientos = new ArrayList<>();
     }
 
