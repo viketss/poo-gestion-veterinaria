@@ -41,4 +41,9 @@ public class Cliente extends Persona {
 
     }
 
+    // tostring
+    @Override
+    public String toString() {
+        return "Cliente [mascotas=" + mascotas + ", telefono=" + telefono + "]";
+    }
 }

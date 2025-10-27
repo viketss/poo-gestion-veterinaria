@@ -38,4 +38,10 @@ public abstract class Persona {
         System.out.println("Apellido: " + apellido);
         System.out.println("DNI: " + dni);
     }
+
+    // tostring
+    @Override
+    public String toString() {
+        return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + "]";
+    }
 }

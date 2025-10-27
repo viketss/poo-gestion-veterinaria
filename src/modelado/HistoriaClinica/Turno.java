@@ -71,4 +71,10 @@ public class Turno {
         
     }
     
+    // tostring
+    @Override
+    public String toString() {
+        return "Turno [mascota=" + mascota + ", motivoDeConsulta=" + motivoDeConsulta + ", tratamientos=" + tratamientos
+                + ", fecha=" + fecha + ", idTurno=" + idTurno + ", veterinario=" + veterinario + "]";
+    }
 }

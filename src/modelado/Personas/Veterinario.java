@@ -46,4 +46,10 @@ public class Veterinario extends Persona { // herencia de Persona
         System.out.println("El veterinario aplico el tratamiento:" + tratamiento+ " a la mascota" + mascota);
     }   //Funcion simple que imprime a la mascota
 
+    // tostring
+    @Override
+    public String toString() {
+        return "Veterinario [especialidad=" + especialidad + ", sueldo=" + sueldo + ", turnoVeterinario="
+                + turnoVeterinario + "]";
+    }
 }

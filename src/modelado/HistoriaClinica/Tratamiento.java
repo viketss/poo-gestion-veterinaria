@@ -44,5 +44,11 @@ public class Tratamiento {
         System.out.println("El tratamiento ha sido realizado para con el medicamento: " +medicamento);
     }
 
+    // tostring
+    @Override
+    public String toString() {
+        return "Tratamiento [descripcion=" + descripcion + ", costoBase=" + costoBase + ", medicamentos=" + medicamentos
+                + "]";
+    }
 
 }

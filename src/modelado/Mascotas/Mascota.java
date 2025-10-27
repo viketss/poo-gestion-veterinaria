@@ -76,4 +76,11 @@ public class Mascota {
         this.vacunado = true;
     }
 
+    // tostring
+    @Override
+    public String toString() {
+        return "Mascota [nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", dueno=" + dueno
+                + ", vacunado=" + vacunado + ", edad=" + edad + ", historiaClinica=" + historiaClinica + "]";
+    }
+
 }

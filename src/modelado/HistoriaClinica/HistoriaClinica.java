@@ -48,4 +48,11 @@ public class HistoriaClinica {
     public void agregarTratamiento(Tratamiento tratamiento) {
 
     }
+
+    // tostring
+    @Override
+    public String toString() {
+        return "HistoriaClinica [historialDeTurnos=" + historialDeTurnos + ", historialDeTratamientos="
+                + historialDeTratamientos + ", id=" + id + "]";
+    }
 } 

@@ -37,4 +37,11 @@ public class Medicamento {
     public float calcularCostoPorDias() {
         return precio * cantidadDiasDosis;
     }
+
+    // tostring
+    @Override
+    public String toString() {
+        return "Medicamento [nombreMedicamento=" + nombreMedicamento + ", precio=" + precio + ", cantidadDiasDosis="
+                + cantidadDiasDosis + "]";
+    }
 }
