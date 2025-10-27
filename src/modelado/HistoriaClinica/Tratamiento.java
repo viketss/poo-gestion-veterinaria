@@ -1,17 +1,18 @@
 package modelado.HistoriaClinica;
 
+import java.util.List;
 
 public class Tratamiento {
     // atributos:
     private String descripcion;
     private float costoBase;
-    private Medicamento medicamento;
+    private List<Medicamento> medicamentos; // 1 tratamiento .. n medicamentos - asociacion
 
     // constructor
-    public Tratamiento(String descripcion, float costoBase, Medicamento medicamento) {
+    public Tratamiento(String descripcion, float costoBase, List<Medicamento> medicamentos) {
         this.descripcion = descripcion;
         this.costoBase = costoBase;
-        this.medicamento = medicamento;
+        this.medicamentos = medicamentos; // asociacion
     }
 
     // getters y setters
@@ -27,11 +28,11 @@ public class Tratamiento {
     public void setCostoBase(float costoBase) {
         this.costoBase = costoBase;
     }
-    public Medicamento getMedicamento() {
-        return medicamento;
+    public List<Medicamento> getMedicamentos() {
+        return medicamentos;
     }
-    public void setMedicamento(Medicamento medicamento) {
-        this.medicamento = medicamento;
+    public void setMedicamentos(List<Medicamento> medicamentos) {
+        this.medicamentos = medicamentos;
     }
 
     // metodos
