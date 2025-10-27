@@ -1,3 +1,7 @@
+package modelado.HistoriaClinica;
+import modelado.Mascotas.Mascota;
+import modelado.Personas.Veterinario;
+
 public class Turno {
     // atributos
     private Mascota mascota;

@@ -1,4 +1,8 @@
+package modelado.Personas;
+
 import java.util.List;
+import modelado.Mascotas.Mascota;
+import modelado.HistoriaClinica.Turno;
 
 public class Cliente extends Persona {
     // atributos:

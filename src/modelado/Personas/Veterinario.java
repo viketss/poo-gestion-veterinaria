@@ -1,3 +1,8 @@
+package modelado.Personas;
+import modelado.HistoriaClinica.Tratamiento;
+import modelado.HistoriaClinica.Turno;
+import modelado.Mascotas.Mascota;
+
 public class Veterinario extends Persona { // herencia de Persona
     // atributos
     private String especialidad;

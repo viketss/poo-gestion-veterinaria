@@ -1,3 +1,7 @@
+package modelado.Mascotas;
+import modelado.HistoriaClinica.HistoriaClinica;
+import modelado.Personas.Cliente;
+
 public class Mascota {
     // atributos
     private String nombre;

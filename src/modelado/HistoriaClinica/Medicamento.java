@@ -1,3 +1,5 @@
+package modelado.HistoriaClinica;
+
 public class Medicamento {
     // atributos:
     private String nombreMedicamento;

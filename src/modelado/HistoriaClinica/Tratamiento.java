@@ -1,3 +1,6 @@
+package modelado.HistoriaClinica;
+
+
 public class Tratamiento {
     // atributos:
     private String descripcion;

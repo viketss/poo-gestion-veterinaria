@@ -1,3 +1,4 @@
+package modelado.Personas;
 public abstract class Persona {
     // atributos
     private String nombre;
