@@ -56,6 +56,9 @@ public class Mascota {
     public HistoriaClinica getHistoriaClinica() {
         return historiaClinica;
     }
+    public void setHistoriaClinica(HistoriaClinica historiaClinica) {
+        this.historiaClinica = historiaClinica;
+    }
 
     // metodos
     public void mostrarFichaClinica() {

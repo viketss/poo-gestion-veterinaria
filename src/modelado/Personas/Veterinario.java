@@ -7,14 +7,14 @@ public class Veterinario extends Persona { // herencia de Persona
     // atributos
     private String especialidad;
     private float sueldo;
-    private Turno turno; // 1 veterinario .. 1 turno - asociacion
+    private Turno turnoVeterinario; // 1 veterinario .. 1 turno - asociacion
 
     // constructor
-    public Veterinario(String nombre, String apellido, long dni, String especialidad, float sueldo, Turno turno) {
+    public Veterinario(String nombre, String apellido, long dni, String especialidad, float sueldo, Turno turnoVeterinario) {
         super(nombre, apellido, dni); // llamar al constructor de la clase padre
         this.especialidad = especialidad;
         this.sueldo = sueldo;
-        this.turno = turno;
+        this.turnoVeterinario = turnoVeterinario;
     }
 
     // getters y setters
@@ -29,6 +29,12 @@ public class Veterinario extends Persona { // herencia de Persona
     }
     public void setSueldo(float sueldo) {
         this.sueldo = sueldo;
+    }
+    public Turno getTurnoVeterinario() {
+        return turnoVeterinario;
+    }
+    public void setTurnoVeterinario(Turno turnoVeterinario) {
+        this.turnoVeterinario = turnoVeterinario;
     }
 
     // metodos
