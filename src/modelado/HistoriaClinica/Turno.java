@@ -1,4 +1,7 @@
 package modelado.HistoriaClinica;
+import java.util.ArrayList;
+import java.util.List;
+
 import modelado.Mascotas.Mascota;
 import modelado.Personas.Veterinario;
 
@@ -6,7 +9,7 @@ public class Turno {
     // atributos
     private Mascota mascota;
     private String motivoDeConsulta;
-    private Tratamiento tratamiento;
+    private List<Tratamiento> tratamientos;
     private String fecha;
     private int idTurno;
     private Veterinario veterinario;
@@ -15,7 +18,7 @@ public class Turno {
     public Turno(Mascota mascota, String motivoDeConsulta, Tratamiento tratamiento, String fecha, int idTurno, Veterinario veterinario) {
         this.mascota = mascota;
         this.motivoDeConsulta = motivoDeConsulta;
-        this.tratamiento = tratamiento;
+        this.tratamientos = new ArrayList<>();
         this.fecha = fecha;
         this.idTurno = idTurno;
         this.veterinario = veterinario;
@@ -34,11 +37,11 @@ public class Turno {
     public void setMotivoDeConsulta(String motivoDeConsulta) {
         this.motivoDeConsulta = motivoDeConsulta;
     }
-    public Tratamiento getTratamiento() {
-        return tratamiento;
+    public List<Tratamiento> getTratamientos() {
+        return tratamientos;
     }
-    public void setTratamiento(Tratamiento tratamiento) {
-        this.tratamiento = tratamiento;
+    public void setTratamientos(List<Tratamiento> tratamientos) {
+        this.tratamientos = tratamientos;
     }
     public String getFecha() {
         return fecha;
