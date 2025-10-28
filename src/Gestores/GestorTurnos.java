@@ -34,28 +34,28 @@ public class GestorTurnos {
         // return false
     }
 
-    public String solicitarTurno(String dniCliente, String nombreMascota, String nombreVeterinario, String fechaDeseada) {
+    public String solicitarTurno(String nombreCliente, String nombreMascota, String nombreVeterinario, String fechaDeseada) {
         System.out.println("GESTION TURNOS: Solicitud recibida.");
 
         // OBTENER Y VALIDAR AL CLIENTE
         // Delegamos la búsqueda del objeto Cliente completo al GestorClientes.
-        Cliente cliente = gestorClientes.buscarCliente(dniCliente);
+        Cliente cliente = gestorClientes.buscarCliente(nombreCliente);
         if (cliente == null) {
-            return "Error: Cliente con DNI " + dniCliente + " no encontrado en el sistema.";
+            return "El cliente no es parte del sistema.";
         }
 
         // 2. OBTENER Y VALIDAR AL VETERINARIO
         // Delegamos la búsqueda del objeto Veterinario completo al GestorVeterinarios.
         Veterinario veterinario = gestorVeterinarios.buscarVeterinarioPorNombre(nombreVeterinario);
         if (veterinario == null) {
-            return "Error: Veterinario con nombre '" + nombreVeterinario + "' no encontrado.";
+            return "El veterinario no existe";
         }
 
         // 3. OBTENER Y VALIDAR LA MASCOTA
         // La Mascota pertenece al Cliente, por lo que el objeto Cliente la busca internamente.
         Mascota mascota = cliente.buscarMascota(nombreMascota);
         if (mascota == null) {
-            return "Error: Mascota '" + nombreMascota + "' no registrada para este cliente.";
+            return "La mascota no es del cliente";
         }
         System.out.println("Datos conseguidos");
         System.out.println("   -----   ");
