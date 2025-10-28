@@ -64,11 +64,11 @@ public class Turno {
 
     // metodos:
     public void confirmarTurno() {
-        
+        System.out.println("Turno confirmado");
     }
 
     public void cancelarTurno() {
-        
+        System.out.println("Turno cancelado");
     }
     
     // tostring
