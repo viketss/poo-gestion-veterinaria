@@ -12,4 +12,8 @@ public class PagoEfectivo implements IMetodoPago, IDescuento {
         double descuento = importe * 0.10; // 10% de descuento por pago en efectivo
         return importe - descuento;
     }
+
+    public double tasaDescuento() {
+        return 0.10; // 10% de descuento
+    }
 }
