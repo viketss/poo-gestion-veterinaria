@@ -54,9 +54,9 @@ public class HistoriaClinica {
     // tostring
     @Override
     public String toString() {
-        return "HistoriaClinica de la mascota: " + 
-        "\n ID de la historia clinica: " + id +
-        "\n - Historial de turnos: " + historialDeTurnos +
-        "\n - Historial de tratamientos: " + historialDeTratamientos; 
+        return "# HistoriaClinica de la mascota: " + 
+        "\n- ID de la historia clinica: " + id +
+        "\n- Historial de turnos: " + historialDeTurnos +
+        "\n- Historial de tratamientos: " + historialDeTratamientos; 
     }
 } 
