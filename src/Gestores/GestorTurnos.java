@@ -77,7 +77,7 @@ public class GestorTurnos {
                 veterinario
         );
         this.listaTurnos.add(nuevoTurno);
-
+        veterinario.setTurnoVeterinario(nuevoTurno);
         mascota.getHistoriaClinica().agregarTurno(nuevoTurno);
 
      /*   try {

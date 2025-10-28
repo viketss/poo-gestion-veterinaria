@@ -37,10 +37,7 @@ public class Veterinario extends Persona { // herencia de Persona
         this.turnoVeterinario = turnoVeterinario;
     }
 
-    // metodos
-    public void registrarTurno(Turno turno) {
 
-    }
 
     public void aplicarTratamiento(Tratamiento tratamiento, Mascota mascota) {
         System.out.println("El veterinario aplico el tratamiento:" + tratamiento+ " a la mascota" + mascota);

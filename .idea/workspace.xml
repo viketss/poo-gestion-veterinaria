@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="reform: cambio de strings y returns en solicitarTurno">
-      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/HistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/HistoriaClinica.java" afterDir="false" />
+    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="reform: vacunar">
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/Personas/Veterinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Personas/Veterinario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +136,31 @@
       <option name="project" value="LOCAL" />
       <updated>1761618514264</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat: agregarTurno &amp;&amp; agregarTratamiento">
+      <option name="closed" value="true" />
+      <created>1761618727413</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761618727413</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: confirmarTurno &amp;&amp; cancelarTurno">
+      <option name="closed" value="true" />
+      <created>1761618831730</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1761618831730</updated>
+    </task>
+    <task id="LOCAL-00011" summary="reform: vacunar">
+      <option name="closed" value="true" />
+      <created>1761618918038</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761618918038</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,6 +172,9 @@
     <MESSAGE value="feat: buscarVeterinario" />
     <MESSAGE value="feat: buscarMascota" />
     <MESSAGE value="reform: cambio de strings y returns en solicitarTurno" />
-    <option name="LAST_COMMIT_MESSAGE" value="reform: cambio de strings y returns en solicitarTurno" />
+    <MESSAGE value="feat: agregarTurno &amp;&amp; agregarTratamiento" />
+    <MESSAGE value="feat: confirmarTurno &amp;&amp; cancelarTurno" />
+    <MESSAGE value="reform: vacunar" />
+    <option name="LAST_COMMIT_MESSAGE" value="reform: vacunar" />
   </component>
 </project>

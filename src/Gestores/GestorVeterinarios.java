@@ -1,5 +1,6 @@
 package Gestores;
 
+import modelado.HistoriaClinica.Turno;
 import modelado.Personas.Veterinario;
 import java.util.List;
 
