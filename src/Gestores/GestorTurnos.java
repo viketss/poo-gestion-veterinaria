@@ -5,22 +5,22 @@ import modelado.Mascotas.Mascota;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
 import modelado.HistoriaClinica.Turno;
-import Persistencia.GestorPersistencia;
+//import Persistencia.GestorPersistencia;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GestorTurnos {
-    // TODO sacamos el gestor de persistencia de aca?
-    private final GestorPersistencia gestorPersistencia;
+    
+    //private final GestorPersistencia gestorPersistencia;
     private final GestorClientes gestorClientes;
     private final GestorVeterinarios gestorVeterinarios;
 
     private List<Turno> listaTurnos;
 
     // Constructor
-    public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv) {
-        this.gestorPersistencia = gp;
+    public GestorTurnos(/*GestorPersistencia gp, */GestorClientes gc, GestorVeterinarios gv) {
+        //this.gestorPersistencia = gp;
         this.gestorClientes = gc;
         this.gestorVeterinarios = gv;
         this.listaTurnos = new ArrayList<>();

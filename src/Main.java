@@ -29,7 +29,7 @@ public class Main {
             List<Veterinario> listaInicialVeterinarios = new ArrayList<>();
             GestorClientes gestorClientes = new GestorClientes(listaInicialClientes);
             GestorVeterinarios gestorVeterinarios = new GestorVeterinarios(listaInicialVeterinarios);
-            GestorTurnos gestorTurnos = new GestorTurnos(gestorPersistencia,gestorClientes, gestorVeterinarios); // Pasamos los otros gestores
+            GestorTurnos gestorTurnos = new GestorTurnos(gestorClientes, gestorVeterinarios); // Pasamos los otros gestores
 
 
             //Inicializacion de clases
