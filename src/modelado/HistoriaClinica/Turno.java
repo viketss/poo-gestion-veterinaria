@@ -74,7 +74,8 @@ public class Turno {
     // tostring
     @Override
     public String toString() {
-        return "Turno [mascota=" + mascota + ", motivoDeConsulta=" + motivoDeConsulta + ", tratamientos=" + tratamientos
-                + ", fecha=" + fecha + ", idTurno=" + idTurno + ", veterinario=" + veterinario + "]";
+        return "Turno [mascota=" + mascota.getNombre() +
+                ", motivoDeConsulta=" + motivoDeConsulta + ", tratamientos=" + tratamientos
+                + ", fecha=" + fecha + ", idTurno=" + idTurno + ", veterinario=" + veterinario.getNombre() + "]"; // <-- Also print Vet name
     }
 }

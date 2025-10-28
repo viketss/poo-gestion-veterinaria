@@ -6,7 +6,6 @@ import java.io.IOException;
 
 public class GestorPersistencia {
 
-    // Definición de los nombres de archivos .txt
     private static final String ARCHIVO_CLIENTES = "clientes.txt";
     private static final String ARCHIVO_VETERINARIOS = "veterinarios.txt";
     private static final String ARCHIVO_TURNOS = "turnos.txt";
@@ -25,8 +24,7 @@ public class GestorPersistencia {
     }
 
     public void guardarVeterinarios() {
-        String veterinario = "NOMBRE: Esteban|APELLIDO: Hernandez|DNI: 98.765.432|ESPECIALIDAD: Cirugia Canina|SUELDO: $20000";
-
+        String veterinario = "NOMBRE: Esteban|APELLIDO: Hernandez|DNI: 98765432|ESPECIALIDAD: Cirugia Canina|SUELDO: $30000";
         try (FileWriter writer = new FileWriter(ARCHIVO_VETERINARIOS)) {
             writer.write(veterinario + "\n");
             System.out.println("Escribiendo los datos del veterinario." );
@@ -42,14 +40,15 @@ public class GestorPersistencia {
             writer.write(turno + "\n");
             System.out.println("Guardando el turno");
         } catch (IOException e) {
-            System.err.println("Error guardando el turno" + "\n" + e.getMessage());
+            System.err.println("Error guardando el turno" + "\n" + e.getMessage(    // Definición de los nombres de archivos .txt
+));
         }
     }
 
     //Metodos de lectura
 
     public void cargarClientes() {
-        System.out.println("--- Preparandose para imprimir el contenido de " + ARCHIVO_CLIENTES + " ---");
+        System.out.println("Imprimiendo los datos de: " + ARCHIVO_CLIENTES );
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_CLIENTES))) {
             String linea;
             // Lee el archivo hasta que readLine() devuelva null (fin del archivo)
@@ -59,11 +58,11 @@ public class GestorPersistencia {
         } catch (IOException e) {
             System.err.println("Error al leer " + ARCHIVO_CLIENTES + ": " + e.getMessage());
         }
-        System.out.println("--- Fin de la lectura ---");
+        System.out.println("Fin");
     }
 
     public void cargarVeterinarios() {
-        System.out.println("--- Preparandose para imprimir el contenido de " + ARCHIVO_VETERINARIOS + " ---");
+        System.out.println("Imprimiendo los datos de:" + ARCHIVO_VETERINARIOS);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_VETERINARIOS))) {
             String linea;
@@ -73,12 +72,12 @@ public class GestorPersistencia {
         } catch (IOException e) {
             System.err.println("Error al leer " + ARCHIVO_VETERINARIOS + ": " + e.getMessage());
         }
-        System.out.println("--- Fin de la lectura ---");
+        System.out.println("Fin");
     }
 
 
     public void cargarTurnos() {
-        System.out.println("--- Preparandose para imprimir el contenido de " + ARCHIVO_TURNOS + " ---");
+        System.out.println("Imprimiendo los datos de:" + ARCHIVO_TURNOS );
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_TURNOS))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
@@ -87,6 +86,6 @@ public class GestorPersistencia {
         } catch (IOException e) {
             System.err.println("Error al leer " + ARCHIVO_TURNOS + ": " + e.getMessage());
         }
-        System.out.println("--- Fin de la lectura ---");
+        System.out.println("Fin");
     }
 }

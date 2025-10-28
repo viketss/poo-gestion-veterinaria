@@ -1,0 +1,1 @@
+PACIENTE: Tito|CONSULTA: Motivo a determinar|TRATAMIENTO: |FECHA: 31 de Octubre|ID: 1|VETERINARIO: Tomas

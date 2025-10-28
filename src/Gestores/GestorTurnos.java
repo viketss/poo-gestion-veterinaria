@@ -9,11 +9,9 @@ import Persistencia.GestorPersistencia;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.io.IOException; // Importación necesaria para manejar la excepción de persistencia
 
 public class GestorTurnos {
 
-    // Necesitamos referencias a otros gestores para buscar y persistir
     private final GestorPersistencia gestorPersistencia;
     private final GestorClientes gestorClientes;
     private final GestorVeterinarios gestorVeterinarios;
@@ -38,21 +36,18 @@ public class GestorTurnos {
         System.out.println("GESTION TURNOS: Solicitud recibida.");
 
         // OBTENER Y VALIDAR AL CLIENTE
-        // Delegamos la búsqueda del objeto Cliente completo al GestorClientes.
         Cliente cliente = gestorClientes.buscarCliente(nombreCliente);
         if (cliente == null) {
             return "El cliente no es parte del sistema.";
         }
 
-        // 2. OBTENER Y VALIDAR AL VETERINARIO
-        // Delegamos la búsqueda del objeto Veterinario completo al GestorVeterinarios.
+        // OBTENER Y VALIDAR AL VETERINARIO
         Veterinario veterinario = gestorVeterinarios.buscarVeterinarioPorNombre(nombreVeterinario);
         if (veterinario == null) {
             return "El veterinario no existe";
         }
 
-        // 3. OBTENER Y VALIDAR LA MASCOTA
-        // La Mascota pertenece al Cliente, por lo que el objeto Cliente la busca internamente.
+        // OBTENER Y VALIDAR LA MASCOTA
         Mascota mascota = cliente.buscarMascota(nombreMascota);
         if (mascota == null) {
             return "La mascota no es del cliente";

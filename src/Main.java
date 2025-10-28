@@ -2,13 +2,15 @@ import Gestores.GestorClientes;
 import Gestores.GestorVeterinarios;
 import Gestores.GestorTurnos;
 import Persistencia.GestorPersistencia;
+import modelado.HistoriaClinica.Medicamento;
+import modelado.HistoriaClinica.Tratamiento;
 import modelado.Mascotas.Mascota;
 import modelado.Mascotas.TipoMascota;
-import modelado.Personas.Cliente;   // Necesario si quieres interactuar con el resultado
-import modelado.Personas.Veterinario; // Necesario si quieres interactuar con el resultado
+import modelado.Personas.Cliente;
+import modelado.Personas.Veterinario;
 
 import java.util.ArrayList;
-import java.util.List; // Necesario si quieres interactuar con listas
+import java.util.List;
 
 public class Main {
 
@@ -30,38 +32,49 @@ public class Main {
             System.out.println("Sistema inicializados");
 
 
-            // --- 2. CARGA DE DATOS INICIALES  ---
-            System.out.println("Cargando datos desde archivos");
-
-            // Llamamos a los métodos de carga (que solo imprimen por ahora)
-            gestorPersistencia.cargarClientes();
-            gestorPersistencia.cargarVeterinarios();
-            gestorPersistencia.cargarTurnos();
-
-            System.out.println("Carga de datos completada.");
-
-            //3. Inicializacion de clases
+            //Inicializacion de clases
             System.out.println("Registrando nuevo cliente");
-            Cliente victoria = new Cliente("Victoria","Cuomo",44899034,new ArrayList<Mascota>(),1134666556);
-            gestorClientes.agregarCliente(victoria);
+            Cliente juan = new Cliente("Juan","Perez",12345678,new ArrayList<Mascota>(),11-2345-5678);
+            gestorClientes.agregarCliente(juan);
             System.out.println("Registrando nueva mascota");
-            Mascota titoDeVictoria = new Mascota("Tito","Galgo", TipoMascota.PERRO,victoria, true, 7);
-            victoria.agregarMascota(titoDeVictoria);
+            Mascota titoDeJuan = new Mascota("Tito","Galgo", TipoMascota.PERRO,juan, true, 7);
+            juan.agregarMascota(titoDeJuan);
             System.out.println("Mascota registrada");
-            System.out.println(victoria);
-            Veterinario tomas = new Veterinario("Tomas","Flory",45235050, "Cirugia Canina",30000,null);
-            gestorVeterinarios.agregarVeterinario(tomas);
+            System.out.println(juan);
+            Veterinario esteban = new Veterinario("Esteban","Hernandez",98765432, "Cirugia Canina",20000,null);
+            gestorVeterinarios.agregarVeterinario(esteban);
+            Medicamento medicamentoNuevo = new Medicamento("Jeringa",5414, 1);
+            List<Medicamento> medicamentosDelTratamiento = new ArrayList<>();
+            medicamentosDelTratamiento.add(medicamentoNuevo);
+            Tratamiento tratamiento = new Tratamiento("Analisis de sangre", 3000, medicamentosDelTratamiento);
 
-            //4. Funciones principales
-            gestorTurnos.solicitarTurno("Victoria","Tito", "Tomas", "31 de Octubre");
+            //Funciones principales
+            gestorTurnos.solicitarTurno("Juan","Tito", "Esteban", "31 de Octubre");
+            esteban.aplicarTratamiento(tratamiento, titoDeJuan);
+            tratamiento.getCostoBase();
+            tratamiento.calcularCostoTotal();
 
+            // Persistencia
+            try{
+                System.out.println("Iniciando carga de datos");
+                System.out.println("Guardando datos");
+                gestorPersistencia.guardarClientes();
+                gestorPersistencia.guardarVeterinarios();
+                gestorPersistencia.guardarVeterinarios();
+
+                System.out.println("Imprimiendo datos");
+                gestorPersistencia.cargarClientes();
+                gestorPersistencia.cargarVeterinarios();
+                gestorPersistencia.cargarTurnos();
+
+            } catch (Exception e){
+                System.err.println("Error inesperado " + e.getMessage());
+            }
 
         } catch (Exception e) {
-            // Captura genérica por si alguna operación inesperada falla
-            System.err.println("\n❌ ERROR INESPERADO EN LA EJECUCIÓN PRINCIPAL ❌");
-            e.printStackTrace(); // Imprime el detalle completo del error
+            System.out.println("Error inesperado, cerrando el sistema" + e);
         }
 
-        System.out.println("\n--- 👋 FIN DE LA EJECUCIÓN ---");
+        System.out.println("Hasta luego.");
     }
 }
