@@ -51,7 +51,7 @@ public class Main {
             List<Medicamento> medicamentosDelTratamiento = new ArrayList<>();
             medicamentosDelTratamiento.add(medicamentoNuevo);
             Tratamiento tratamiento = new Tratamiento("Analisis de sangre", 62000, medicamentosDelTratamiento);
-
+            
             //Funciones principales
             // gestion de turnos
             gestorTurnos.solicitarTurno("Juan","Tito", "Esteban", "31 de Octubre");
