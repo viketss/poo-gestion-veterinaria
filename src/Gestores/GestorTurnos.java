@@ -39,7 +39,7 @@ public class GestorTurnos {
 
         // OBTENER Y VALIDAR AL CLIENTE
         // Delegamos la búsqueda del objeto Cliente completo al GestorClientes.
-        Cliente cliente = gestorClientes.buscarClientePorDNI(dniCliente);
+        Cliente cliente = gestorClientes.buscarCliente(dniCliente);
         if (cliente == null) {
             return "Error: Cliente con DNI " + dniCliente + " no encontrado en el sistema.";
         }
