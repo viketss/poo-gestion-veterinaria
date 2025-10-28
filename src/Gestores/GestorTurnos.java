@@ -26,14 +26,16 @@ public class GestorTurnos {
         this.listaTurnos = new ArrayList<>();
     }
 
+    // metodos
     private boolean verificarDisponibilidad(Veterinario veterinario, String fecha) {
-        System.out.println("Verificando agenda de " + veterinario.getNombre() + " para la fecha " + fecha + "...");
+        System.out.println("Verificando agenda de " + veterinario.getNombre() + " para la fecha seleccionada.");
         return true; // Asumimos que siempre está disponible para continuar con el flujo
         // return false
     }
 
     public String solicitarTurno(String nombreCliente, String nombreMascota, String nombreVeterinario, String fechaDeseada) {
-        System.out.println("GESTION TURNOS: Solicitud recibida.");
+        System.out.println("\n# SOLICITUD DE TURNO");
+        System.out.println("Agregar datos para la solicitud de turno: ");
 
         // OBTENER Y VALIDAR AL CLIENTE
         Cliente cliente = gestorClientes.buscarCliente(nombreCliente);
@@ -44,28 +46,27 @@ public class GestorTurnos {
         // OBTENER Y VALIDAR AL VETERINARIO
         Veterinario veterinario = gestorVeterinarios.buscarVeterinarioPorNombre(nombreVeterinario);
         if (veterinario == null) {
-            return "El veterinario no existe";
+            return "El veterinario seleccionado no existe";
         }
 
         // OBTENER Y VALIDAR LA MASCOTA
         Mascota mascota = cliente.buscarMascota(nombreMascota);
         if (mascota == null) {
-            return "La mascota no es del cliente";
+            return "La mascota no esta registrada a nombre del cliente";
         }
-        System.out.println("Datos conseguidos");
-        System.out.println("   -----   ");
+        System.out.println("# Datos del cliente: " + cliente.getNombre() + ", Mascota: " + mascota.getNombre() + ", Veterinario para la consulta: " + veterinario.getNombre());
+    
 
         if (!verificarDisponibilidad(veterinario, fechaDeseada)){ //Se verifica la disponibilidad
             return "Turno no disponible";
         }
 
-        int nuevoIdTurno = this.listaTurnos.size() + 1;
+        int nuevoIdTurno = this.listaTurnos.size() + 1; // turno nuevo
 
         // Instanciar el objeto Turno
         Turno nuevoTurno = new Turno(
                 mascota,
                 "Motivo a determinar",
-                // CORRECCIÓN CLAVE: Especificar que la lista es de Tratamiento
                 new ArrayList<Tratamiento>(),
                 fechaDeseada,
                 nuevoIdTurno,

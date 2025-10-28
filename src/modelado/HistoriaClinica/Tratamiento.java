@@ -41,14 +41,16 @@ public class Tratamiento {
     }
 
     public void administrarMedicamento(Medicamento medicamento) {
-        System.out.println("El tratamiento ha sido realizado para con el medicamento: " +medicamento);
+        System.out.println("El tratamiento ha sido realizado con el medicamento: " +medicamento);
     }
 
     // tostring
     @Override
     public String toString() {
-        return "Tratamiento [descripcion=" + descripcion + ", costoBase=" + costoBase + ", medicamentos=" + medicamentos
-                + "]";
+        return "\n# Tratamiento para tu mascota: " + 
+        "\n- Descripcion: " + descripcion + 
+        "\n- Costo Base del Tratamiento: " + costoBase + 
+        "\n- Medicamentos: " + medicamentos;
     }
 
 }

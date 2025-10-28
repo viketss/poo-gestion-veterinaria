@@ -1,29 +1,22 @@
 package SOLID.S;
 import SOLID.OyL.IMetodoPago;
 
-public class ProcesarPago {
+public class ProcesarPago implements IMetodoPago {
     // atributos
-    private double importe;
-    private String formaDePago;
     private IMetodoPago metodoPago;
 
     // constructor
-    public ProcesarPago(double importe, String formaDePago, IMetodoPago metodoPago) {
-        this.importe = importe;
-        this.formaDePago = formaDePago;
+    public ProcesarPago(IMetodoPago metodoPago) {
         this.metodoPago = metodoPago;
     }
 
-    // TODO mejorar
-    public void procesarPago(double monto, String tipoPago) {
-        if(formaDePago.equals("tarjeta")) {
-            System.out.println("pago con tarjeta: " + importe);
-            this.metodoPago.pagar(importe);
-        } else if(formaDePago.equals("mercado pago")) {
-            System.out.println("pago con mercado pago");
+    @Override
+    public void pagar(double monto) {
+        if(this.metodoPago != null) {
+            this.metodoPago.pagar(monto);
         } else {
-            // manejo de error
-            System.out.println("error");
+            System.out.println("No se ha especificado un metodo de pago.");
         }
     }
+
 }

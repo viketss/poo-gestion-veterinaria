@@ -17,7 +17,7 @@ public class GestorPersistencia {
 
         try (FileWriter writer = new FileWriter(ARCHIVO_CLIENTES)) {
             writer.write(cliente + "\n");
-            System.out.println("Escribiendo datos del cliente");
+            System.out.println("+ Datos del cliente guardados." );
         } catch (IOException e) {
             System.err.println("Error detectado: " + e.getMessage());
         }
@@ -27,7 +27,7 @@ public class GestorPersistencia {
         String veterinario = "NOMBRE: Esteban|APELLIDO: Hernandez|DNI: 98765432|ESPECIALIDAD: Cirugia Canina|SUELDO: $30000";
         try (FileWriter writer = new FileWriter(ARCHIVO_VETERINARIOS)) {
             writer.write(veterinario + "\n");
-            System.out.println("Escribiendo los datos del veterinario." );
+            System.out.println("+ Datos del veterinario guardados." );
         } catch (IOException e) {
             System.err.println("Error al escribir en el archivo.ABORTANDO"+ "\n" + e.getMessage());
         }
@@ -38,7 +38,7 @@ public class GestorPersistencia {
 
         try (FileWriter writer = new FileWriter(ARCHIVO_TURNOS)) {
             writer.write(turno + "\n");
-            System.out.println("Guardando el turno");
+            System.out.println("+ Turno guardado con exito." );
         } catch (IOException e) {
             System.err.println("Error guardando el turno" + "\n" + e.getMessage(    // Definición de los nombres de archivos .txt
 ));
@@ -48,7 +48,7 @@ public class GestorPersistencia {
     //Metodos de lectura
 
     public void cargarClientes() {
-        System.out.println("Imprimiendo los datos de: " + ARCHIVO_CLIENTES );
+        System.out.println("\n# Imprimiendo los datos de: " + ARCHIVO_CLIENTES );
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_CLIENTES))) {
             String linea;
             // Lee el archivo hasta que readLine() devuelva null (fin del archivo)
@@ -58,11 +58,11 @@ public class GestorPersistencia {
         } catch (IOException e) {
             System.err.println("Error al leer " + ARCHIVO_CLIENTES + ": " + e.getMessage());
         }
-        System.out.println("Fin");
+        System.out.println("Impresion finalizada.");
     }
 
     public void cargarVeterinarios() {
-        System.out.println("Imprimiendo los datos de:" + ARCHIVO_VETERINARIOS);
+        System.out.println("Imprimiendo los datos en:" + ARCHIVO_VETERINARIOS);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_VETERINARIOS))) {
             String linea;
@@ -72,7 +72,7 @@ public class GestorPersistencia {
         } catch (IOException e) {
             System.err.println("Error al leer " + ARCHIVO_VETERINARIOS + ": " + e.getMessage());
         }
-        System.out.println("Fin");
+        System.out.println("Impresion finalizada.");
     }
 
 
@@ -86,6 +86,6 @@ public class GestorPersistencia {
         } catch (IOException e) {
             System.err.println("Error al leer " + ARCHIVO_TURNOS + ": " + e.getMessage());
         }
-        System.out.println("Fin");
+        System.out.println("Impresion finalizada.");
     }
 }

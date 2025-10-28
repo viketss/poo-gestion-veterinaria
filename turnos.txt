@@ -1,1 +1,1 @@
-PACIENTE: Tito|CONSULTA: Motivo a determinar|TRATAMIENTO: |FECHA: 31 de Octubre|ID: 1|VETERINARIO: Tomas
+PACIENTE: Fido|CONSULTA: Vomita la comida|TRATAMIENTO: Se le da un medicamento|FECHA: 27/10/2025|ID: 1234|VETERINARIO: Esteban|

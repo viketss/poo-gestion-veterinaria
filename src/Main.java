@@ -2,6 +2,9 @@ import Gestores.GestorClientes;
 import Gestores.GestorVeterinarios;
 import Gestores.GestorTurnos;
 import Persistencia.GestorPersistencia;
+import SOLID.OyL.IMetodoPago;
+import SOLID.OyL.PagoEfectivo;
+import SOLID.S.ProcesarPago;
 import modelado.HistoriaClinica.Medicamento;
 import modelado.HistoriaClinica.Tratamiento;
 import modelado.Mascotas.Mascota;
@@ -43,26 +46,34 @@ public class Main {
             Veterinario esteban = new Veterinario("Esteban","Hernandez",98765432, "Cirugia Canina",20000,null);
             gestorVeterinarios.agregarVeterinario(esteban);
             System.out.println("# Veterinarios disponibles: " + esteban.getNombre() + " " + esteban.getApellido());
-            Medicamento medicamentoNuevo = new Medicamento("Vacuna de rabia",5414, 1);
+
+            Medicamento medicamentoNuevo = new Medicamento("Vacuna de rabia",18000, 1);
             List<Medicamento> medicamentosDelTratamiento = new ArrayList<>();
             medicamentosDelTratamiento.add(medicamentoNuevo);
-            Tratamiento tratamiento = new Tratamiento("Analisis de sangre", 3000, medicamentosDelTratamiento);
+            Tratamiento tratamiento = new Tratamiento("Analisis de sangre", 62000, medicamentosDelTratamiento);
 
             //Funciones principales
+            // gestion de turnos
             gestorTurnos.solicitarTurno("Juan","Tito", "Esteban", "31 de Octubre");
             esteban.aplicarTratamiento(tratamiento, titoDeJuan);
             tratamiento.getCostoBase();
             tratamiento.calcularCostoTotal();
 
+            // pago de la consulta
+            double montoAPagar = tratamiento.getCostoBase() + medicamentoNuevo.getPrecio();
+            System.out.println("\n# El monto total a pagar por la consulta es: $" + montoAPagar);
+            IMetodoPago metodoEfectivo = new PagoEfectivo();
+            ProcesarPago procesarPagoEfectivo = new ProcesarPago(metodoEfectivo);
+            procesarPagoEfectivo.pagar(montoAPagar);
+            System.out.println("Pago realizado con exito.\n");
+
             // Persistencia
             try{
-                System.out.println("Iniciando carga de datos");
-                System.out.println("Guardando datos");
+                System.out.println("# Guardando datos en el sistema... ");
                 gestorPersistencia.guardarClientes();
                 gestorPersistencia.guardarVeterinarios();
-                gestorPersistencia.guardarVeterinarios();
+                gestorPersistencia.guardarTurnos();
 
-                System.out.println("Imprimiendo datos");
                 gestorPersistencia.cargarClientes();
                 gestorPersistencia.cargarVeterinarios();
                 gestorPersistencia.cargarTurnos();
@@ -75,6 +86,6 @@ public class Main {
             System.out.println("Error inesperado, cerrando el sistema" + e);
         }
 
-        System.out.println("Hasta luego.");
+        System.out.println("Cerrando el sistema...");
     }
 }
