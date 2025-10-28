@@ -41,7 +41,9 @@ public class Medicamento {
     // tostring
     @Override
     public String toString() {
-        return "Medicamento [nombreMedicamento=" + nombreMedicamento + ", precio=" + precio + ", cantidadDiasDosis="
-                + cantidadDiasDosis + "]";
+        return "Medicamento: " +
+        "\n- Nombre: " + nombreMedicamento + 
+        "\n- Precio: " + precio + 
+        "\n- Cantidad de dias a aplicar la dosis: " + cantidadDiasDosis;
     }
 }
