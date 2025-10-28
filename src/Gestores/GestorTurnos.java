@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorTurnos {
-
+    // TODO sacamos el gestor de persistencia de aca?
     private final GestorPersistencia gestorPersistencia;
     private final GestorClientes gestorClientes;
     private final GestorVeterinarios gestorVeterinarios;
