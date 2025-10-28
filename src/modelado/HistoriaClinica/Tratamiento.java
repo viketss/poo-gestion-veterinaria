@@ -37,7 +37,11 @@ public class Tratamiento {
 
     // metodos
     public float calcularCostoTotal() {
-        return 0;
+        float costoTotal = costoBase;
+        for (Medicamento m : medicamentos) {
+            costoTotal += m.calcularCostoPorDias(m.getCantidadDiasDosis());
+        }
+        return costoTotal;
     }
 
     public void administrarMedicamento(Medicamento medicamento) {

@@ -62,14 +62,7 @@ public class Turno {
         this.veterinario = veterinario;
     }
 
-    // metodos:
-    public void confirmarTurno() {
-        System.out.println("Turno confirmado");
-    }
-
-    public void cancelarTurno() {
-        System.out.println("Turno cancelado");
-    }
+    // metodos en el gestor
     
     // tostring
     @Override

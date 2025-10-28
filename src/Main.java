@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    // TODO ver que se impriman todas las clases
-    // TODO poner todos los metodos de cada clase
     public static void main(String[] args) {
 
         System.out.println("--- Bienvenido a Patitas Felices ---");
@@ -51,14 +49,17 @@ public class Main {
             Medicamento medicamentoNuevo = new Medicamento("Vacuna de rabia",18000, 1);
             List<Medicamento> medicamentosDelTratamiento = new ArrayList<>();
             medicamentosDelTratamiento.add(medicamentoNuevo);
+            medicamentoNuevo.calcularCostoPorDias(10);
             Tratamiento tratamiento = new Tratamiento("Analisis de sangre", 62000, medicamentosDelTratamiento);
-            
+
             //Funciones principales
             // gestion de turnos
-            gestorTurnos.solicitarTurno("Juan","Tito", "Esteban", "31 de Octubre");
+            gestorTurnos.solicitarTurno(juan.getNombre(),titoDeJuan.getNombre(), esteban.getNombre(), "31 de Octubre");
+            gestorTurnos.confirmarTurno();
             esteban.aplicarTratamiento(tratamiento, titoDeJuan);
             tratamiento.getCostoBase();
             tratamiento.calcularCostoTotal();
+            titoDeJuan.vacunar(titoDeJuan);
 
             // pago de la consulta
             double montoAPagar = tratamiento.getCostoBase() + medicamentoNuevo.getPrecio();
@@ -67,6 +68,11 @@ public class Main {
             ProcesarPago procesarPagoEfectivo = new ProcesarPago(metodoEfectivo);
             procesarPagoEfectivo.pagar(montoAPagar);
             System.out.println("Pago realizado con exito.\n");
+
+            // historia clinica de la mascota
+            titoDeJuan.getHistoriaClinica().agregarTratamiento(tratamiento);
+            System.out.println(titoDeJuan.getHistoriaClinica());
+            titoDeJuan.getHistoriaClinica().generarReporte(); // historial clinico
 
             // Persistencia
             try{

@@ -34,7 +34,7 @@ public class Medicamento {
     }
 
     // metodos:
-    public float calcularCostoPorDias() {
+    public float calcularCostoPorDias(int cantidadDiasDosis) {
         return precio * cantidadDiasDosis;
     }
 

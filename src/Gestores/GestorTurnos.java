@@ -90,4 +90,13 @@ public class GestorTurnos {
       */
         return "El turno fue solicitado con exito";
     }
+
+    public void confirmarTurno() {
+        System.out.println("Turno confirmado");
+    }
+
+    public void cancelarTurno() {
+        System.out.println("Turno cancelado");
+    }
+    
 }
