@@ -80,8 +80,13 @@ public class Mascota {
     // tostring
     @Override
     public String toString() {
-        return "Mascota [nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", dueno=" + dueno.getNombre()
-                + ", vacunado=" + vacunado + ", edad=" + edad + "]";
+        return "Nombre: " + nombre + 
+                " - Especie: " + especie + 
+                " - Raza: " + raza +
+                " - Dueño: " + dueno.getNombre() + " " + dueno.getApellido() +
+                " - Vacunado: " + (vacunado ? "Sí" : "No") +
+                " - Edad: " + edad +
+                " - ID historia clinica: " + historiaClinica.getId();
     }
 
 }

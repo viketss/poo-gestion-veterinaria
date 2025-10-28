@@ -16,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("🐾 Bienvenido a Patitas Felices 🐾");
+        System.out.println("--- Bienvenido a Patitas Felices ---");
 
         try {
             //  INICIALIZACIÓN DE GESTORES Y DEPENDENCIAS
@@ -29,12 +29,10 @@ public class Main {
             GestorVeterinarios gestorVeterinarios = new GestorVeterinarios(listaInicialVeterinarios);
             GestorTurnos gestorTurnos = new GestorTurnos(gestorPersistencia,gestorClientes, gestorVeterinarios); // Pasamos los otros gestores
 
-            System.out.println("Sistema inicializados");
-
 
             //Inicializacion de clases
             System.out.println("Registrando nuevo cliente");
-            Cliente juan = new Cliente("Juan","Perez",12345678,new ArrayList<Mascota>(),11-2345-5678);
+            Cliente juan = new Cliente("Juan","Perez",12345678,new ArrayList<Mascota>(),1123455678);
             gestorClientes.agregarCliente(juan);
             System.out.println("Registrando nueva mascota");
             Mascota titoDeJuan = new Mascota("Tito","Galgo", TipoMascota.PERRO,juan, true, 7);

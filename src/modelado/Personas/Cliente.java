@@ -50,9 +50,11 @@ public class Cliente extends Persona {
     // tostring
     @Override
     public String toString() {
-        return "Cliente [nombre=" + getNombre() +
-                ", mascotas=" + mascotas +
-                ", telefono=" + telefono +
-                "]";
+        return "Cliente: \n- Nombre: " + getNombre() +
+                "\n- Apellido: " + getApellido() +
+                "\n- DNI: " + getDni() +
+                "\n- Mascotas: " + mascotas +
+                "\n- Teléfono: " + telefono +
+                "\n";
     }
 }
