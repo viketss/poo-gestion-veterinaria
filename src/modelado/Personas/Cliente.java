@@ -37,9 +37,6 @@ public class Cliente extends Persona {
         System.out.println(getTelefono());
     }
 
-    public void solicitarTurno(Turno turno) {
-
-    }
 
     // tostring
     @Override

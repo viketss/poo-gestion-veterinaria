@@ -15,7 +15,7 @@ public class Turno {
     private Veterinario veterinario;
 
     // constructor
-    public Turno(Mascota mascota, String motivoDeConsulta, Tratamiento tratamiento, String fecha, int idTurno, Veterinario veterinario) {
+    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario) {
         this.mascota = mascota;
         this.motivoDeConsulta = motivoDeConsulta;
         this.tratamientos = new ArrayList<>();
