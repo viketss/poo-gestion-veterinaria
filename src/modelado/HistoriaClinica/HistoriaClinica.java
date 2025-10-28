@@ -38,15 +38,17 @@ public class HistoriaClinica {
 
     // metodos
     public void generarReporte() {
-
+        System.out.println("Mi reporte del animal es...");
     }
     
     public void agregarTurno(Turno turno) {
-
+        historialDeTurnos.add(turno);
+        System.out.println("Turno registrado");
     }
 
     public void agregarTratamiento(Tratamiento tratamiento) {
-
+        historialDeTratamientos.add(tratamiento);
+        System.out.println("Tratamiento registrado");
     }
 
     // tostring
