@@ -21,5 +21,8 @@ public class GestorClientes {
         System.out.println("GESTION CLIENTES: Cliente no encontrado.");
         return null; // Retorna null si no se encontró coincidencia
     }
+    public void agregarCliente(Cliente nuevoCliente){
+        listaClientes.add(nuevoCliente);
+    }
 
 }

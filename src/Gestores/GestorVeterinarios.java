@@ -1,6 +1,7 @@
 package Gestores;
 
 import modelado.HistoriaClinica.Turno;
+import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
 import java.util.List;
 
@@ -22,5 +23,9 @@ public class GestorVeterinarios {
         }
         System.out.println("Veterinario no encontrado.");
         return null; // Retorna null si no se encontró coincidencia
+    }
+
+    public void agregarVeterinario(Veterinario nuevoVeterinario){
+        listaVeterinarios.add(nuevoVeterinario);
     }
 }

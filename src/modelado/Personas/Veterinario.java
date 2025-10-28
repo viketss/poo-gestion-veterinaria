@@ -14,7 +14,7 @@ public class Veterinario extends Persona { // herencia de Persona
         super(nombre, apellido, dni); // llamar al constructor de la clase padre
         this.especialidad = especialidad;
         this.sueldo = sueldo;
-        this.turnoVeterinario = turnoVeterinario;
+        this.turnoVeterinario = null;
     }
 
     // getters y setters
@@ -41,7 +41,7 @@ public class Veterinario extends Persona { // herencia de Persona
 
     public void aplicarTratamiento(Tratamiento tratamiento, Mascota mascota) {
         System.out.println("El veterinario aplico el tratamiento:" + tratamiento+ " a la mascota" + mascota);
-    }   //Funcion simple que imprime a la mascota
+    }   //Funcion simple que imprime el tratamiento
 
     // tostring
     @Override

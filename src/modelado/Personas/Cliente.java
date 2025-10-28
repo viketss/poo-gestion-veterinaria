@@ -13,7 +13,7 @@ public class Cliente extends Persona {
     // constructor
     public Cliente(String nombre, String apellido, long dni, List<Mascota> mascotas, long telefono) {
         super(nombre, apellido, dni); // llamar al constructor de la clase padre
-        this.mascotas = new ArrayList<>();
+        this.mascotas = mascotas;
         this.telefono = telefono;
     }
 
@@ -51,6 +51,9 @@ public class Cliente extends Persona {
     // tostring
     @Override
     public String toString() {
-        return "Cliente [mascotas=" + mascotas + ", telefono=" + telefono + "]";
+        return "Cliente [nombre=" + getNombre() +
+                ", mascotas=" + mascotas +
+                ", telefono=" + telefono +
+                "]";
     }
 }

@@ -80,7 +80,7 @@ public class Mascota {
     // tostring
     @Override
     public String toString() {
-        return "Mascota [nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", dueno=" + dueno
+        return "Mascota [nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", dueno=" + dueno.getNombre()
                 + ", vacunado=" + vacunado + ", edad=" + edad + ", historiaClinica=" + historiaClinica + "]";
     }
 
