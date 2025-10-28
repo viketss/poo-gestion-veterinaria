@@ -53,7 +53,7 @@ public class GestorTurnos {
 
         // 3. OBTENER Y VALIDAR LA MASCOTA
         // La Mascota pertenece al Cliente, por lo que el objeto Cliente la busca internamente.
-        Mascota mascota = cliente.buscarMascotaPorNombre(nombreMascota);
+        Mascota mascota = cliente.buscarMascota(nombreMascota);
         if (mascota == null) {
             return "Error: Mascota '" + nombreMascota + "' no registrada para este cliente.";
         }

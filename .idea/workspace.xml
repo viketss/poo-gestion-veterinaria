@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: GestorVeterinarios">
+    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: buscarVeterinario">
       <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/Personas/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Personas/Cliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +103,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761617500561</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: buscarCliente">
+      <option name="closed" value="true" />
+      <created>1761617795863</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761617795863</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: buscarVeterinario">
+      <option name="closed" value="true" />
+      <created>1761618065443</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761618065443</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -110,6 +127,8 @@
     <MESSAGE value="feat: GestorPersistencia" />
     <MESSAGE value="feat: solicitarTurno" />
     <MESSAGE value="feat: GestorVeterinarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: GestorVeterinarios" />
+    <MESSAGE value="feat: buscarCliente" />
+    <MESSAGE value="feat: buscarVeterinario" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: buscarVeterinario" />
   </component>
 </project>

@@ -37,6 +37,16 @@ public class Cliente extends Persona {
         System.out.println(getTelefono());
     }
 
+    public Mascota buscarMascota(String nombreMascota) {
+        for (Mascota mascota : this.mascotas) {
+            if (mascota.getNombre().equalsIgnoreCase(nombreMascota)) {
+                System.out.println("Mascota encontrada.");
+                return mascota; // Retorna el objeto Mascota completo
+            }
+        }
+        System.out.println("Mascota no encontrada en esta lista.");
+        return null; // Retorna null si no se encontró coincidencia
+    }
 
     // tostring
     @Override
