@@ -31,17 +31,19 @@ public class Main {
 
 
             //Inicializacion de clases
-            System.out.println("Registrando nuevo cliente");
+            System.out.println("# Registrando nuevo cliente");
             Cliente juan = new Cliente("Juan","Perez",12345678,new ArrayList<Mascota>(),1123455678);
             gestorClientes.agregarCliente(juan);
-            System.out.println("Registrando nueva mascota");
+            System.out.println("# Registrando nueva mascota");
             Mascota titoDeJuan = new Mascota("Tito","Galgo", TipoMascota.PERRO,juan, true, 7);
             juan.agregarMascota(titoDeJuan);
-            System.out.println("Mascota registrada");
+            System.out.println("Mascota registrada con exito");
             System.out.println(juan);
+
             Veterinario esteban = new Veterinario("Esteban","Hernandez",98765432, "Cirugia Canina",20000,null);
             gestorVeterinarios.agregarVeterinario(esteban);
-            Medicamento medicamentoNuevo = new Medicamento("Jeringa",5414, 1);
+            System.out.println("# Veterinarios disponibles: " + esteban.getNombre() + " " + esteban.getApellido());
+            Medicamento medicamentoNuevo = new Medicamento("Vacuna de rabia",5414, 1);
             List<Medicamento> medicamentosDelTratamiento = new ArrayList<>();
             medicamentosDelTratamiento.add(medicamentoNuevo);
             Tratamiento tratamiento = new Tratamiento("Analisis de sangre", 3000, medicamentosDelTratamiento);

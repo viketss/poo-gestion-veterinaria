@@ -46,7 +46,7 @@ public class Veterinario extends Persona { // herencia de Persona
     // tostring
     @Override
     public String toString() {
-        return "Veterinario [especialidad=" + especialidad + ", sueldo=" + sueldo + ", turnoVeterinario="
-                + turnoVeterinario + "]";
+        return "Veterinario: \n- Especialidad: " + especialidad + "\n- Sueldo: " + sueldo + "\n- Turno: "
+                + turnoVeterinario + "\n";
     }
 }
