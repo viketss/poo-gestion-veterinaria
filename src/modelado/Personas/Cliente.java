@@ -3,7 +3,6 @@ package modelado.Personas;
 import java.util.ArrayList;
 import java.util.List;
 import modelado.Mascotas.Mascota;
-import modelado.HistoriaClinica.Turno;
 
 public class Cliente extends Persona {
     // atributos:
@@ -13,7 +12,7 @@ public class Cliente extends Persona {
     // constructor
     public Cliente(String nombre, String apellido, long dni, List<Mascota> mascotas, long telefono) {
         super(nombre, apellido, dni); // llamar al constructor de la clase padre
-        this.mascotas = mascotas;
+        this.mascotas = new ArrayList<>();
         this.telefono = telefono;
     }
 
