@@ -88,5 +88,4 @@ public class Mascota {
                 " - Edad: " + edad +
                 " - ID historia clinica: " + historiaClinica.getId();
     }
-
 }

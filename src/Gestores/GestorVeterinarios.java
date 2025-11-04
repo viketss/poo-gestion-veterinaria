@@ -23,8 +23,11 @@ public class GestorVeterinarios {
         System.out.println("Veterinario no encontrado.");
         return null; // Retorna null si no se encontró coincidencia
     }
-
+    public List<Veterinario> getVeterinarios() {
+        return listaVeterinarios;
+    }
     public void agregarVeterinario(Veterinario nuevoVeterinario){
         listaVeterinarios.add(nuevoVeterinario);
     }
+
 }
