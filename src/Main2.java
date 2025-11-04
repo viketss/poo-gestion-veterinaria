@@ -71,7 +71,9 @@ public class Main2 {
                 new VentanaTurnos(
                         clienteActual,
                         app.gestorTurnos,
-                        app.gestorVeterinarios
+                        app.gestorVeterinarios,
+                        app.gestorClientes,
+                        app.gestorPersistencia
                 ).setVisible(true);
             } else {
                 // Si el login se cancela, cerramos la aplicación.

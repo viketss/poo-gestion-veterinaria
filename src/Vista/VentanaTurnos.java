@@ -1,6 +1,9 @@
 package Vista;
 
 import javax.swing.*;
+
+import Gestores.GestorClientes;
+import Persistencia.GestorPersistencia;
 import modelado.Personas.Cliente;
 import Gestores.GestorTurnos;
 import Gestores.GestorVeterinarios;
@@ -14,6 +17,8 @@ public class VentanaTurnos extends JFrame {
     private Cliente clienteActual;
     private GestorTurnos gt;
     private GestorVeterinarios gv;
+    private GestorClientes gc;
+    private GestorPersistencia gp;
 
     // --- COMPONENTES DE LA GUI (Asegura la vinculación con el .form) ---
     private JPanel contentPane;
@@ -22,14 +27,16 @@ public class VentanaTurnos extends JFrame {
     private JComboBox<String> cmbVeterinario;
     private JTextField txtFecha;
     private JButton btnSolicitarTurno;
+    private JButton btnCancelarTurno;
 
     // --- CONSTRUCTOR ---
-    public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv) {
+    public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp) {
         super("Solicitar Turno - Cliente: " + clienteActual.getNombre());
         this.clienteActual = clienteActual;
         this.gt = gt;
         this.gv = gv;
-
+        this.gc = gc;
+        this.gp = gp;
         // La vinculación del contentPane debe hacerse en un getPanel() si usas el diseñador
         setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,6 +44,7 @@ public class VentanaTurnos extends JFrame {
         inicializarComponentes();
 
         btnSolicitarTurno.addActionListener(e -> onSolicitarTurno());
+        btnCancelarTurno.addActionListener(e -> onCancelarTurno());
 
         pack();
         setLocationRelativeTo(null);
@@ -88,5 +96,18 @@ public class VentanaTurnos extends JFrame {
 
         // REQUISITO FINAL: Cierra la aplicación
         System.exit(0);
+    }
+    private void onCancelarTurno() {
+        int respuesta = JOptionPane.showConfirmDialog(this,
+                "¿Desea cancelar y volver a la pantalla de inicio?",
+                "Confirmación de Cancelación",
+                JOptionPane.YES_NO_OPTION);
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            this.dispose(); // Cierra la ventana de Turnos.
+
+            // ¡Relanza el Login Inyectando las dependencias que ya tenemos!
+            new DialogoLogin(null, this.gc, this.gp).setVisible(true);
+        }
     }
 }

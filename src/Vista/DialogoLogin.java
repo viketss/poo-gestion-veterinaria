@@ -34,21 +34,33 @@ public class DialogoLogin extends JDialog {
     }
 
     private void onIngresar() {
-        String nombre = txtUsuario.getText().trim(); // Limpiamos espacios
-        String dni = new String(pwdDni.getPassword());
+        String nombre = txtUsuario.getText().trim();
+        String dniStr = new String(pwdDni.getPassword());
 
-        if (nombre.equals("Cliente") && dni.equals("12345678")) {
-            accesoExitoso = true;
-            clienteLogueado = new Cliente(nombre, "Demo", 12345678, new java.util.ArrayList<>(), 1123456789);
+        try {
+            long dni = Long.parseLong(dniStr);
 
-            dispose();
-            return;
+            Cliente clienteEncontrado = this.gc.buscarLogin(nombre, dni);
+
+            if (clienteEncontrado != null) {
+                accesoExitoso = true;
+                clienteLogueado = clienteEncontrado; // ¡Guardamos el cliente real!
+                dispose();
+                return;
+            }
+
+            // Si clienteEncontrado es null:
+            JOptionPane.showMessageDialog(this,
+                    "Nombre o DNI incorrectos. Intente de nuevo.",
+                    "Error de Acceso",
+                    JOptionPane.ERROR_MESSAGE);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this,
+                    "El DNI debe ser un número válido.",
+                    "Error de Formato",
+                    JOptionPane.ERROR_MESSAGE);
         }
-
-        JOptionPane.showMessageDialog(this,
-                "Nombre o DNI incorrectos. Intente con 'Cliente' y '12345678'",
-                "Error de Acceso",
-                JOptionPane.ERROR_MESSAGE);
     }
 
     private void onRegistrarme() {

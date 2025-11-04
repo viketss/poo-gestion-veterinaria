@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: DialogoLogin">
-      <change afterPath="$PROJECT_DIR$/src/poo-gestion-veterinaria.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: persistencia">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoLogin.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vista/DialogoLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaTurnos.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762262881945</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat: persistencia">
+      <option name="closed" value="true" />
+      <created>1762289782240</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1762289782240</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -252,6 +252,7 @@
     <MESSAGE value="feat: comienzos de una gui muy fea" />
     <MESSAGE value="lo borre todo porque no me gustaba un carajo" />
     <MESSAGE value="feat: DialogoLogin" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: DialogoLogin" />
+    <MESSAGE value="feat: persistencia" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: persistencia" />
   </component>
 </project>
