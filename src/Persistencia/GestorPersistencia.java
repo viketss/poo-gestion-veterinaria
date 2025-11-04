@@ -1,7 +1,9 @@
 package Persistencia;
+import modelado.HistoriaClinica.Turno;
 import modelado.Mascotas.Mascota;
 import modelado.Mascotas.TipoMascota;
 import modelado.Personas.Cliente;
+import modelado.Personas.Veterinario;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -69,7 +71,7 @@ public class GestorPersistencia {
         }
     }
 
-    public void guardarTurnos() {
+    public void guardarTurnos(List<Turno> listaTurnos) {
         String turno = "PACIENTE: Fido|CONSULTA: Vomita la comida|TRATAMIENTO: Se le da un medicamento|FECHA: 27/10/2025|ID: 1234|VETERINARIO: Esteban|";
 
         try (FileWriter writer = new FileWriter(ARCHIVO_TURNOS)) {
@@ -135,21 +137,34 @@ public class GestorPersistencia {
         return clientesCargados; // <-- ¡AQUÍ ESTÁ LA DEVOLUCIÓN!
     }
 
-
-    public void cargarVeterinarios() {
-        System.out.println("Imprimiendo los datos en:" + ARCHIVO_VETERINARIOS);
+    public List<Veterinario> cargarVeterinarios() {
+        List<Veterinario> veterinariosCargados = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_VETERINARIOS))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-                System.out.println(linea); // Imprime la línea leída
-            }
-        } catch (IOException e) {
-            System.err.println("Error al leer " + ARCHIVO_VETERINARIOS + ": " + e.getMessage());
-        }
-        System.out.println("Impresion finalizada.");
-    }
+                // Formato asumido: NOMBRE;APELLIDO;DNI;ESPECIALIDAD;SUELDO
+                String[] partes = linea.split(";");
 
+                if (partes.length >= 5) {
+                    Veterinario v = new Veterinario(
+                            partes[0],
+                            partes[1],
+                            Long.parseLong(partes[2]),
+                            partes[3],
+                            Double.parseDouble(partes[4])
+                    );
+                    veterinariosCargados.add(v);
+                }
+            }
+            System.out.println("Carga de veterinarios finalizada. " + veterinariosCargados.size() + " veterinarios recuperados.");
+        } catch (IOException e) {
+            System.err.println("Archivo de veterinarios no encontrado. Iniciando con lista vacía.");
+        } catch (Exception e) {
+            System.err.println("Error al parsear datos de veterinario: " + e.getMessage());
+        }
+        return veterinariosCargados;
+    }
 
     public void cargarTurnos() {
         System.out.println("Imprimiendo los datos de:" + ARCHIVO_TURNOS );

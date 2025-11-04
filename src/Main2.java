@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Main2 {
 
-    // Instancias de los gestores (Ya no es necesario que sean públicas, pero las mantenemos)
+    // Instancias de los gestores
     public GestorClientes gestorClientes;
     public GestorTurnos gestorTurnos;
     public GestorVeterinarios gestorVeterinarios;
@@ -23,32 +23,30 @@ public class Main2 {
     // Referencia al cliente que ha ingresado exitosamente
     public static Cliente clienteActual = null;
 
-    // Constructor de la clase Main2: Inicializa todos los datos en el orden correcto
+    // Constructor de la clase Main2: Inicializa todos los datos en el ORDEN CORRECTO
     public Main2() {
 
-        // 1. INICIALIZAR PERSISTENCIA (¡DEBE SER PRIMERO!)
+        // 1. INICIALIZAR PERSISTENCIA
         gestorPersistencia = new GestorPersistencia();
 
-        // 2. CARGAR CLIENTES DESDE ARCHIVO
-        // NOTA: Asumimos que cargarClientes() devuelve List<Cliente>
+        // 2. CARGAR CLIENTES Y VETERINARIOS DESDE ARCHIVO
         List<Cliente> clientesIniciales = gestorPersistencia.cargarClientes();
+        List<Veterinario> veterinariosCargados = gestorPersistencia.cargarVeterinarios(); // <-- Carga de veterinarios
 
-        // 3. INICIALIZAR GESTORES DE LÓGICA (Usando los datos cargados)
+        // 3. INICIALIZAR GESTORES DE LÓGICA CON DATOS CARGADOS
         gestorClientes = new GestorClientes(clientesIniciales);
-        gestorVeterinarios = new GestorVeterinarios(new ArrayList<Veterinario>());
-        gestorTurnos = new GestorTurnos(gestorClientes, gestorVeterinarios);
+        gestorVeterinarios = new GestorVeterinarios(veterinariosCargados); // <-- Inicializado con la lista del archivo
 
-        // 4. SIMULACIÓN DE DATOS MÍNIMOS (Asegura que siempre haya datos básicos)
+        // 4. INICIALIZAR TURNO (requiere los otros gestores)
+        gestorTurnos = new GestorTurnos(gestorPersistencia, gestorClientes, gestorVeterinarios);
 
-        // Veterinario
-        Veterinario esteban = new Veterinario("Esteban","Hernandez",98765432, "Cirugia Canina",20000,null);
-        gestorVeterinarios.agregarVeterinario(esteban);
-
+        // 5. CONTROL DE CLIENTE DEMO DE EMERGENCIA
         if (clientesIniciales.isEmpty()) {
             Cliente clienteEmergencia = new Cliente("Cliente", "Demo", 12345678, new ArrayList<>(), 1123456789);
             gestorClientes.agregarCliente(clienteEmergencia);
         }
 
+        // NOTA: La simulación del veterinario se eliminó ya que se carga del archivo.
     }
 
     public static void main(String[] args) {
@@ -67,7 +65,7 @@ public class Main2 {
             if (login.isAccesoExitoso()) {
                 clienteActual = login.getClienteLogueado();
 
-                // Abrimos VentanaTurnos, pasando TODAS las dependencias
+                // Abrimos VentanaTurnos, pasando TODAS las dependencias necesarias
                 new VentanaTurnos(
                         clienteActual,
                         app.gestorTurnos,

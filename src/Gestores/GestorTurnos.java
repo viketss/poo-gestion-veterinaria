@@ -1,5 +1,6 @@
 package Gestores;
 
+import Persistencia.GestorPersistencia;
 import modelado.HistoriaClinica.Tratamiento;
 import modelado.Mascotas.Mascota;
 import modelado.Personas.Cliente;
@@ -12,15 +13,15 @@ import java.util.List;
 
 public class GestorTurnos {
     
-    //private final GestorPersistencia gestorPersistencia;
+    private final GestorPersistencia gp;
     private final GestorClientes gestorClientes;
     private final GestorVeterinarios gestorVeterinarios;
 
     private List<Turno> listaTurnos;
 
     // Constructor
-    public GestorTurnos(/*GestorPersistencia gp, */GestorClientes gc, GestorVeterinarios gv) {
-        //this.gestorPersistencia = gp;
+    public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv) {
+        this.gp = gp;
         this.gestorClientes = gc;
         this.gestorVeterinarios = gv;
         this.listaTurnos = new ArrayList<>();
@@ -33,62 +34,48 @@ public class GestorTurnos {
         // return false
     }
 
-    public String solicitarTurno(String nombreCliente, String nombreMascota, String nombreVeterinario, String fechaDeseada) {
+    public String solicitarTurno(Cliente cliente, Mascota mascota, Veterinario veterinario, String fechaDeseada) {
         System.out.println("\n# SOLICITUD DE TURNO");
-        System.out.println("Agregar datos para la solicitud de turno: ");
 
-        // OBTENER Y VALIDAR AL CLIENTE
-        Cliente cliente = gestorClientes.buscarCliente(nombreCliente);
-        if (cliente == null) {
-            return "El cliente no es parte del sistema.";
+        // --- 1. VALIDACIÓN MÍNIMA ---
+        if (cliente == null || mascota == null || veterinario == null) {
+            return "Error interno: Faltan datos del cliente, mascota o veterinario.";
         }
 
-        // OBTENER Y VALIDAR AL VETERINARIO
-        Veterinario veterinario = gestorVeterinarios.buscarVeterinarioPorNombre(nombreVeterinario);
-        if (veterinario == null) {
-            return "El veterinario seleccionado no existe";
-        }
+        System.out.println("# Datos del cliente: " + cliente.getNombre() +
+                ", Mascota: " + mascota.getNombre() +
+                ", Veterinario: " + veterinario.getNombre());
 
-        // OBTENER Y VALIDAR LA MASCOTA
-        Mascota mascota = cliente.buscarMascota(nombreMascota);
-        if (mascota == null) {
-            return "La mascota no esta registrada a nombre del cliente";
-        }
-        System.out.println("# Datos del cliente: " + cliente.getNombre() + ", Mascota: " + mascota.getNombre() + ", Veterinario para la consulta: " + veterinario.getNombre());
-    
-
-        if (!verificarDisponibilidad(veterinario, fechaDeseada)){ //Se verifica la disponibilidad
+        if (!verificarDisponibilidad(veterinario, fechaDeseada)){
             return "Turno no disponible";
         }
 
-        int nuevoIdTurno = this.listaTurnos.size() + 1; // turno nuevo
+        int nuevoIdTurno = this.listaTurnos.size() + 1;
 
-        // Instanciar el objeto Turno
         Turno nuevoTurno = new Turno(
                 mascota,
-                "Motivo a determinar",
+                "Motivo a determinar", // Puedes actualizar esto si la GUI añade un campo
                 new ArrayList<Tratamiento>(),
                 fechaDeseada,
                 nuevoIdTurno,
                 veterinario
         );
+
+        // 3. Actualizar el estado del sistema
         this.listaTurnos.add(nuevoTurno);
-        veterinario.setTurnoVeterinario(nuevoTurno);
+        veterinario.setTurnoVeterinario(nuevoTurno); // Asumo que el veterinario solo puede tener 1 turno a la vez
         mascota.getHistoriaClinica().agregarTurno(nuevoTurno);
 
-     /*   try {
-            gestorPersistencia.guardarTurnos();
-            // 2. Notificación de éxito
+        // --- 4. PERSISTENCIA FINAL (Con el objeto 'this.gp' inyectado) ---
+        try {
+            // Necesitas que la clase Turno esté importada correctamente y que tengas una listaTurnos
+            this.gp.guardarTurnos(this.listaTurnos);
             return "Turno solicitado y guardado. ID: " + nuevoIdTurno + " para el " + fechaDeseada;
 
-        } catch (IOException e) {
-            // 3. Manejo de la excepción de persistencia (si no se pudo escribir en el archivo)
-            // Es un error grave, pero la operación de negocio SÍ se completó en memoria.
-            System.err.println("ERROR");
+        } catch (Exception e) {
+            System.err.println("ERROR al guardar turnos en el archivo: " + e.getMessage());
+            return "Turno solicitado en memoria, pero falló la persistencia en archivo.";
         }
-        El gestor de persistencia guardaria el nuevo Turno
-      */
-        return "El turno fue solicitado con exito";
     }
 
     public void confirmarTurno() {

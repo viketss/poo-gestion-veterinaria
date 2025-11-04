@@ -10,6 +10,7 @@ import Gestores.GestorVeterinarios;
 import modelado.Personas.Veterinario;
 import modelado.Mascotas.Mascota;
 import java.util.List;
+import java.util.ArrayList; // Necesario para inicialización
 
 public class VentanaTurnos extends JFrame {
 
@@ -20,7 +21,12 @@ public class VentanaTurnos extends JFrame {
     private GestorClientes gc;
     private GestorPersistencia gp;
 
-    // --- COMPONENTES DE LA GUI (Asegura la vinculación con el .form) ---
+    // --- VARIABLES DE APOYO PARA RECUPERAR OBJETOS ---
+    private List<Veterinario> veterinariosDisponibles; // Lista cargada del gestor
+    private List<Mascota> mascotasCliente; // Lista del cliente actual
+
+
+    // --- COMPONENTES DE LA GUI ---
     private JPanel contentPane;
     private JLabel lblBienvenida;
     private JComboBox<String> cmbMascota;
@@ -37,7 +43,11 @@ public class VentanaTurnos extends JFrame {
         this.gv = gv;
         this.gc = gc;
         this.gp = gp;
-        // La vinculación del contentPane debe hacerse en un getPanel() si usas el diseñador
+
+        // Inicialización de listas de apoyo
+        this.veterinariosDisponibles = new ArrayList<>();
+        this.mascotasCliente = clienteActual.getMascotas() != null ? clienteActual.getMascotas() : new ArrayList<>();
+
         setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -54,59 +64,73 @@ public class VentanaTurnos extends JFrame {
     private void inicializarComponentes() {
         lblBienvenida.setText("Bienvenido/a, " + clienteActual.getNombre() + ". Su DNI es: " + clienteActual.getDni());
 
-        // 1. Llenar Mascota
+        // 1. Llenar Mascota (Usando la lista local de mascotasCliente)
         cmbMascota.removeAllItems();
-        List<Mascota> mascotas = clienteActual.getMascotas();
 
-        if (mascotas != null && !mascotas.isEmpty()) {
-            for (Mascota m : mascotas) {
-                // Usamos getEspecie() o getRaza() si getTipo() no funciona en el toString del enum
+        if (!mascotasCliente.isEmpty()) {
+            for (Mascota m : mascotasCliente) {
+                // Usamos getEspecie() para el formato visual
                 cmbMascota.addItem(m.getNombre() + " (" + m.getEspecie() + ")");
             }
         } else {
-            cmbMascota.addItem("No hay mascotas registradas (¡Regístrese de nuevo si es necesario!)");
+            cmbMascota.addItem("No hay mascotas registradas");
         }
 
-        // 2. Llenar Veterinario (Usa el getVeterinarios() que arreglamos)
+        // 2. Llenar Veterinario (Usando la lista local de veterinariosDisponibles)
         cmbVeterinario.removeAllItems();
-        for (Veterinario v : gv.getVeterinarios()) {
-            cmbVeterinario.addItem(v.getNombre() + " " + v.getApellido() + " (" + v.getEspecialidad() + ")");
+        veterinariosDisponibles = gv.getVeterinarios(); // Llenamos la lista de apoyo
+
+        if (veterinariosDisponibles != null && !veterinariosDisponibles.isEmpty()) {
+            for (Veterinario v : veterinariosDisponibles) {
+                cmbVeterinario.addItem(v.getNombre() + " " + v.getApellido() + " (" + v.getEspecialidad() + ")");
+            }
+        } else {
+            cmbVeterinario.addItem("No hay veterinarios cargados.");
         }
     }
 
     // --- LÓGICA FINAL ---
     private void onSolicitarTurno() {
-        String mascotaSeleccionada = (String) cmbMascota.getSelectedItem();
-        String veterinarioSeleccionado = (String) cmbVeterinario.getSelectedItem();
+        int mascotaIndex = cmbMascota.getSelectedIndex();
+        int veterinarioIndex = cmbVeterinario.getSelectedIndex();
         String fecha = txtFecha.getText();
 
-        if (mascotaSeleccionada == null || veterinarioSeleccionado == null || fecha.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Debe completar todos los campos.", "Error de Datos", JOptionPane.WARNING_MESSAGE);
+        if (mascotaIndex == -1 || veterinarioIndex == -1 || fecha.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar mascota, veterinario y fecha.", "Error de Datos", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Llama al GestorTurnos
-        // NOTA: El método solicita el nombre de la mascota y el veterinario; usamos la cadena seleccionada.
-        gt.solicitarTurno(clienteActual.getNombre(), mascotaSeleccionada, veterinarioSeleccionado, fecha);
+        if (mascotasCliente.isEmpty() || veterinariosDisponibles.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hay datos de mascota o veterinario cargados.", "Error de Datos", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // 1. Obtener los OBJETOS REALES por índice (CRUCIAL)
+        Mascota mascotaSeleccionada = mascotasCliente.get(mascotaIndex);
+        Veterinario veterinarioSeleccionado = veterinariosDisponibles.get(veterinarioIndex);
+
+        // 2. Llamada al GestorTurnos
+        gt.solicitarTurno(clienteActual, mascotaSeleccionada, veterinarioSeleccionado, fecha);
 
         JOptionPane.showMessageDialog(this,
-                "Turno solicitado con éxito para el " + fecha + ". ¡Gracias por usar Patitas Felices!",
+                "Turno solicitado con éxito para el " + fecha + ". ¡Guardando datos!",
                 "Confirmación Final",
                 JOptionPane.INFORMATION_MESSAGE);
 
-        // REQUISITO FINAL: Cierra la aplicación
+        // REQUISITO FINAL: Cierra la aplicación (y guarda si es necesario, aunque GT ya lo hace)
         System.exit(0);
     }
+
+    // --- LÓGICA DE NAVEGACIÓN ---
     private void onCancelarTurno() {
         int respuesta = JOptionPane.showConfirmDialog(this,
                 "¿Desea cancelar y volver a la pantalla de inicio?",
-                "Confirmación de Cancelación",
+                "Volver al Inicio",
                 JOptionPane.YES_NO_OPTION);
 
         if (respuesta == JOptionPane.YES_OPTION) {
-            this.dispose(); // Cierra la ventana de Turnos.
-
-            // ¡Relanza el Login Inyectando las dependencias que ya tenemos!
+            this.dispose();
+            // ¡Relanza el Login Inyectando las dependencias completas!
             new DialogoLogin(null, this.gc, this.gp).setVisible(true);
         }
     }
