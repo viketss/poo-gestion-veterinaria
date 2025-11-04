@@ -29,4 +29,7 @@ public class GestorClientes {
         listaClientes.add(nuevoCliente);
     }
 
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
+    }
 }

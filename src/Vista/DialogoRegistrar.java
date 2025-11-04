@@ -4,13 +4,14 @@ import modelado.Personas.Cliente;
 import modelado.Mascotas.Mascota;
 import modelado.Mascotas.TipoMascota;
 import Gestores.GestorClientes;
+import Persistencia.GestorPersistencia;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class DialogoRegistrar extends JDialog {
 
-    private JPanel contentPane;
+    private JPanel panelPrincipal;
     // Cliente
     private JTextField txtNombreCliente;
     private JTextField txtApellidoCliente;
@@ -29,12 +30,14 @@ public class DialogoRegistrar extends JDialog {
     private boolean registroExitoso = false;
 
     private GestorClientes gc;
+    private GestorPersistencia gp;
 
-    public DialogoRegistrar(JFrame parent, GestorClientes gc) {
+    public DialogoRegistrar(JFrame parent, GestorClientes gc, GestorPersistencia gp) {
         super(parent, "Registro Nuevo Cliente y Mascota", true);
-        setContentPane(contentPane);
+        setContentPane(panelPrincipal);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.gc = gc;
+        this.gp = gp;
 
         cmbTipoMascota.addItem(TipoMascota.PERRO);
         cmbTipoMascota.addItem(TipoMascota.GATO);
@@ -74,6 +77,7 @@ public class DialogoRegistrar extends JDialog {
             nuevoCliente.agregarMascota(nuevaMascota);
 
             this.gc.agregarCliente(nuevoCliente);
+            this.gp.guardarClientes(this.gc.getListaClientes());
 
             JOptionPane.showMessageDialog(this, "¡Registro Exitoso!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             registroExitoso = true;

@@ -2,26 +2,29 @@ package Vista;
 
 import modelado.Personas.Cliente;
 import Gestores.GestorClientes;
+import Persistencia.GestorPersistencia;
 import javax.swing.*;
 
 public class DialogoLogin extends JDialog {
 
     private JPanel contentPane;
     private JTextField txtUsuario;
-    private JPasswordField pwdDNI;
+    private JPasswordField pwdDni;
     private JButton btnIngresar;
     private JButton btnRegistrarme;
     private GestorClientes gc;
+    private GestorPersistencia gp;
 
     private boolean accesoExitoso = false;
 
     private Cliente clienteLogueado = null;
 
-    public DialogoLogin(JFrame parent, GestorClientes gc) {
+    public DialogoLogin(JFrame parent, GestorClientes gc, GestorPersistencia gp) {
         super(parent, "Ingreso Cliente Patitas Felices", true);
         setContentPane(contentPane);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.gc = gc;
+        this.gp = gp;
 
         btnIngresar.addActionListener(e -> onIngresar());
         btnRegistrarme.addActionListener(e -> onRegistrarme());
@@ -32,7 +35,7 @@ public class DialogoLogin extends JDialog {
 
     private void onIngresar() {
         String nombre = txtUsuario.getText().trim(); // Limpiamos espacios
-        String dni = new String(pwdDNI.getPassword());
+        String dni = new String(pwdDni.getPassword());
 
         if (nombre.equals("Cliente") && dni.equals("12345678")) {
             accesoExitoso = true;
@@ -49,7 +52,7 @@ public class DialogoLogin extends JDialog {
     }
 
     private void onRegistrarme() {
-        DialogoRegistrar dialogoRegistro = new DialogoRegistrar(null, this.gc);
+        DialogoRegistrar dialogoRegistro = new DialogoRegistrar(null, this.gc, this.gp);
         dialogoRegistro.setVisible(true);
 
         if (dialogoRegistro.isRegistroExitoso()) {
@@ -58,7 +61,7 @@ public class DialogoLogin extends JDialog {
                     "Registro Exitoso",
                     JOptionPane.INFORMATION_MESSAGE);
             txtUsuario.setText("");
-            pwdDNI.setText("");
+            pwdDni.setText("");
         }
     }
 
