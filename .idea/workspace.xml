@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="fix: error al guardar clientes">
+    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: carga de Veterinarios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/Personas/Veterinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Personas/Veterinario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veterinarios.txt" beforeDir="false" afterPath="$PROJECT_DIR$/veterinarios.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762294881037</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat: carga de Veterinarios">
+      <option name="closed" value="true" />
+      <created>1762296070436</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1762296070436</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -274,6 +277,7 @@
     <MESSAGE value="feat: persistencia" />
     <MESSAGE value="feat: correcion funcionamiento de VentanaTurnos" />
     <MESSAGE value="fix: error al guardar clientes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: error al guardar clientes" />
+    <MESSAGE value="feat: carga de Veterinarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: carga de Veterinarios" />
   </component>
 </project>

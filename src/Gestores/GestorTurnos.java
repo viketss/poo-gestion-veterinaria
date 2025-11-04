@@ -6,69 +6,76 @@ import modelado.Mascotas.Mascota;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
 import modelado.HistoriaClinica.Turno;
-//import Persistencia.GestorPersistencia;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GestorTurnos {
-    
+
+    // --- DEPENDENCIAS INYECTADAS ---
     private final GestorPersistencia gp;
-    private final GestorClientes gestorClientes;
+    private final GestorClientes gestorClientes; // No es usado directamente aquí, pero se mantiene para consistencia
     private final GestorVeterinarios gestorVeterinarios;
 
-    private List<Turno> listaTurnos;
+    private List<Turno> listaTurnos; // Lista de turnos en memoria
 
-    // Constructor
+    // Constructor que recibe TRES gestores
     public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv) {
         this.gp = gp;
         this.gestorClientes = gc;
         this.gestorVeterinarios = gv;
-        this.listaTurnos = new ArrayList<>();
+
+        // --- INICIALIZACIÓN DE LA LISTA DE TURNOS ---
+        try {
+            // Llama a la carga y si devuelve null o está vacío, usa una lista nueva.
+            this.listaTurnos = gp.cargarTurnos();
+        } catch (Exception e) {
+            System.err.println("Error al cargar turnos iniciales. Iniciando con lista vacía.");
+            this.listaTurnos = new ArrayList<>();
+        }
     }
 
     // metodos
     private boolean verificarDisponibilidad(Veterinario veterinario, String fecha) {
         System.out.println("Verificando agenda de " + veterinario.getNombre() + " para la fecha seleccionada.");
-        return true; // Asumimos que siempre está disponible para continuar con el flujo
-        // return false
+        // Lógica real de verificación iría aquí.
+        return true;
     }
 
     public String solicitarTurno(Cliente cliente, Mascota mascota, Veterinario veterinario, String fechaDeseada) {
         System.out.println("\n# SOLICITUD DE TURNO");
 
-        // --- 1. VALIDACIÓN MÍNIMA ---
+        // --- VALIDACIÓN DE OBJETOS ---
         if (cliente == null || mascota == null || veterinario == null) {
-            return "Error interno: Faltan datos del cliente, mascota o veterinario.";
+            // Esto solo ocurriría por un error de lógica grave en el Main o la GUI.
+            return "Error interno: Faltan datos críticos para generar el turno.";
         }
 
-        System.out.println("# Datos del cliente: " + cliente.getNombre() +
-                ", Mascota: " + mascota.getNombre() +
-                ", Veterinario: " + veterinario.getNombre());
+        System.out.println("# Cliente: " + cliente.getNombre() + ", Mascota: " + mascota.getNombre() + ", Veterinario: " + veterinario.getNombre());
 
         if (!verificarDisponibilidad(veterinario, fechaDeseada)){
-            return "Turno no disponible";
+            return "Turno no disponible para esa fecha.";
         }
 
         int nuevoIdTurno = this.listaTurnos.size() + 1;
 
+        // 1. Crear el objeto Turno
         Turno nuevoTurno = new Turno(
                 mascota,
-                "Motivo a determinar", // Puedes actualizar esto si la GUI añade un campo
+                "Motivo a determinar",
                 new ArrayList<Tratamiento>(),
                 fechaDeseada,
                 nuevoIdTurno,
                 veterinario
         );
 
-        // 3. Actualizar el estado del sistema
+        // 2. Actualizar el estado del sistema (Memoria)
         this.listaTurnos.add(nuevoTurno);
-        veterinario.setTurnoVeterinario(nuevoTurno); // Asumo que el veterinario solo puede tener 1 turno a la vez
+        veterinario.setTurnoVeterinario(nuevoTurno);
         mascota.getHistoriaClinica().agregarTurno(nuevoTurno);
 
-        // --- 4. PERSISTENCIA FINAL (Con el objeto 'this.gp' inyectado) ---
+        // 3. PERSISTENCIA FINAL
         try {
-            // Necesitas que la clase Turno esté importada correctamente y que tengas una listaTurnos
             this.gp.guardarTurnos(this.listaTurnos);
             return "Turno solicitado y guardado. ID: " + nuevoIdTurno + " para el " + fechaDeseada;
 
@@ -85,5 +92,5 @@ public class GestorTurnos {
     public void cancelarTurno() {
         System.out.println("Turno cancelado");
     }
-    
+
 }

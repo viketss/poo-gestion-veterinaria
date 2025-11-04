@@ -71,15 +71,26 @@ public class GestorPersistencia {
         }
     }
 
-    public void guardarTurnos(List<Turno> listaTurnos) {
-        String turno = "PACIENTE: Fido|CONSULTA: Vomita la comida|TRATAMIENTO: Se le da un medicamento|FECHA: 27/10/2025|ID: 1234|VETERINARIO: Esteban|";
+    public void guardarTurnos(List<modelado.HistoriaClinica.Turno> turnos) {
+        // Usamos 'false' para sobrescribir todo el archivo
+        try (FileWriter writer = new FileWriter(ARCHIVO_TURNOS, false)) {
 
-        try (FileWriter writer = new FileWriter(ARCHIVO_TURNOS)) {
-            writer.write(turno + "\n");
-            System.out.println("+ Turno guardado con exito." );
+            for (modelado.HistoriaClinica.Turno turno : turnos) {
+
+                // Construye la línea usando los getters de los objetos Turno, Cliente y Mascota
+                String linea = turno.getFecha() + ";"
+                        + turno.getVeterinario().getDni() + ";"
+                        + turno.getMascota().getDueno().getNombre() + ";"
+                        + turno.getMascota().getNombre();
+
+                // 2. ¡Escribe la línea!
+                writer.write(linea + "\n");
+            }
+
+            System.out.println("Turnos guardados con éxito en turnos.txt");
+
         } catch (IOException e) {
-            System.err.println("Error guardando el turno" + "\n" + e.getMessage(    // Definición de los nombres de archivos .txt
-));
+            System.err.println("Error al guardar turnos: " + e.getMessage());
         }
     }
 
@@ -166,16 +177,19 @@ public class GestorPersistencia {
         return veterinariosCargados;
     }
 
-    public void cargarTurnos() {
-        System.out.println("Imprimiendo los datos de:" + ARCHIVO_TURNOS );
+    public List<Turno> cargarTurnos() { // <-- ¡LA FIRMA DEBE CAMBIAR!
+        List<Turno> turnosCargados = new ArrayList<>();
+
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_TURNOS))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-                System.out.println(linea); // Imprime la línea leída
+                System.out.println("Línea de turno leída: " + linea);
             }
         } catch (IOException e) {
-            System.err.println("Error al leer " + ARCHIVO_TURNOS + ": " + e.getMessage());
+            System.err.println("Archivo de turnos no encontrado. Iniciando con lista vacía.");
         }
-        System.out.println("Impresion finalizada.");
+
+        // Devolvemos una lista vacía para que la aplicación pueda iniciar
+        return turnosCargados;
     }
 }
