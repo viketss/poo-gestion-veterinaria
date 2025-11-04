@@ -17,40 +17,48 @@ public class GestorPersistencia {
     private static final String ARCHIVO_TURNOS = "turnos.txt";
 
     //Metodos de escritura
-
     public void guardarClientes(List<Cliente> clientes) {
-        // Usamos 'false' para sobrescribir todo el archivo con el estado actual del sistema
+        // Usamos 'false' para sobrescribir todo el archivo
         try (FileWriter writer = new FileWriter(ARCHIVO_CLIENTES, false)) {
 
             for (Cliente cliente : clientes) {
 
-                StringBuilder sb = new StringBuilder(); //Crea el String con datos del Objeto
+                StringBuilder sb = new StringBuilder();
 
+                // 1. Construcción de los datos del Cliente
                 sb.append(cliente.getNombre()).append(";")
                         .append(cliente.getApellido()).append(";")
                         .append(cliente.getDni()).append(";")
                         .append(cliente.getTelefono()).append(";")
                         .append(cliente.getMascotas().size()).append(";");
 
-
+                // 2. Construcción de los datos de las Mascotas
                 for (Mascota mascota : cliente.getMascotas()) {
-
                     sb.append(mascota.getNombre()).append(",")
+                            // Asumo que getRaza() y getEspecie() son correctos
                             .append(mascota.getRaza()).append(",")
                             .append(mascota.getEspecie()).append(",")
                             .append(mascota.getEdad()).append(",")
                             .append(mascota.isVacunado()).append("|");
                 }
 
-                // Eliminamos la última barra "|" si existe
-                if (sb.charAt(sb.length() - 1) == '|') {
+                // 3. Chequeo de índice y eliminación del último separador "|"
+                //    Soluciona el error de Index -1 y Index Out of Bounds
+                if (sb.length() > 0 && sb.charAt(sb.length() - 1) == '|') {
                     sb.setLength(sb.length() - 1);
                 }
+
+                // 4. ¡LA LÍNEA CRÍTICA: ESCRIBIR EN EL ARCHIVO!
+                writer.write(sb.toString() + "\n");
             }
+
+            System.out.println("Datos guardados con éxito en clientes.txt");
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.err.println("Error fatal al escribir en clientes.txt: " + e.getMessage());
         }
     }
+
     public void guardarVeterinarios() {
         String veterinario = "NOMBRE: Esteban|APELLIDO: Hernandez|DNI: 98765432|ESPECIALIDAD: Cirugia Canina|SUELDO: $30000";
         try (FileWriter writer = new FileWriter(ARCHIVO_VETERINARIOS)) {

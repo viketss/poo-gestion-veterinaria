@@ -1,4 +1,2 @@
-Ana;Gomez;25123456;1133334444;1;Max,Golden,PERRO,5,true
-Pedro;Ruiz;30987654;1155556666;1;Luna,Siames,GATO,2,true
-Luis;Flores;41222333;1177778888;1;Roco,Salchicha,PERRO,3,true
-Sofia;Rios;35000111;1122221111;1;Coco,Loro,PAJARO,1,false
+Cliente;Demo;12345678;1123456789;0;
+juan;perez;12345678;113456789;1;jj,jjj,PERRO,6,false

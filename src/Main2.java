@@ -44,11 +44,11 @@ public class Main2 {
         Veterinario esteban = new Veterinario("Esteban","Hernandez",98765432, "Cirugia Canina",20000,null);
         gestorVeterinarios.agregarVeterinario(esteban);
 
-        // Cliente Demo (Solo si no fue cargado desde el archivo)
-        if (gestorClientes.getListaClientes().stream().noneMatch(c -> c.getDni() == 12345678)) {
-            Cliente clienteSimulado = new Cliente("Cliente", "Demo", 12345678, new ArrayList<>(), 1123456789);
-            gestorClientes.agregarCliente(clienteSimulado);
+        if (clientesIniciales.isEmpty()) {
+            Cliente clienteEmergencia = new Cliente("Cliente", "Demo", 12345678, new ArrayList<>(), 1123456789);
+            gestorClientes.agregarCliente(clienteEmergencia);
         }
+
     }
 
     public static void main(String[] args) {
