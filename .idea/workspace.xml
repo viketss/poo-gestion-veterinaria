@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: DialogoLogin">
-      <change afterPath="$PROJECT_DIR$/src/Main2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/Mascotas/Mascota.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Mascotas/Mascota.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/turnos.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +34,12 @@
     &quot;assignee&quot;: &quot;viketss&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/viketss/poo-gestion-veterinaria.git&quot;,
-    &quot;accountId&quot;: &quot;55899d74-be00-421e-9a6c-5f14ae527476&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/viketss/poo-gestion-veterinaria.git",
+    "accountId": "c47f2715-c3fb-4486-9ab4-bf2a91ddbf2a"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -65,7 +58,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "360",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "vi",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/ubuntom/IdeaProjects/poo-gestion-veterinaria",
     "project.structure.last.edited": "Modules",
@@ -74,6 +67,13 @@
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="" />
