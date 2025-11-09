@@ -13,12 +13,17 @@ import java.util.List;
 public class GestorTurnos {
 
     private final GestorPersistencia gp;
+    private final GestorClientes gestorClientes;
+    private final GestorVeterinarios gestorVeterinarios;
 
     private List<Turno> listaTurnos;
 
     // Constructor que recibe TRES gestores
-    public GestorTurnos(GestorPersistencia gp) {
+    public GestorTurnos(GestorPersistencia gp,GestorClientes gc, GestorVeterinarios gv) {
         this.gp = gp;
+        this.gestorClientes = gc;
+        this.gestorVeterinarios = gv;
+
 
         try {
             this.listaTurnos = gp.cargarTurnos();

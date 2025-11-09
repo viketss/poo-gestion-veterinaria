@@ -37,7 +37,7 @@ public class Main {
 
         gestorVentas = new GestorVentas(gestorPersistencia);
 
-        gestorTurnos = new GestorTurnos(gestorPersistencia);
+        gestorTurnos = new GestorTurnos(gestorPersistencia, gestorClientes, gestorVeterinarios);
 
         if (clientesIniciales.isEmpty()) {
             Cliente clienteEmergencia = new Cliente("Cliente", "Demo", 12345678, new ArrayList<>(), 1123456789);

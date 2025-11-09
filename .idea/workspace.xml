@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: interfazPagos">
+    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: multiples mejoras">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/Mascotas/Mascota.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Mascotas/Mascota.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/Personas/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Personas/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/Personas/Veterinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Personas/Veterinario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/Ventas/Factura.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pagos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pagos.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762715954147</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="feat: multiples mejoras">
+      <option name="closed" value="true" />
+      <created>1762717347938</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1762717347938</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -316,6 +312,7 @@
     <MESSAGE value="feat: carga de Veterinarios" />
     <MESSAGE value="feat: carga y guardado de Turnos" />
     <MESSAGE value="feat: interfazPagos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: interfazPagos" />
+    <MESSAGE value="feat: multiples mejoras" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: multiples mejoras" />
   </component>
 </project>

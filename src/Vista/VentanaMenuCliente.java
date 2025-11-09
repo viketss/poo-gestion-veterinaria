@@ -30,6 +30,7 @@ public class VentanaMenuCliente extends JFrame {
         this.gp = gp;
         this.gvtas = gvtas;
 
+        setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         inicializarDatos();
