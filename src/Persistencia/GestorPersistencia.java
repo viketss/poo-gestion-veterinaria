@@ -4,6 +4,7 @@ import modelado.Mascotas.Mascota;
 import modelado.Mascotas.TipoMascota;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
+import modelado.Ventas.Factura;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,6 +18,7 @@ public class GestorPersistencia {
     private static final String ARCHIVO_CLIENTES = "clientes.txt";
     private static final String ARCHIVO_VETERINARIOS = "veterinarios.txt";
     private static final String ARCHIVO_TURNOS = "turnos.txt";
+    private static final String ARCHIVO_PAGOS = "pagos.txt";
 
     //Metodos de escritura
     public void guardarClientes(List<Cliente> clientes) {
@@ -46,7 +48,7 @@ public class GestorPersistencia {
 
                 // 3. Chequeo de índice y eliminación del último separador "|"
                 //    Soluciona el error de Index -1 y Index Out of Bounds
-                if (sb.length() > 0 && sb.charAt(sb.length() - 1) == '|') {
+                if (!sb.isEmpty() && sb.charAt(sb.length() - 1) == '|') {
                     sb.setLength(sb.length() - 1);
                 }
 
@@ -93,6 +95,19 @@ public class GestorPersistencia {
             System.err.println("Error al guardar turnos: " + e.getMessage());
         }
     }
+    public void guardarPago(long dniCliente, double montoFinal, String metodoPago) {
+
+        try (FileWriter writer = new FileWriter(ARCHIVO_PAGOS, true)) {
+            String linea = dniCliente + ";" + montoFinal + ";" + metodoPago;
+            writer.write(linea + "\n");
+
+            System.out.println("Pago guardado con éxito.");
+
+        } catch (IOException e) {
+            System.err.println("Error al escribir en pagos.txt: " + e.getMessage());
+        }
+    }
+
 
     //Metodos de lectura
     public List<Cliente> cargarClientes() {
@@ -191,5 +206,19 @@ public class GestorPersistencia {
 
         // Devolvemos una lista vacía para que la aplicación pueda iniciar
         return turnosCargados;
+    }
+    public List<String> cargarPagos() {
+        List<String> lineasPagos = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_PAGOS))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                lineasPagos.add(linea);
+            }
+            System.out.println("Carga de historial de pagos finalizada. " + lineasPagos.size() + " registros recuperados.");
+        } catch (IOException e) {
+            System.err.println("Archivo de pagos no encontrado. Iniciando con historial vacío.");
+        }
+        return lineasPagos;
     }
 }

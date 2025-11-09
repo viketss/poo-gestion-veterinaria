@@ -2,10 +2,11 @@ package SOLID.OyL;
 import SOLID.I.IDescuento;
 
 public class PagoEfectivo implements IMetodoPago, IDescuento {
-    public void pagar(double importe) {
+    public double pagar(double importe) {
         System.out.println("Aplicando descuento por pago en efectivo...");
         double totalEfectivoDescuento = aplicarDescuento(importe);
         System.out.println("Pago en efectivo: $" + totalEfectivoDescuento);
+        return totalEfectivoDescuento;
     }
 
     public double aplicarDescuento(double importe) {

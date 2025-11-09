@@ -5,5 +5,5 @@ public interface IMetodoPago {
      Parametros: 
         - importe: el monto a pagar
      */
-    public abstract void pagar(double importe);
+    public abstract double pagar(double importe);
 }
