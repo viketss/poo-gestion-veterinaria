@@ -62,8 +62,7 @@ public class Turno {
         this.veterinario = veterinario;
     }
 
-    // metodos en el gestor
-    
+
     // tostring
     @Override
     public String toString() {

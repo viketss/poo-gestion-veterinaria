@@ -12,12 +12,12 @@ import java.util.ArrayList;
 public class DialogoRegistrar extends JDialog {
 
     private JPanel panelPrincipal;
-    // Cliente
+
     private JTextField txtNombreCliente;
     private JTextField txtApellidoCliente;
     private JTextField txtDniCliente;
     private JTextField txtTelefonoCliente;
-    // Mascota
+
     private JTextField txtMascotaNombre;
     private JTextField txtRazaMascota;
     private JComboBox<TipoMascota> cmbTipoMascota;
@@ -57,8 +57,8 @@ public class DialogoRegistrar extends JDialog {
         try {
             String nombre = txtNombreCliente.getText();
             String apellido = txtApellidoCliente.getText();
-            long dni = Long.parseLong(txtDniCliente.getText()); // Conversión a long
-            long telefono = Long.parseLong(txtTelefonoCliente.getText()); // Conversión a long
+            long dni = Long.parseLong(txtDniCliente.getText());
+            long telefono = Long.parseLong(txtTelefonoCliente.getText());
 
             String nomMascota = txtMascotaNombre.getText();
             String razaMascota = txtRazaMascota.getText();
@@ -71,7 +71,6 @@ public class DialogoRegistrar extends JDialog {
                 return;
             }
 
-            // 2. Creación de Objetos
             Cliente nuevoCliente = new Cliente(nombre, apellido, dni, new ArrayList<>(), telefono);
             Mascota nuevaMascota = new Mascota(nomMascota, razaMascota, tipoMascota, nuevoCliente, vacunado, edad);
             nuevoCliente.agregarMascota(nuevaMascota);

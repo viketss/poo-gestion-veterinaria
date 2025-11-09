@@ -20,7 +20,7 @@ public class Mascota {
         this.dueno = dueno;
         this.vacunado = vacunado;
         this.edad = edad;
-        this.historiaClinica = new HistoriaClinica(0000); // crear la historia clinica: composicion 
+        this.historiaClinica = new HistoriaClinica(0000);
     }
 
     // getters y setters

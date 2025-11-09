@@ -8,7 +8,7 @@ import Persistencia.GestorPersistencia;
 public class GestorVentas {
 
     private GestorPersistencia persistencia;
-    private List<String> historialPagosLeidos; // Almacena las líneas planas del archivo
+    private List<String> historialPagosLeidos;
 
 
     public GestorVentas(GestorPersistencia persistencia) {
@@ -25,7 +25,6 @@ public class GestorVentas {
         if (metodoPago == null) {
             return montoBase;
         }
-        // Llama directamente al método de tu interfaz IMetodoPago
         return metodoPago.pagar(montoBase);
     }
 
