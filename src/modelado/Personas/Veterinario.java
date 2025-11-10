@@ -10,10 +10,10 @@ public class Veterinario extends Persona { // herencia de Persona
     private Turno turnoVeterinario; // 1 veterinario .. 1 turno - asociacion
 
     // constructor
-    public Veterinario(String nombre, String apellido, long dni, String especialidad, double sueldo) {
+    public Veterinario(String nombre, String apellido, long dni, String especialidad, float sueldo) {
         super(nombre, apellido, dni);
         this.especialidad = especialidad;
-        this.sueldo = (float) sueldo; // Guardamos como float internamente si es necesario
+        this.sueldo =  sueldo;
         this.turnoVeterinario = null;
     }
 

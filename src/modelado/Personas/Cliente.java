@@ -30,7 +30,7 @@ public class Cliente extends Persona {
     // metodos
     public void agregarMascota(Mascota mascota) {
         System.out.println("Agregando mascota: " + mascota.getNombre());
-        mascotas.add(mascota);  // agrega una mascota a la lista de mascotas
+        mascotas.add(mascota);
     }
 
     public void obtenerInfoDeContacto() {

@@ -44,12 +44,11 @@ public class DialogoLogin extends JDialog {
 
             if (clienteEncontrado != null) {
                 accesoExitoso = true;
-                clienteLogueado = clienteEncontrado; // ¡Guardamos el cliente real!
+                clienteLogueado = clienteEncontrado;
                 dispose();
                 return;
             }
 
-            // Si clienteEncontrado es null:
             JOptionPane.showMessageDialog(this,
                     "Nombre o DNI incorrectos. Intente de nuevo.",
                     "Error de Acceso",

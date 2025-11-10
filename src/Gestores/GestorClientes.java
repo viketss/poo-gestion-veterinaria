@@ -35,7 +35,6 @@ public class GestorClientes {
 
     public Cliente buscarLogin(String nombre, long dni) {
         for (Cliente cliente : this.listaClientes) {
-            // Asumimos que los métodos getNombre() y getDni() existen
             if (cliente.getNombre().equals(nombre) && cliente.getDni() == dni) {
                 return cliente;
             }

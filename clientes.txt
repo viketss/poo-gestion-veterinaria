@@ -1,2 +1,3 @@
 Cliente;Demo;12345678;1123456789;0;
 juan;perez;12345678;113456789;1;jj,jjj,PERRO,6,false
+chiara;zanardi;45300955;1136192265;1;lolo,gatuno,GATO,9,true

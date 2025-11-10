@@ -5,15 +5,26 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: DialogoLogin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/turnos.txt" afterDir="false" />
 =======
     <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: carga de Veterinarios">
+=======
+    <list default="true" id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="feat: multiples mejoras">
+>>>>>>> ca3f428abddc0a26c3fc456002c43def662fb35b
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" afterDir="false" />
 >>>>>>> 790f5cee8683d54ba1d176f342c70f5eb1d7894d
+=======
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" afterDir="false" />
+>>>>>>> ca3f428abddc0a26c3fc456002c43def662fb35b
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +74,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ca3f428abddc0a26c3fc456002c43def662fb35b
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
@@ -73,6 +87,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "360",
+<<<<<<< HEAD
     "git-widget-placeholder": "vi",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/ubuntom/IdeaProjects/poo-gestion-veterinaria",
@@ -110,6 +125,22 @@
   }
 }</component>
 >>>>>>> 790f5cee8683d54ba1d176f342c70f5eb1d7894d
+=======
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/tomasflory/IdeaProjects/poo-gestion-veterinaria",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+>>>>>>> ca3f428abddc0a26c3fc456002c43def662fb35b
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c30c5c86-67f6-4cc9-a2d2-319627a26247" name="Changes" comment="" />
@@ -294,7 +325,31 @@
       <option name="project" value="LOCAL" />
       <updated>1762296070436</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat: carga y guardado de Turnos">
+      <option name="closed" value="true" />
+      <created>1762296693554</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1762296693554</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat: interfazPagos">
+      <option name="closed" value="true" />
+      <created>1762715954147</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1762715954147</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: multiples mejoras">
+      <option name="closed" value="true" />
+      <created>1762717347938</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1762717347938</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -320,6 +375,9 @@
     <MESSAGE value="feat: correcion funcionamiento de VentanaTurnos" />
     <MESSAGE value="fix: error al guardar clientes" />
     <MESSAGE value="feat: carga de Veterinarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: carga de Veterinarios" />
+    <MESSAGE value="feat: carga y guardado de Turnos" />
+    <MESSAGE value="feat: interfazPagos" />
+    <MESSAGE value="feat: multiples mejoras" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: multiples mejoras" />
   </component>
 </project>

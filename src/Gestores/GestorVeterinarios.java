@@ -1,15 +1,18 @@
 package Gestores;
 
 import modelado.Personas.Veterinario;
+import Persistencia.GestorPersistencia;
 import java.util.List;
 
 public class GestorVeterinarios {
-    // atributos
+
+    private final GestorPersistencia gp;
     private List<Veterinario> listaVeterinarios;
 
-    // constructor
-    public GestorVeterinarios(List<Veterinario> listaVeterinarios) {
+
+    public GestorVeterinarios(List<Veterinario> listaVeterinarios, GestorPersistencia gp) {
         this.listaVeterinarios = listaVeterinarios;
+        this.gp = gp;
     }
 
     // metodos
@@ -17,17 +20,19 @@ public class GestorVeterinarios {
         for (Veterinario veterinario : this.listaVeterinarios) {
             if (veterinario.getNombre().equals(nombreVeterinario)) {
                 System.out.println("Veterinario encontrado con éxito.");
-                return veterinario; // Retorna el objeto Veterinario completo
+                return veterinario;
             }
         }
         System.out.println("Veterinario no encontrado.");
-        return null; // Retorna null si no se encontró coincidencia
+        return null;
     }
+
+    public void agregarVeterinario(Veterinario nuevoVeterinario){
+        listaVeterinarios.add(nuevoVeterinario);
+        this.gp.guardarVeterinarios(this.listaVeterinarios);
+    }
+
     public List<Veterinario> getVeterinarios() {
         return listaVeterinarios;
     }
-    public void agregarVeterinario(Veterinario nuevoVeterinario){
-        listaVeterinarios.add(nuevoVeterinario);
-    }
-
 }

@@ -12,22 +12,20 @@ import java.util.List;
 
 public class GestorTurnos {
 
-    // --- DEPENDENCIAS INYECTADAS ---
     private final GestorPersistencia gp;
-    private final GestorClientes gestorClientes; // No es usado directamente aquí, pero se mantiene para consistencia
+    private final GestorClientes gestorClientes;
     private final GestorVeterinarios gestorVeterinarios;
 
-    private List<Turno> listaTurnos; // Lista de turnos en memoria
+    private List<Turno> listaTurnos;
 
     // Constructor que recibe TRES gestores
-    public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv) {
+    public GestorTurnos(GestorPersistencia gp,GestorClientes gc, GestorVeterinarios gv) {
         this.gp = gp;
         this.gestorClientes = gc;
         this.gestorVeterinarios = gv;
 
-        // --- INICIALIZACIÓN DE LA LISTA DE TURNOS ---
+
         try {
-            // Llama a la carga y si devuelve null o está vacío, usa una lista nueva.
             this.listaTurnos = gp.cargarTurnos();
         } catch (Exception e) {
             System.err.println("Error al cargar turnos iniciales. Iniciando con lista vacía.");
@@ -68,13 +66,10 @@ public class GestorTurnos {
                 nuevoIdTurno,
                 veterinario
         );
-
-        // 2. Actualizar el estado del sistema (Memoria)
         this.listaTurnos.add(nuevoTurno);
         veterinario.setTurnoVeterinario(nuevoTurno);
         mascota.getHistoriaClinica().agregarTurno(nuevoTurno);
 
-        // 3. PERSISTENCIA FINAL
         try {
             this.gp.guardarTurnos(this.listaTurnos);
             return "Turno solicitado y guardado. ID: " + nuevoIdTurno + " para el " + fechaDeseada;

@@ -11,12 +11,14 @@ public class ProcesarPago implements IMetodoPago {
     }
 
     @Override
-    public void pagar(double monto) {
+    public double pagar(double monto) {
         if(this.metodoPago != null) {
-            this.metodoPago.pagar(monto);
+            return this.metodoPago.pagar(monto);
         } else {
             System.out.println("No se ha especificado un metodo de pago.");
+            return monto;
         }
     }
+
 
 }
