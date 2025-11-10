@@ -29,4 +29,17 @@ public class GestorClientes {
         listaClientes.add(nuevoCliente);
     }
 
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public Cliente buscarLogin(String nombre, long dni) {
+        for (Cliente cliente : this.listaClientes) {
+            // Asumimos que los métodos getNombre() y getDni() existen
+            if (cliente.getNombre().equals(nombre) && cliente.getDni() == dni) {
+                return cliente;
+            }
+        }
+        return null;
+    }
 }

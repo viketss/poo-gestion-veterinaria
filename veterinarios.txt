@@ -1,1 +1,4 @@
-NOMBRE: Esteban|APELLIDO: Hernandez|DNI: 98765432|ESPECIALIDAD: Cirugia Canina|SUELDO: $30000
+Esteban;Hernandez;98765432;Cirugia Canina;30000.00
+Laura;Gomez;22334455;Dermatologia;28500.50
+Ricardo;Sosa;33445566;Medicina General;24000.00
+Ana;Perez;44556677;Oftalmologia Felina;32000.00

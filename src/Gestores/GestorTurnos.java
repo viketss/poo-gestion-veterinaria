@@ -1,69 +1,65 @@
 package Gestores;
 
+import Persistencia.GestorPersistencia;
 import modelado.HistoriaClinica.Tratamiento;
 import modelado.Mascotas.Mascota;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
 import modelado.HistoriaClinica.Turno;
-//import Persistencia.GestorPersistencia;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GestorTurnos {
-    
-    //private final GestorPersistencia gestorPersistencia;
-    private final GestorClientes gestorClientes;
+
+    // --- DEPENDENCIAS INYECTADAS ---
+    private final GestorPersistencia gp;
+    private final GestorClientes gestorClientes; // No es usado directamente aquí, pero se mantiene para consistencia
     private final GestorVeterinarios gestorVeterinarios;
 
-    private List<Turno> listaTurnos;
+    private List<Turno> listaTurnos; // Lista de turnos en memoria
 
-    // Constructor
-    public GestorTurnos(/*GestorPersistencia gp, */GestorClientes gc, GestorVeterinarios gv) {
-        //this.gestorPersistencia = gp;
+    // Constructor que recibe TRES gestores
+    public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv) {
+        this.gp = gp;
         this.gestorClientes = gc;
         this.gestorVeterinarios = gv;
-        this.listaTurnos = new ArrayList<>();
+
+        // --- INICIALIZACIÓN DE LA LISTA DE TURNOS ---
+        try {
+            // Llama a la carga y si devuelve null o está vacío, usa una lista nueva.
+            this.listaTurnos = gp.cargarTurnos();
+        } catch (Exception e) {
+            System.err.println("Error al cargar turnos iniciales. Iniciando con lista vacía.");
+            this.listaTurnos = new ArrayList<>();
+        }
     }
 
     // metodos
     private boolean verificarDisponibilidad(Veterinario veterinario, String fecha) {
         System.out.println("Verificando agenda de " + veterinario.getNombre() + " para la fecha seleccionada.");
-        return true; // Asumimos que siempre está disponible para continuar con el flujo
-        // return false
+        // Lógica real de verificación iría aquí.
+        return true;
     }
 
-    public String solicitarTurno(String nombreCliente, String nombreMascota, String nombreVeterinario, String fechaDeseada) {
+    public String solicitarTurno(Cliente cliente, Mascota mascota, Veterinario veterinario, String fechaDeseada) {
         System.out.println("\n# SOLICITUD DE TURNO");
-        System.out.println("Agregar datos para la solicitud de turno: ");
 
-        // OBTENER Y VALIDAR AL CLIENTE
-        Cliente cliente = gestorClientes.buscarCliente(nombreCliente);
-        if (cliente == null) {
-            return "El cliente no es parte del sistema.";
+        // --- VALIDACIÓN DE OBJETOS ---
+        if (cliente == null || mascota == null || veterinario == null) {
+            // Esto solo ocurriría por un error de lógica grave en el Main o la GUI.
+            return "Error interno: Faltan datos críticos para generar el turno.";
         }
 
-        // OBTENER Y VALIDAR AL VETERINARIO
-        Veterinario veterinario = gestorVeterinarios.buscarVeterinarioPorNombre(nombreVeterinario);
-        if (veterinario == null) {
-            return "El veterinario seleccionado no existe";
+        System.out.println("# Cliente: " + cliente.getNombre() + ", Mascota: " + mascota.getNombre() + ", Veterinario: " + veterinario.getNombre());
+
+        if (!verificarDisponibilidad(veterinario, fechaDeseada)){
+            return "Turno no disponible para esa fecha.";
         }
 
-        // OBTENER Y VALIDAR LA MASCOTA
-        Mascota mascota = cliente.buscarMascota(nombreMascota);
-        if (mascota == null) {
-            return "La mascota no esta registrada a nombre del cliente";
-        }
-        System.out.println("# Datos del cliente: " + cliente.getNombre() + ", Mascota: " + mascota.getNombre() + ", Veterinario para la consulta: " + veterinario.getNombre());
-    
+        int nuevoIdTurno = this.listaTurnos.size() + 1;
 
-        if (!verificarDisponibilidad(veterinario, fechaDeseada)){ //Se verifica la disponibilidad
-            return "Turno no disponible";
-        }
-
-        int nuevoIdTurno = this.listaTurnos.size() + 1; // turno nuevo
-
-        // Instanciar el objeto Turno
+        // 1. Crear el objeto Turno
         Turno nuevoTurno = new Turno(
                 mascota,
                 "Motivo a determinar",
@@ -72,23 +68,21 @@ public class GestorTurnos {
                 nuevoIdTurno,
                 veterinario
         );
+
+        // 2. Actualizar el estado del sistema (Memoria)
         this.listaTurnos.add(nuevoTurno);
         veterinario.setTurnoVeterinario(nuevoTurno);
         mascota.getHistoriaClinica().agregarTurno(nuevoTurno);
 
-     /*   try {
-            gestorPersistencia.guardarTurnos();
-            // 2. Notificación de éxito
+        // 3. PERSISTENCIA FINAL
+        try {
+            this.gp.guardarTurnos(this.listaTurnos);
             return "Turno solicitado y guardado. ID: " + nuevoIdTurno + " para el " + fechaDeseada;
 
-        } catch (IOException e) {
-            // 3. Manejo de la excepción de persistencia (si no se pudo escribir en el archivo)
-            // Es un error grave, pero la operación de negocio SÍ se completó en memoria.
-            System.err.println("ERROR");
+        } catch (Exception e) {
+            System.err.println("ERROR al guardar turnos en el archivo: " + e.getMessage());
+            return "Turno solicitado en memoria, pero falló la persistencia en archivo.";
         }
-        El gestor de persistencia guardaria el nuevo Turno
-      */
-        return "El turno fue solicitado con exito";
     }
 
     public void confirmarTurno() {
@@ -98,5 +92,5 @@ public class GestorTurnos {
     public void cancelarTurno() {
         System.out.println("Turno cancelado");
     }
-    
+
 }
