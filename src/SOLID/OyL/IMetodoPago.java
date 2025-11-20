@@ -6,4 +6,6 @@ public interface IMetodoPago {
         - importe: el monto a pagar
      */
     public abstract double pagar(double importe);
+
+    // GRASP POLIMORFISMO: misma interfaz, diferente comportamiento para cada medio de pago
 }

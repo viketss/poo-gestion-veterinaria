@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class GestorPersistencia {
-
+    // GRASP PURA FABRICACION: clase inventada que no es parte del negocio
     private static final String ARCHIVO_CLIENTES = "clientes.txt";
     private static final String ARCHIVO_VETERINARIOS = "veterinarios.txt";
     private static final String ARCHIVO_TURNOS = "turnos.txt";
@@ -21,7 +21,7 @@ public class GestorPersistencia {
 
     //Metodos de escritura
     public void guardarClientes(List<Cliente> clientes) {
-        // Usamos 'false' para sobrescribir todo el archivo
+        // Usamos false para sobrescribir todo el archivo
         try (FileWriter writer = new FileWriter(ARCHIVO_CLIENTES, false)) {
 
             for (Cliente cliente : clientes) {
@@ -43,7 +43,7 @@ public class GestorPersistencia {
                             .append(mascota.isVacunado()).append("|");
                 }
 
-                // chequeo de índice y eliminación del último separador "|"
+                // chequeo de índice y eliminación del último separador |
                 if (!sb.isEmpty() && sb.charAt(sb.length() - 1) == '|') {
                     sb.setLength(sb.length() - 1);
                 }

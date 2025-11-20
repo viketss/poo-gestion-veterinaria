@@ -56,6 +56,8 @@ public class GestorTurnos {
         }
 
         int nuevoIdTurno = this.listaTurnos.size() + 1;
+        // GRASP CREADOR: GestorTurnos crea Turno
+        // GRASP INDIRECCION: el cliente no gestiona un turno directo con el veterinario, interviene el gestor de turnos
 
         // 1. Crear el objeto Turno
         Turno nuevoTurno = new Turno(
