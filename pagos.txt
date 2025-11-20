@@ -1,1 +1,4 @@
 45300955;90000.0;PagoEfectivo
+45544339;4.5;PagoEfectivo
+44935502;9000.0;PagoEfectivo
+44935502;10500.0;PagoTarjeta

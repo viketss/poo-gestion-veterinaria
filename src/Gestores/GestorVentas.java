@@ -34,7 +34,9 @@ public class GestorVentas {
             return false;
         }
 
-
+        /* GRASP BAJO ACOPLAMIENTO: GestorVentas depende de interfaz
+        IMetodoPago, no de PagoTarjeta
+        * */
         ProcesarPago procesador = new ProcesarPago(metodoPagoSeleccionado);
         double totalPagado = procesador.pagar(montoSubtotal);
 

@@ -1,6 +1,9 @@
 package SOLID.I;
 
 public interface IDescuento {
+    // GRASP PROTECTED VARIATIONS: se puede cambiar IDescuento, pero el sistema
+    // esta protegido porque depende de la interfaz
+
     /*
      * Proposito: Aplica un descuento al importe dado
      * Parametros: double importe - El importe al que se le aplicará el descuento

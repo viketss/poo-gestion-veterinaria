@@ -2,7 +2,7 @@ package Gestores;
 
 import modelado.Personas.Cliente;
 import java.util.List;
-
+// GRASP CONTROLADOR: cualquier gestor coordina eventos para el sistema
 public class GestorClientes {
     // clientes de la veterinaria
     private List<Cliente> listaClientes;

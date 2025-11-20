@@ -4,30 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: GUI inicial">
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVentas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVentas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Persistencia/GestorPersistencia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Persistencia/GestorPersistencia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoEfectivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoEfectivo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTarjeta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTarjeta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTranferencia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTranferencia.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoRegistrar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Mascotas/Mascota.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Mascotas/Mascota.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Veterinario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Veterinario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoLogin.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoRegistrar.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaTurnos.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Tratamiento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Tratamiento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pagos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pagos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOLID/I/IDescuento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOLID/I/IDescuento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOLID/OyL/IMetodoPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOLID/OyL/IMetodoPago.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOLID/OyL/PagoTarjeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOLID/OyL/PagoTarjeta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Tratamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Tratamiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/turnos.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,16 +58,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "312",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;312&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

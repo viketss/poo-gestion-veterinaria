@@ -37,6 +37,8 @@ public class Tratamiento {
 
     // metodos
     public float calcularCostoTotal() {
+        // GRASP INFORMATION EXPERT: tratamiento calcula costo total
+
         float costoTotal = costoBase;
         for (Medicamento m : medicamentos) {
             costoTotal += m.calcularCostoPorDias(m.getCantidadDiasDosis());
@@ -56,5 +58,4 @@ public class Tratamiento {
         "\n- Costo Base del Tratamiento: " + costoBase + 
         "\n- Medicamentos: " + medicamentos;
     }
-
 }
