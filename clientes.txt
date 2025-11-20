@@ -5,3 +5,4 @@ vi;cuomo;44935502;1158647744;1;aras,callejero,PERRO,7,true
 lucas;varde;45544339;1122626007;1;Larry,Border Collie departamento,PERRO,2,true
 Juan;Perez;44935502;1158647799;1;Milo,Labrador,PERRO,10,true
 Juan;Perez;44935502;1158647744;1;Mila,Siames,GATO,8,true
+Tomas;Flory;45235050;1173693466;2;Toti,Tigre,OTRO,4,true|Shakira,Piton,REPTIL,12,true

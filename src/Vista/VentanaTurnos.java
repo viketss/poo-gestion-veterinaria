@@ -7,6 +7,7 @@ import Gestores.GestorClientes;
 import Gestores.GestorTurnos;
 import Gestores.GestorVeterinarios;
 import Gestores.GestorVentas;
+import Gestores.GestorMascota;
 import Persistencia.GestorPersistencia;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
@@ -21,6 +22,7 @@ public class VentanaTurnos extends JFrame {
     private final GestorClientes gc;
     private final GestorPersistencia gp;
     private final GestorVentas gvtas;
+    private final GestorMascota gm; // <--- Nuevo Atributo agregado
 
     private List<Veterinario> veterinariosDisponibles;
     private List<Mascota> mascotasCliente;
@@ -33,7 +35,9 @@ public class VentanaTurnos extends JFrame {
     private JButton btnSolicitarTurno;
     private JButton btnCancelarTurno;
 
-    public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas) {
+
+
+    public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas, GestorMascota gm) {
         super("Solicitar Turno - Cliente: " + clienteActual.getNombre());
         this.clienteActual = clienteActual;
         this.gt = gt;
@@ -41,7 +45,7 @@ public class VentanaTurnos extends JFrame {
         this.gc = gc;
         this.gp = gp;
         this.gvtas = gvtas;
-
+        this.gm = gm; // Asignación del nuevo gestor
 
         this.veterinariosDisponibles = new ArrayList<>();
         this.mascotasCliente = clienteActual.getMascotas() != null ? clienteActual.getMascotas() : new ArrayList<>();
@@ -109,7 +113,7 @@ public class VentanaTurnos extends JFrame {
         this.dispose();
 
 
-        new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas).setVisible(true);
+        new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas, gm).setVisible(true);
     }
 
     private void onCancelarTurno() {
@@ -120,7 +124,8 @@ public class VentanaTurnos extends JFrame {
 
         if (respuesta == JOptionPane.YES_OPTION) {
             this.dispose();
-            new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas).setVisible(true);
+            // Llamada corregida con los 7 argumentos
+            new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas, gm).setVisible(true);
         }
     }
 }

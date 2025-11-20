@@ -1,7 +1,7 @@
 package Vista;
 
 import javax.swing.*;
-
+import java.awt.event.ActionListener;
 import Gestores.*;
 import Persistencia.GestorPersistencia;
 import modelado.Personas.Cliente;
@@ -14,15 +14,16 @@ public class VentanaMenuCliente extends JFrame {
     private final GestorClientes gc;
     private final GestorPersistencia gp;
     private final GestorVentas gvtas;
-    private final GestorMascota gm;
+    private final GestorMascota gm; // Nuevo atributo agregado
 
     private JPanel contentPane;
     private JLabel lblBienvenida;
     private JButton btnSolicitarTurno;
     private JButton btnPagar;
     private JButton btnCerrarSesion;
-    private JButton btnAgregarMascota;
+    private JButton btnAgregarMascota; // Asumiendo que este botón existe en el formulario
 
+    // Constructor modificado para recibir los 7 gestores
     public VentanaMenuCliente(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas, GestorMascota gm) {
         super("Menú Principal - Cliente: " + clienteActual.getNombre());
         this.clienteActual = clienteActual;
@@ -31,7 +32,7 @@ public class VentanaMenuCliente extends JFrame {
         this.gc = gc;
         this.gp = gp;
         this.gvtas = gvtas;
-        this.gm = gm;
+        this.gm = gm; // Asignación del nuevo GestorMascota
 
         setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,12 +52,17 @@ public class VentanaMenuCliente extends JFrame {
         btnSolicitarTurno.addActionListener(e -> onSolicitarTurno());
         btnPagar.addActionListener(e -> onPagar());
         btnCerrarSesion.addActionListener(e -> onCerrarSesion());
-        btnAgregarMascota.addActionListener(e -> onAgregarMascota());
+
+        // Listener para la nueva funcionalidad
+        if (btnAgregarMascota != null) {
+            btnAgregarMascota.addActionListener(e -> onAgregarMascota());
+        }
     }
 
     private void onSolicitarTurno() {
         this.dispose();
-        new VentanaTurnos(clienteActual, gt, gv, gc, gp, gvtas).setVisible(true);
+        // Llamada corregida con los 7 argumentos
+        new VentanaTurnos(clienteActual, gt, gv, gc, gp, gvtas, gm).setVisible(true);
     }
 
     private void onPagar() {
@@ -67,7 +73,10 @@ public class VentanaMenuCliente extends JFrame {
         this.dispose();
         new DialogoLogin(null, this.gc, this.gp).setVisible(true);
     }
+
+    // Método para lanzar la ventana de registro de mascotas
     private void onAgregarMascota() {
+        // Lanza la ventana de registro pasándole el Cliente actual y el GestorMascota
         VentanaAgregarMascota ventanaMascota = new VentanaAgregarMascota(this.clienteActual, this.gm);
         ventanaMascota.setVisible(true);
     }
