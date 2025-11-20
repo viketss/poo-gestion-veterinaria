@@ -33,7 +33,7 @@ public class Main {
         List<Cliente> clientesIniciales = gestorPersistencia.cargarClientes();
         List<Veterinario> veterinariosCargados = gestorPersistencia.cargarVeterinarios();
 
-        gestorClientes = new GestorClientes(clientesIniciales);
+        gestorClientes = new GestorClientes(clientesIniciales, gestorPersistencia);
 
         gestorVeterinarios = new GestorVeterinarios(veterinariosCargados, gestorPersistencia);
 

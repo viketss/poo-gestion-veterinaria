@@ -1,32 +1,53 @@
 package Gestores;
 
 import modelado.Personas.Cliente;
+import Persistencia.GestorPersistencia;
 import java.util.List;
-// GRASP CONTROLADOR: cualquier gestor coordina eventos para el sistema
-public class GestorClientes {
-    // clientes de la veterinaria
-    private List<Cliente> listaClientes;
 
-    // constructor
-    public GestorClientes(List<Cliente> listaClientes) {
+public class GestorClientes {
+
+    private List<Cliente> listaClientes;
+    private final GestorPersistencia gestorPersistencia;
+
+    // Constructor modificado para recibir también la Persistencia
+    public GestorClientes(List<Cliente> listaClientes, GestorPersistencia gp) {
         this.listaClientes = listaClientes;
+        this.gestorPersistencia = gp;
     }
 
-    // metodos
     public Cliente buscarCliente(String nombre) {
         for (Cliente cliente : this.listaClientes) {
             if (cliente.getNombre().equals(nombre)) {
                 System.out.println("Buscando cliente: " + nombre);
                 System.out.println("Cliente encontrado con éxito.");
-                return cliente; // Retorna el objeto Cliente completo
+                return cliente;
             }
         }
         System.out.println("Cliente no encontrado.");
-        return null; // Retorna null si no se encontró coincidencia
+        return null;
     }
-    
-    public void agregarCliente(Cliente nuevoCliente){
-        listaClientes.add(nuevoCliente);
+
+    public boolean agregarCliente(Cliente cliente) {
+
+        if (existeClienteConDNI(cliente.getDni())) {
+            System.out.println("Error: Ya existe un cliente con el DNI " + cliente.getDni());
+            return false;
+        }
+
+        listaClientes.add(cliente);
+
+        gestorPersistencia.guardarClientes(listaClientes);
+        System.out.println("Cliente " + cliente.getNombre() + " registrado y guardado.");
+        return true;
+    }
+
+    public boolean existeClienteConDNI(long dni) {
+        for (Cliente c : this.listaClientes) {
+            if (c.getDni() == dni) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<Cliente> getListaClientes() {
