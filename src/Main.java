@@ -4,6 +4,7 @@ import Gestores.GestorClientes;
 import Gestores.GestorTurnos;
 import Gestores.GestorVeterinarios;
 import Gestores.GestorVentas;
+import Gestores.GestorMascota;
 import Persistencia.GestorPersistencia;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
@@ -20,6 +21,7 @@ public class Main {
     public GestorVeterinarios gestorVeterinarios;
     public GestorPersistencia gestorPersistencia;
     public GestorVentas gestorVentas;
+    public GestorMascota gestorMascota;
 
     public static Cliente clienteActual = null;
 
@@ -36,6 +38,9 @@ public class Main {
         gestorVeterinarios = new GestorVeterinarios(veterinariosCargados, gestorPersistencia);
 
         gestorVentas = new GestorVentas(gestorPersistencia);
+
+        // 1. Inicialización de GestorMascota
+        gestorMascota = new GestorMascota(gestorClientes, gestorPersistencia);
 
         gestorTurnos = new GestorTurnos(gestorPersistencia, gestorClientes, gestorVeterinarios);
 
@@ -58,13 +63,15 @@ public class Main {
             if (login.isAccesoExitoso()) {
                 clienteActual = login.getClienteLogueado();
 
+                // 2. Pasar gestorMascota como nuevo argumento
                 new VentanaMenuCliente(
                         clienteActual,
                         app.gestorTurnos,
                         app.gestorVeterinarios,
                         app.gestorClientes,
                         app.gestorPersistencia,
-                        app.gestorVentas
+                        app.gestorVentas,
+                        app.gestorMascota // <- Nuevo argumento
                 ).setVisible(true);
             } else {
                 System.exit(0);
