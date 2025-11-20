@@ -13,15 +13,17 @@ public class Turno {
     private String fecha;
     private int idTurno;
     private Veterinario veterinario;
+    private HorarioTurno horario;
 
     // constructor
-    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario) {
+    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario,HorarioTurno horario) {
         this.mascota = mascota;
         this.motivoDeConsulta = motivoDeConsulta;
         this.tratamientos = new ArrayList<>();
         this.fecha = fecha;
         this.idTurno = idTurno;
         this.veterinario = veterinario;
+        this.horario = horario;
     }
 
     // getters y setters
@@ -61,7 +63,12 @@ public class Turno {
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
-
+    public HorarioTurno getHorario() {
+        return horario;
+    }
+    public void setHorario(HorarioTurno horario) {
+        this.horario = horario;
+    }
 
     // tostring
     @Override
@@ -71,6 +78,7 @@ public class Turno {
          "\n- Motivo de consulta: " + motivoDeConsulta +
          "\n- Tratamientos: " + tratamientos +
          "\n- Fecha: " + fecha +
+         "\n- Horario: " + horario +
          "\n- ID de turno: " + idTurno +
          "\n- Veterinario: " + veterinario.getNombre();
     }
