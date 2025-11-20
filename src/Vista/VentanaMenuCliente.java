@@ -1,7 +1,7 @@
 package Vista;
 
 import javax.swing.*;
-import java.awt.event.ActionListener;
+
 import Gestores.*;
 import Persistencia.GestorPersistencia;
 import modelado.Personas.Cliente;
@@ -14,14 +14,16 @@ public class VentanaMenuCliente extends JFrame {
     private final GestorClientes gc;
     private final GestorPersistencia gp;
     private final GestorVentas gvtas;
+    private final GestorMascota gm;
 
     private JPanel contentPane;
     private JLabel lblBienvenida;
     private JButton btnSolicitarTurno;
     private JButton btnPagar;
     private JButton btnCerrarSesion;
+    private JButton btnAgregarMascota;
 
-    public VentanaMenuCliente(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas) {
+    public VentanaMenuCliente(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas, GestorMascota gm) {
         super("Menú Principal - Cliente: " + clienteActual.getNombre());
         this.clienteActual = clienteActual;
         this.gt = gt;
@@ -29,6 +31,7 @@ public class VentanaMenuCliente extends JFrame {
         this.gc = gc;
         this.gp = gp;
         this.gvtas = gvtas;
+        this.gm = gm;
 
         setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,6 +51,7 @@ public class VentanaMenuCliente extends JFrame {
         btnSolicitarTurno.addActionListener(e -> onSolicitarTurno());
         btnPagar.addActionListener(e -> onPagar());
         btnCerrarSesion.addActionListener(e -> onCerrarSesion());
+        btnAgregarMascota.addActionListener(e -> onAgregarMascota());
     }
 
     private void onSolicitarTurno() {
@@ -62,5 +66,9 @@ public class VentanaMenuCliente extends JFrame {
     private void onCerrarSesion() {
         this.dispose();
         new DialogoLogin(null, this.gc, this.gp).setVisible(true);
+    }
+    private void onAgregarMascota() {
+        VentanaAgregarMascota ventanaMascota = new VentanaAgregarMascota(this.clienteActual, this.gm);
+        ventanaMascota.setVisible(true);
     }
 }
