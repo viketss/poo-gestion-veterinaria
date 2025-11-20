@@ -4,30 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="">
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVentas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVentas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Persistencia/GestorPersistencia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Persistencia/GestorPersistencia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTarjeta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTarjeta.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoRegistrar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Tratamiento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Tratamiento.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pagos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOLID/I/IDescuento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOLID/I/IDescuento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOLID/OyL/IMetodoPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOLID/OyL/IMetodoPago.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOLID/OyL/PagoTarjeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOLID/OyL/PagoTarjeta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Tratamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Tratamiento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/turnos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoLogin.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +63,19 @@
       <option name="presentableId" value="Default" />
       <updated>1762741170018</updated>
     </task>
+    <task id="LOCAL-00001" summary="comments">
+      <option name="closed" value="true" />
+      <created>1763655789327</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763655789327</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments" />
   </component>
 </project>
