@@ -75,8 +75,9 @@ public class Turno {
         return costoConsulta;
     }
 
-    public void setCostoConsulta(int costoConsulta) {
-        this.costoConsulta = costoConsulta;
+    public float calcularCostoTurno(int costoConsulta, Tratamiento tratamiento){
+        float costoFinal = costoConsulta + tratamiento.calcularCostoMedicamento();
+        return costoFinal;
     }
 
     @Override
