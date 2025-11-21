@@ -13,15 +13,18 @@ public class Turno {
     private String fecha;
     private int idTurno;
     private Veterinario veterinario;
+    private HorarioTurno horario;
+    private int costoConsulta;
 
     // constructor
-    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario) {
+    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario,HorarioTurno horario, int costoConsulta) {
         this.mascota = mascota;
         this.motivoDeConsulta = motivoDeConsulta;
         this.tratamientos = new ArrayList<>();
         this.fecha = fecha;
         this.idTurno = idTurno;
         this.veterinario = veterinario;
+        this.horario = horario;
     }
 
     // getters y setters
@@ -61,17 +64,33 @@ public class Turno {
     public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
+    public HorarioTurno getHorario() {
+        return horario;
+    }
+    public void setHorario(HorarioTurno horario) {
+        this.horario = horario;
+    }
 
+    public int getCostoConsulta() {
+        return costoConsulta;
+    }
 
-    // tostring
+    public float calcularCostoTurno(int costoConsulta, Tratamiento tratamiento){
+        float costoFinal = costoConsulta + tratamiento.calcularCostoMedicamento();
+        return costoFinal;
+    }
+
     @Override
     public String toString() {
-        return "# Turno: " +
-         "\n- Mascota: " + mascota.getNombre() +
-         "\n- Motivo de consulta: " + motivoDeConsulta +
-         "\n- Tratamientos: " + tratamientos +
-         "\n- Fecha: " + fecha +
-         "\n- ID de turno: " + idTurno +
-         "\n- Veterinario: " + veterinario.getNombre();
+        return "Turno{" +
+                "mascota=" + mascota +
+                ", motivoDeConsulta='" + motivoDeConsulta + '\'' +
+                ", tratamientos=" + tratamientos +
+                ", fecha='" + fecha + '\'' +
+                ", idTurno=" + idTurno +
+                ", veterinario=" + veterinario.getNombre() +
+                ", horario=" + horario +
+                ", costoConsulta=" + costoConsulta +
+                '}';
     }
 }

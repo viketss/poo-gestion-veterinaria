@@ -70,17 +70,19 @@ public class DialogoRegistrar extends JDialog {
                 JOptionPane.showMessageDialog(this, "Nombre, DNI y Nombre de Mascota son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
             Cliente nuevoCliente = new Cliente(nombre, apellido, dni, new ArrayList<>(), telefono);
             Mascota nuevaMascota = new Mascota(nomMascota, razaMascota, tipoMascota, nuevoCliente, vacunado, edad);
             nuevoCliente.agregarMascota(nuevaMascota);
 
-            this.gc.agregarCliente(nuevoCliente);
-            this.gp.guardarClientes(this.gc.getListaClientes());
+            boolean registroExitoso = this.gc.agregarCliente(nuevoCliente);
 
-            JOptionPane.showMessageDialog(this, "¡Registro Exitoso!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            registroExitoso = true;
-            dispose();
+            if (registroExitoso) {
+                JOptionPane.showMessageDialog(this, "¡Registro Exitoso!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                registroExitoso = true;
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "ERROR: Ya existe un cliente registrado con ese DNI (" + dni + ").", "DNI Duplicado", JOptionPane.ERROR_MESSAGE);
+            }
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "DNI, Teléfono y Edad deben ser números válidos.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
@@ -88,7 +90,6 @@ public class DialogoRegistrar extends JDialog {
             JOptionPane.showMessageDialog(this, "Error al registrar: " + e.getMessage(), "Error Grave", JOptionPane.ERROR_MESSAGE);
         }
     }
-
     public boolean isRegistroExitoso() {
         return registroExitoso;
     }

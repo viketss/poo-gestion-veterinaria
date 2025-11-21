@@ -48,7 +48,7 @@ public class GestorVentas {
         String nuevoRegistro = dniCliente + ";" + totalPagado + ";" + metodoPagoNombre;
         this.historialPagosLeidos.add(nuevoRegistro);
 
-        System.out.println("✅ Pago finalizado y registrado. Total: $" + totalPagado);
+        System.out.println("Pago finalizado y registrado. Total: $" + totalPagado);
 
         return true;
     }

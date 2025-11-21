@@ -6,6 +6,7 @@ import modelado.Mascotas.Mascota;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
 import modelado.HistoriaClinica.Turno;
+import modelado.HistoriaClinica.HorarioTurno; // <-- NUEVA IMPORTACIÓN
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,10 @@ public class GestorTurnos {
     private final GestorVeterinarios gestorVeterinarios;
 
     private List<Turno> listaTurnos;
+    private static final int MAX_TURNOS_POR_DIA = 3; // Límite por día
 
-    // Constructor que recibe TRES gestores
-    public GestorTurnos(GestorPersistencia gp,GestorClientes gc, GestorVeterinarios gv) {
+
+    public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv) {
         this.gp = gp;
         this.gestorClientes = gc;
         this.gestorVeterinarios = gv;
@@ -33,48 +35,65 @@ public class GestorTurnos {
         }
     }
 
-    // metodos
-    private boolean verificarDisponibilidad(Veterinario veterinario, String fecha) {
-        System.out.println("Verificando agenda de " + veterinario.getNombre() + " para la fecha seleccionada.");
-        // Lógica real de verificación iría aquí.
-        return true;
+    private boolean tieneCupoDisponible(Veterinario vet, String fecha) {
+        int turnosHoy = 0;
+
+        for (Turno t : listaTurnos) {
+            // Se compara la referencia del objeto Veterinario y la fecha
+            if (t.getVeterinario().equals(vet) && t.getFecha().equals(fecha)) {
+                turnosHoy++;
+            }
+        }
+        return turnosHoy < MAX_TURNOS_POR_DIA;
     }
 
-    public String solicitarTurno(Cliente cliente, Mascota mascota, Veterinario veterinario, String fechaDeseada) {
+
+    private boolean horarioEstaOcupado(Veterinario vet, String fecha, HorarioTurno horario) {
+        for (Turno t : listaTurnos) {
+            // Se compara la referencia del objeto Veterinario, la fecha Y el Horario
+            if (t.getVeterinario().equals(vet) && t.getFecha().equals(fecha) && t.getHorario().equals(horario)) {
+                return true; // Horario ocupado
+            }
+        }
+        return false;
+    }
+
+    public String solicitarTurno(Cliente cliente, Mascota mascota, Veterinario veterinario, String fechaDeseada, HorarioTurno horario) {
         System.out.println("\n# SOLICITUD DE TURNO");
 
-        // --- VALIDACIÓN DE OBJETOS ---
-        if (cliente == null || mascota == null || veterinario == null) {
-            // Esto solo ocurriría por un error de lógica grave en el Main o la GUI.
-            return "Error interno: Faltan datos críticos para generar el turno.";
+        // --- VALIDACIONES ---
+        if (cliente == null || mascota == null || veterinario == null || fechaDeseada.isEmpty() || horario == null) {
+            return "Error: Faltan datos críticos para generar el turno (cliente, mascota, veterinario, fecha u horario).";
         }
 
-        System.out.println("# Cliente: " + cliente.getNombre() + ", Mascota: " + mascota.getNombre() + ", Veterinario: " + veterinario.getNombre());
+        if (!tieneCupoDisponible(veterinario, fechaDeseada)) {
+            return "El Dr./a " + veterinario.getNombre() + " ya tiene el cupo máximo de " + MAX_TURNOS_POR_DIA + " turnos para la fecha " + fechaDeseada + ".";
+        }
 
-        if (!verificarDisponibilidad(veterinario, fechaDeseada)){
-            return "Turno no disponible para esa fecha.";
+        if (horarioEstaOcupado(veterinario, fechaDeseada, horario)) {
+            return "El Dr./a " + veterinario.getNombre() + " ya tiene un turno reservado para la fecha " + fechaDeseada + " a las " + horario.toString() + ".";
         }
 
         int nuevoIdTurno = this.listaTurnos.size() + 1;
-        // GRASP CREADOR: GestorTurnos crea Turno
-        // GRASP INDIRECCION: el cliente no gestiona un turno directo con el veterinario, interviene el gestor de turnos
 
-        // 1. Crear el objeto Turno
         Turno nuevoTurno = new Turno(
                 mascota,
                 "Motivo a determinar",
                 new ArrayList<Tratamiento>(),
                 fechaDeseada,
                 nuevoIdTurno,
-                veterinario
+                veterinario,
+                horario,
+                20000
         );
         this.listaTurnos.add(nuevoTurno);
+
         veterinario.setTurnoVeterinario(nuevoTurno);
         mascota.getHistoriaClinica().agregarTurno(nuevoTurno);
 
         try {
             this.gp.guardarTurnos(this.listaTurnos);
-            return "Turno solicitado y guardado. ID: " + nuevoIdTurno + " para el " + fechaDeseada;
+            return "Turno solicitado y guardado. ID: " + nuevoIdTurno + " para el " + fechaDeseada + " a las " + horario.toString();
 
         } catch (Exception e) {
             System.err.println("ERROR al guardar turnos en el archivo: " + e.getMessage());

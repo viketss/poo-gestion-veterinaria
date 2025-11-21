@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Vista.VentanaAgregarMascota">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="10" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="contentPane" layout-manager="GridLayoutManager" row-count="11" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="15" left="15" bottom="15" right="15"/>
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
@@ -16,7 +16,7 @@
           <text value="Ingrese los datos de su mascota"/>
         </properties>
       </component>
-      <component id="d5d9f" class="javax.swing.JLabel" binding="lblNombre">
+      <component id="d5d9f" class="javax.swing.JLabel">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -32,7 +32,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="2e52d" class="javax.swing.JLabel" binding="lblTipo">
+      <component id="2e52d" class="javax.swing.JLabel">
         <constraints>
           <grid row="2" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -46,7 +46,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="f7878" class="javax.swing.JLabel" binding="lblRaza">
+      <component id="f7878" class="javax.swing.JLabel">
         <constraints>
           <grid row="4" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -93,6 +93,22 @@
           </grid>
         </constraints>
         <properties/>
+      </component>
+      <component id="dc839" class="javax.swing.JButton" binding="btnGuardar">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Agregar mascota"/>
+        </properties>
+      </component>
+      <component id="729f4" class="javax.swing.JButton" binding="btnCancelar">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cancelar"/>
+        </properties>
       </component>
     </children>
   </grid>

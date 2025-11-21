@@ -4,13 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: mejora de interfaces" />
+=======
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="fix: mulitples errores">
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoRegistrar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Tratamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Tratamiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" afterDir="false" />
+    </list>
+>>>>>>> 99d23f0e951e5b0e164f60b2e48d0cb08bc0dcdc
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -75,6 +89,7 @@
       <option name="project" value="LOCAL" />
       <updated>1763662479902</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00003" summary="feat: mejora de interfaces">
       <option name="closed" value="true" />
       <created>1763662879265</created>
@@ -84,11 +99,47 @@
       <updated>1763662879265</updated>
     </task>
     <option name="localTasksCounter" value="4" />
+=======
+    <task id="LOCAL-00003" summary="feat: update main">
+      <option name="closed" value="true" />
+      <created>1763663762953</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763663762953</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix: mulitples errores">
+      <option name="closed" value="true" />
+      <created>1763664419548</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763664419548</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+>>>>>>> 99d23f0e951e5b0e164f60b2e48d0cb08bc0dcdc
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="comments" />
+<<<<<<< HEAD
     <MESSAGE value="feat: mejora de interfaces" />
     <option name="LAST_COMMIT_MESSAGE" value="feat: mejora de interfaces" />
+=======
+    <MESSAGE value="feat: update main" />
+    <MESSAGE value="fix: mulitples errores" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: mulitples errores" />
+>>>>>>> 99d23f0e951e5b0e164f60b2e48d0cb08bc0dcdc
   </component>
 </project>

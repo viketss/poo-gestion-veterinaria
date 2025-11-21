@@ -1,19 +1,23 @@
 package Vista;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
 import Gestores.GestorClientes;
 import Gestores.GestorTurnos;
 import Gestores.GestorVeterinarios;
-import Gestores.GestorVentas;
 import Persistencia.GestorPersistencia;
+import Gestores.GestorVentas;
+import Gestores.GestorMascota;
+
+import modelado.Mascotas.Mascota;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
-import modelado.Mascotas.Mascota;
+import modelado.HistoriaClinica.HorarioTurno; // <-- Importación correcta
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 public class VentanaTurnos extends JFrame {
-
 
     private final Cliente clienteActual;
     private final GestorTurnos gt;
@@ -21,106 +25,113 @@ public class VentanaTurnos extends JFrame {
     private final GestorClientes gc;
     private final GestorPersistencia gp;
     private final GestorVentas gvtas;
+    private final GestorMascota gm;
 
-    private List<Veterinario> veterinariosDisponibles;
     private List<Mascota> mascotasCliente;
+    private List<Veterinario> veterinariosDisponibles;
 
-    private JPanel contentPane;
-    private JLabel lblBienvenida;
+
+    private JPanel panelPrincipal;
     private JComboBox<String> cmbMascota;
     private JComboBox<String> cmbVeterinario;
     private JTextField txtFecha;
+    private JComboBox<String> cmbHorario; // <-- Ya existe y está enlazado
     private JButton btnSolicitarTurno;
-    private JButton btnCancelarTurno;
+    private JButton btnCancelar;
+    private JLabel lblBienvenida;
+    private JLabel lblMascota;
+    private JLabel lblVeterinario;
+    private JLabel lblFecha;
+    private JLabel lblHorario;
 
-    public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas) {
-        super("Solicitar Turno - Cliente: " + clienteActual.getNombre());
+
+    public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas, GestorMascota gm) {
         this.clienteActual = clienteActual;
         this.gt = gt;
         this.gv = gv;
         this.gc = gc;
         this.gp = gp;
         this.gvtas = gvtas;
+        this.gm = gm;
 
 
-        this.veterinariosDisponibles = new ArrayList<>();
-        this.mascotasCliente = clienteActual.getMascotas() != null ? clienteActual.getMascotas() : new ArrayList<>();
+        this.mascotasCliente = clienteActual.getMascotas();
+        this.veterinariosDisponibles = gv.getVeterinarios();
 
-        setContentPane(contentPane);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Solicitar Turno - Cliente: " + clienteActual.getNombre());
+        setContentPane(panelPrincipal);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         inicializarComponentes();
-
-        btnSolicitarTurno.addActionListener(e -> onSolicitarTurno());
-        btnCancelarTurno.addActionListener(e -> onCancelarTurno());
+        agregarListeners();
 
         pack();
         setLocationRelativeTo(null);
+        setVisible(true);
     }
-
 
     private void inicializarComponentes() {
-        lblBienvenida.setText("Bienvenido/a, " + clienteActual.getNombre() + ". Su DNI es: " + clienteActual.getDni());
-
+        lblBienvenida.setText("Cliente: " + clienteActual.getNombre() + ". Solicite un Turno");
 
         cmbMascota.removeAllItems();
-        if (!mascotasCliente.isEmpty()) {
+        if (mascotasCliente != null) {
             for (Mascota m : mascotasCliente) {
-                cmbMascota.addItem(m.getNombre() + " (" + m.getEspecie() + ")");
+                cmbMascota.addItem(m.getNombre());
             }
-        } else {
-            cmbMascota.addItem("No hay mascotas registradas");
         }
 
-
         cmbVeterinario.removeAllItems();
-        veterinariosDisponibles = gv.getVeterinarios();
-        if (veterinariosDisponibles != null && !veterinariosDisponibles.isEmpty()) {
+        if (veterinariosDisponibles != null) {
             for (Veterinario v : veterinariosDisponibles) {
-                cmbVeterinario.addItem(v.getNombre() + " " + v.getApellido() + " (" + v.getEspecialidad() + ")");
+                cmbVeterinario.addItem(v.getNombre() + " (" + v.getEspecialidad() + ")");
             }
-        } else {
-            cmbVeterinario.addItem("No hay veterinarios cargados.");
+        }
+
+        cmbHorario.removeAllItems();
+        for (HorarioTurno horario : HorarioTurno.values()) {
+            cmbHorario.addItem(horario.toString());
         }
     }
 
+    private void agregarListeners() {
+        btnSolicitarTurno.addActionListener(e -> onSolicitarTurno());
+
+        if (btnCancelar != null) {
+            btnCancelar.addActionListener(e -> dispose());
+        }
+    }
 
     private void onSolicitarTurno() {
         int mascotaIndex = cmbMascota.getSelectedIndex();
         int veterinarioIndex = cmbVeterinario.getSelectedIndex();
-        String fecha = txtFecha.getText();
+        String fecha = txtFecha.getText().trim();
+        String horarioString = (String) cmbHorario.getSelectedItem();
 
-        if (mascotaIndex == -1 || veterinarioIndex == -1 || fecha.isEmpty() || mascotasCliente.isEmpty() || veterinariosDisponibles.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Debe seleccionar mascota, veterinario y fecha.", "Error de Datos", JOptionPane.WARNING_MESSAGE);
+        if (mascotaIndex == -1 || veterinarioIndex == -1 || fecha.isEmpty() || horarioString == null) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar mascota, veterinario, fecha y horario.", "Error de Datos", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        Mascota mascotaSeleccionada = mascotasCliente.get(mascotaIndex);
-        Veterinario veterinarioSeleccionado = veterinariosDisponibles.get(veterinarioIndex);
+        try {
+            String enumName = "H_" + horarioString.replace(":", "_");
+            HorarioTurno horarioSeleccionado = HorarioTurno.valueOf(enumName);
 
-        String resultado = gt.solicitarTurno(clienteActual, mascotaSeleccionada, veterinarioSeleccionado, fecha);
+            Mascota mascotaSeleccionada = mascotasCliente.get(mascotaIndex);
+            Veterinario veterinarioSeleccionado = veterinariosDisponibles.get(veterinarioIndex);
 
-        JOptionPane.showMessageDialog(this,
-                resultado,
-                "Confirmación Final",
-                JOptionPane.INFORMATION_MESSAGE);
+            String resultado = gt.solicitarTurno(clienteActual, mascotaSeleccionada, veterinarioSeleccionado, fecha, horarioSeleccionado);
 
+            JOptionPane.showMessageDialog(this, resultado, "Resultado de la Solicitud", JOptionPane.INFORMATION_MESSAGE);
 
-        this.dispose();
+            if (!resultado.startsWith("Error")) {
+                dispose();
+                new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas, gm).setVisible(true);
+            }
 
-
-        new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas).setVisible(true);
-    }
-
-    private void onCancelarTurno() {
-        int respuesta = JOptionPane.showConfirmDialog(this,
-                "¿Desea cancelar y volver al menú principal?",
-                "Volver al Menú",
-                JOptionPane.YES_NO_OPTION);
-
-        if (respuesta == JOptionPane.YES_OPTION) {
-            this.dispose();
-            new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas).setVisible(true);
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(this, "Error al procesar el horario o datos inválidos. Verifique el formato de la fecha.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error inesperado al solicitar el turno: " + ex.getMessage(), "Error Grave", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
