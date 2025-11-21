@@ -14,9 +14,10 @@ public class Turno {
     private int idTurno;
     private Veterinario veterinario;
     private HorarioTurno horario;
+    private int costoConsulta;
 
     // constructor
-    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario,HorarioTurno horario) {
+    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario,HorarioTurno horario, int costoConsulta) {
         this.mascota = mascota;
         this.motivoDeConsulta = motivoDeConsulta;
         this.tratamientos = new ArrayList<>();
@@ -70,16 +71,25 @@ public class Turno {
         this.horario = horario;
     }
 
-    // tostring
+    public int getCostoConsulta() {
+        return costoConsulta;
+    }
+
+    public void setCostoConsulta(int costoConsulta) {
+        this.costoConsulta = costoConsulta;
+    }
+
     @Override
     public String toString() {
-        return "# Turno: " +
-         "\n- Mascota: " + mascota.getNombre() +
-         "\n- Motivo de consulta: " + motivoDeConsulta +
-         "\n- Tratamientos: " + tratamientos +
-         "\n- Fecha: " + fecha +
-         "\n- Horario: " + horario +
-         "\n- ID de turno: " + idTurno +
-         "\n- Veterinario: " + veterinario.getNombre();
+        return "Turno{" +
+                "mascota=" + mascota +
+                ", motivoDeConsulta='" + motivoDeConsulta + '\'' +
+                ", tratamientos=" + tratamientos +
+                ", fecha='" + fecha + '\'' +
+                ", idTurno=" + idTurno +
+                ", veterinario=" + veterinario.getNombre() +
+                ", horario=" + horario +
+                ", costoConsulta=" + costoConsulta +
+                '}';
     }
 }

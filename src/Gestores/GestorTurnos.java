@@ -83,7 +83,8 @@ public class GestorTurnos {
                 fechaDeseada,
                 nuevoIdTurno,
                 veterinario,
-                horario
+                horario,
+                20000
         );
         this.listaTurnos.add(nuevoTurno);
 
