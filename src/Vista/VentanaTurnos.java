@@ -13,8 +13,6 @@ import modelado.Personas.Veterinario;
 import modelado.HistoriaClinica.HorarioTurno; // <-- Importación correcta
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 public class VentanaTurnos extends JFrame {
@@ -31,7 +29,7 @@ public class VentanaTurnos extends JFrame {
     private List<Veterinario> veterinariosDisponibles;
 
 
-    private JPanel panelPrincipal;
+    private JPanel contentPane;
     private JComboBox<String> cmbMascota;
     private JComboBox<String> cmbVeterinario;
     private JTextField txtFecha;
@@ -59,7 +57,7 @@ public class VentanaTurnos extends JFrame {
         this.veterinariosDisponibles = gv.getVeterinarios();
 
         setTitle("Solicitar Turno - Cliente: " + clienteActual.getNombre());
-        setContentPane(panelPrincipal);
+        setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         inicializarComponentes();

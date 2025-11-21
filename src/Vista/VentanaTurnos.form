@@ -73,7 +73,7 @@
           <text value="Solicitar Turno"/>
         </properties>
       </component>
-      <component id="57bff" class="javax.swing.JButton" binding="btnCancelarTurno">
+      <component id="57bff" class="javax.swing.JButton" binding="btnCancelar">
         <constraints>
           <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
