@@ -6,7 +6,7 @@ import modelado.Mascotas.Mascota;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
 import modelado.HistoriaClinica.Turno;
-import modelado.HistoriaClinica.HorarioTurno; // <-- NUEVA IMPORTACIÓN
+import modelado.HistoriaClinica.HorarioTurno;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +16,16 @@ public class GestorTurnos {
     private final GestorPersistencia gp;
     private final GestorClientes gestorClientes;
     private final GestorVeterinarios gestorVeterinarios;
+    private final GestorMedicamentos gestorMedicamentos;
 
     private List<Turno> listaTurnos;
-    private static final int MAX_TURNOS_POR_DIA = 3; // Límite por día
+    private static final int MAX_TURNOS_POR_DIA = 3;
 
-
-    public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv) {
+    public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv, GestorMedicamentos gm) {
         this.gp = gp;
         this.gestorClientes = gc;
         this.gestorVeterinarios = gv;
-
+        this.gestorMedicamentos = gm;
 
         try {
             this.listaTurnos = gp.cargarTurnos();
@@ -39,7 +39,6 @@ public class GestorTurnos {
         int turnosHoy = 0;
 
         for (Turno t : listaTurnos) {
-            // Se compara la referencia del objeto Veterinario y la fecha
             if (t.getVeterinario().equals(vet) && t.getFecha().equals(fecha)) {
                 turnosHoy++;
             }
@@ -47,12 +46,10 @@ public class GestorTurnos {
         return turnosHoy < MAX_TURNOS_POR_DIA;
     }
 
-
     private boolean horarioEstaOcupado(Veterinario vet, String fecha, HorarioTurno horario) {
         for (Turno t : listaTurnos) {
-            // Se compara la referencia del objeto Veterinario, la fecha Y el Horario
             if (t.getVeterinario().equals(vet) && t.getFecha().equals(fecha) && t.getHorario().equals(horario)) {
-                return true; // Horario ocupado
+                return true;
             }
         }
         return false;
@@ -61,7 +58,6 @@ public class GestorTurnos {
     public String solicitarTurno(Cliente cliente, Mascota mascota, Veterinario veterinario, String fechaDeseada, HorarioTurno horario) {
         System.out.println("\n# SOLICITUD DE TURNO");
 
-        // --- VALIDACIONES ---
         if (cliente == null || mascota == null || veterinario == null || fechaDeseada.isEmpty() || horario == null) {
             return "Error: Faltan datos críticos para generar el turno (cliente, mascota, veterinario, fecha u horario).";
         }
@@ -101,6 +97,30 @@ public class GestorTurnos {
         }
     }
 
+    public float simularAtencion(Turno turno) {
+
+        int costoBaseConsulta = turno.getCostoConsulta();
+
+        Tratamiento tratamientoAsignado = gestorMedicamentos.simularAsignacionTratamiento(
+                "Diagnóstico y tratamiento simulado.",
+                0.0f
+        );
+
+        turno.getTratamientos().add(tratamientoAsignado);
+
+        float costoTotal = turno.calcularCostoTurno(costoBaseConsulta, tratamientoAsignado);
+
+        System.out.println("LOG: Atención simulada. Turno ID: " + turno.getIdTurno() + " Costo Total: " + costoTotal);
+
+        try {
+            this.gp.guardarTurnos(this.listaTurnos);
+        } catch (Exception e) {
+            System.err.println("Error al guardar turno con tratamiento: " + e.getMessage());
+        }
+
+        return costoTotal;
+    }
+
     public void confirmarTurno() {
         System.out.println("Turno confirmado");
     }
@@ -109,4 +129,27 @@ public class GestorTurnos {
         System.out.println("Turno cancelado");
     }
 
+    public GestorPersistencia getGp() {
+        return gp;
+    }
+
+    public GestorClientes getGestorClientes() {
+        return gestorClientes;
+    }
+
+    public GestorVeterinarios getGestorVeterinarios() {
+        return gestorVeterinarios;
+    }
+
+    public GestorMedicamentos getGestorMedicamentos() {
+        return gestorMedicamentos;
+    }
+
+    public List<Turno> getListaTurnos() {
+        return listaTurnos;
+    }
+
+    public void setListaTurnos(List<Turno> listaTurnos) {
+        this.listaTurnos = listaTurnos;
+    }
 }

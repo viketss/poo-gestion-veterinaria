@@ -1,10 +1,6 @@
 import javax.swing.SwingUtilities;
 
-import Gestores.GestorClientes;
-import Gestores.GestorTurnos;
-import Gestores.GestorVeterinarios;
-import Gestores.GestorVentas;
-import Gestores.GestorMascota;
+import Gestores.*;
 import Persistencia.GestorPersistencia;
 import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
@@ -22,6 +18,7 @@ public class Main {
     public GestorPersistencia gestorPersistencia;
     public GestorVentas gestorVentas;
     public GestorMascota gestorMascota;
+    GestorMedicamentos gestorMedicamentos = new GestorMedicamentos();
 
     public static Cliente clienteActual = null;
 
@@ -42,7 +39,7 @@ public class Main {
         // 1. Inicialización de GestorMascota
         gestorMascota = new GestorMascota(gestorClientes, gestorPersistencia);
 
-        gestorTurnos = new GestorTurnos(gestorPersistencia, gestorClientes, gestorVeterinarios);
+        gestorTurnos = new GestorTurnos(gestorPersistencia, gestorClientes, gestorVeterinarios,gestorMedicamentos);
 
         if (clientesIniciales.isEmpty()) {
             Cliente clienteEmergencia = new Cliente("Cliente", "Demo", 12345678, new ArrayList<>(), 1123456789);
