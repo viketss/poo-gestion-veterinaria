@@ -28,20 +28,16 @@ public class GestorTurnos {
         this.gestorVeterinarios = gv;
         this.gestorMedicamentos = gm;
 
-        try {
-            this.listaTurnos = gp.cargarTurnos();
-        } catch (Exception e) {
-            System.err.println("Error al cargar turnos iniciales. Iniciando con lista vacía.");
-            this.listaTurnos = new ArrayList<>();
-        }
+        // Cargar y reconstruir las asociaciones
+        this.listaTurnos = cargarYReconstruirTurnos();
     }
+
 
     private boolean tieneCupoDisponible(Veterinario vet, String fecha) {
         int turnosHoy = 0;
 
         for (Turno t : listaTurnos) {
             if (t.getVeterinario().equals(vet) && t.getFecha().equals(fecha)) {
-                // Solo contamos turnos PENDIENTES, asumiendo que un turno PAGADO/CANCELADO ya no cuenta como cupo
                 if (t.getEstadoTurno() == EstadoTurno.PENDIENTE) {
                     turnosHoy++;
                 }
@@ -58,29 +54,68 @@ public class GestorTurnos {
         }
         return false;
     }
-    public List<modelado.HistoriaClinica.Turno> getTurnosPendientesPorCliente(modelado.Personas.Cliente cliente) {
-        List<modelado.HistoriaClinica.Turno> pendientes = new ArrayList<>();
 
-        if (listaTurnos == null) {
-            return pendientes; // Lista vacía si no hay turnos
-        }
 
-        for (modelado.HistoriaClinica.Turno t : listaTurnos) {
-            // Verifica si el turno pertenece al cliente y si su estado es PENDIENTE
-            if (t.getMascota().getDueno().getDni() == cliente.getDni() &&
-                    t.getEstadoTurno() == modelado.HistoriaClinica.EstadoTurno.PENDIENTE) {
+    private List<Turno> cargarYReconstruirTurnos() {
+        List<Turno> turnosCargados = new ArrayList<>();
+        List<String> lineasTurnos = this.gp.cargarTurnos();
 
-                pendientes.add(t);
+        for (String linea : lineasTurnos) {
+            String[] partes = linea.split(";");
+
+            if (partes.length == 7) {
+                try {
+                    int idTurno = Integer.parseInt(partes[0]);
+                    String fecha = partes[1];
+                    HorarioTurno horario = HorarioTurno.valueOf(partes[2]);
+                    EstadoTurno estado = EstadoTurno.valueOf(partes[3]);
+                    long dniDueno = Long.parseLong(partes[4]);
+                    String nombreMascota = partes[5];
+                    long dniVeterinario = Long.parseLong(partes[6]);
+
+                    Veterinario veterinario = gestorVeterinarios.buscarVeterinarioPorDni(dniVeterinario);
+                    Cliente dueno = gestorClientes.buscarClientePorDni(dniDueno);
+
+                    Mascota mascota = null;
+                    if (dueno != null) {
+                        mascota = dueno.buscarMascota(nombreMascota);
+                    }
+
+                    if (veterinario == null || mascota == null) {
+                        System.err.println("ERROR Persistencia: Turno ID " + idTurno + " no reconstruido. Dependencia perdida.");
+                        continue;
+                    }
+
+                    Turno turno = new Turno(
+                            mascota,
+                            "Motivo desconocido (Persistencia)", // El motivo no se persiste
+                            new ArrayList<Tratamiento>(),
+                            fecha,
+                            idTurno,
+                            veterinario,
+                            horario,
+                            20000, // Costo fijo por ahora
+                            estado
+                    );
+                    turnosCargados.add(turno);
+
+                    if (estado == EstadoTurno.PENDIENTE) {
+                        veterinario.setTurnoVeterinario(turno);
+                    }
+
+                } catch (Exception e) {
+                    System.err.println("Error al parsear línea de turno: " + linea + " Error: " + e.getMessage());
+                }
             }
         }
-        return pendientes;
+        return turnosCargados;
     }
 
     public String solicitarTurno(Cliente cliente, Mascota mascota, Veterinario veterinario, String fechaDeseada, HorarioTurno horario) {
         System.out.println("\n# SOLICITUD DE TURNO");
 
         if (cliente == null || mascota == null || veterinario == null || fechaDeseada.isEmpty() || horario == null) {
-            return "Error: Faltan datos críticos para generar el turno (cliente, mascota, veterinario, fecha u horario).";
+            return "Error: Faltan datos críticos para generar el turno.";
         }
 
         if (!tieneCupoDisponible(veterinario, fechaDeseada)) {
@@ -102,7 +137,7 @@ public class GestorTurnos {
                 veterinario,
                 horario,
                 20000,
-                EstadoTurno.PENDIENTE
+                EstadoTurno.PENDIENTE // NUEVOS TURNOS siempre inician PENDIENTES
         );
         this.listaTurnos.add(nuevoTurno);
 
@@ -143,23 +178,17 @@ public class GestorTurnos {
         return costoTotal;
     }
 
-    /**
-     * Marca un turno como PAGADO, actualiza su estado en la lista persistida
-     * y limpia la agenda del veterinario (setea turnoVeterinario en null).
-     * @param turno El objeto Turno a finalizar.
-     */
     public void finalizarYMarcarComoPagado(Turno turno) {
         if (turno == null) {
             System.err.println("ERROR: No se puede finalizar un turno nulo.");
             return;
         }
 
-        turno.setEstadoTurno(EstadoTurno.PAGADO);
+        turno.setEstadoTurno(EstadoTurno.PAGADO); // Usando getEstadoTurno()
 
         Veterinario veterinario = turno.getVeterinario();
 
         if (veterinario != null) {
-            // Elimina el turno de la agenda del veterinario (libera el cupo)
             veterinario.setTurnoVeterinario(null);
             System.out.println("LOG: Turno ID " + turno.getIdTurno() + " marcado como PAGADO y cupo liberado para " + veterinario.getNombre());
         }
@@ -169,6 +198,23 @@ public class GestorTurnos {
         } catch (Exception e) {
             System.err.println("ERROR al persistir los turnos después de marcar como pagado: " + e.getMessage());
         }
+    }
+
+    public List<Turno> getTurnosPendientesPorCliente(Cliente cliente) {
+        List<Turno> pendientes = new ArrayList<>();
+
+        if (listaTurnos == null) {
+            return pendientes;
+        }
+
+        for (Turno t : listaTurnos) {
+            if (t.getMascota().getDueno().getDni() == cliente.getDni() &&
+                    t.getEstadoTurno() == EstadoTurno.PENDIENTE) {
+
+                pendientes.add(t);
+            }
+        }
+        return pendientes;
     }
 
     public List<Turno> getListaTurnos() {

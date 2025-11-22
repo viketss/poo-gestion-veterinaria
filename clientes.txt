@@ -1,6 +1,6 @@
 Cliente;Demo;12345678;1123456789;0;
 juan;perez;12345678;113456789;1;jj,jjj,PERRO,6,false
-chiara;zanardi;45300955;1136192265;1;lolo,gatuno,GATO,9,true
+chiara;zanardi;45300955;1136192265;3;lolo,gatuno,GATO,9,true|negrito,gatuno,GATO,5,true|negro,gatuno,GATO,8,true
 vi;cuomo;44935502;1158647744;1;aras,callejero,PERRO,7,true
 lucas;varde;45544339;1122626007;1;Larry,Border Collie departamento,PERRO,2,true
 Juan;Perez;44935502;1158647799;1;Milo,Labrador,PERRO,10,true

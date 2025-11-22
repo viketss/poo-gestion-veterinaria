@@ -26,8 +26,8 @@ public class Turno {
         this.idTurno = idTurno;
         this.veterinario = veterinario;
         this.horario = horario;
-        this.costoConsulta = 20000;
-        this.estadoTurno = EstadoTurno.PENDIENTE;
+        this.costoConsulta = costoConsulta;
+        this.estadoTurno = estadoTurno;
     }
 
     // getters y setters

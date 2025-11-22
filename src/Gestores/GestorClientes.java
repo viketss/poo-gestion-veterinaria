@@ -62,4 +62,12 @@ public class GestorClientes {
         }
         return null;
     }
+    public Cliente buscarClientePorDni(long dni) {
+        for (Cliente c : listaClientes) {
+            if (c.getDni() == dni) {
+                return c;
+            }
+        }
+        return null;
+    }
 }

@@ -15,7 +15,6 @@ public class GestorVeterinarios {
         this.gp = gp;
     }
 
-    // metodos
     public Veterinario buscarVeterinarioPorNombre(String nombreVeterinario) {
         for (Veterinario veterinario : this.listaVeterinarios) {
             if (veterinario.getNombre().equals(nombreVeterinario)) {
@@ -25,6 +24,17 @@ public class GestorVeterinarios {
         }
         System.out.println("Veterinario no encontrado.");
         return null;
+    }
+    public Veterinario buscarVeterinarioPorDni(long dni) {
+        for (Veterinario v : listaVeterinarios) {
+            if (v.getDni() == dni) {
+                return v;
+            }
+        }
+        return null;
+    }
+    public List<Veterinario> getListaVeterinarios() {
+        return listaVeterinarios;
     }
 
     public void agregarVeterinario(Veterinario nuevoVeterinario){

@@ -79,16 +79,19 @@ public class GestorPersistencia {
         }
     }
 
-
     public void guardarTurnos(List<modelado.HistoriaClinica.Turno> turnos) {
         try (FileWriter writer = new FileWriter(ARCHIVO_TURNOS, false)) {
 
             for (modelado.HistoriaClinica.Turno turno : turnos) {
 
-                String linea = turno.getFecha() + ";"
-                        + turno.getVeterinario().getDni() + ";"
-                        + turno.getMascota().getDueno().getNombre() + ";"
-                        + turno.getMascota().getNombre();
+                // Guardamos: ID, Fecha, Horario, Estado, DNI del Dueño, Nombre de la Mascota, DNI del Veterinario
+                String linea = turno.getIdTurno() + ";"
+                        + turno.getFecha() + ";"
+                        + turno.getHorario().name() + ";" // Usamos el nombre del Enum
+                        + turno.getEstadoTurno().name() + ";" // Usamos el nombre del Enum
+                        + turno.getMascota().getDueno().getDni() + ";"
+                        + turno.getMascota().getNombre() + ";"
+                        + turno.getVeterinario().getDni();
 
                 writer.write(linea + "\n");
             }
@@ -192,20 +195,21 @@ public class GestorPersistencia {
         return veterinariosCargados;
     }
 
-    public List<Turno> cargarTurnos() {
-        List<Turno> turnosCargados = new ArrayList<>();
+    public List<String> cargarTurnos() {
+        List<String> lineasTurnos = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(ARCHIVO_TURNOS))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-                System.out.println("Línea de turno leída: " + linea);
+                lineasTurnos.add(linea);
             }
         } catch (IOException e) {
             System.err.println("Archivo de turnos no encontrado. Iniciando con lista vacía.");
         }
-
-        return turnosCargados;
+        // Devolvemos la lista de cadenas de texto (List<String>)
+        return lineasTurnos;
     }
+
     public List<String> cargarPagos() {
         List<String> lineasPagos = new ArrayList<>();
 
