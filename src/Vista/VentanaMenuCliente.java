@@ -14,7 +14,7 @@ public class VentanaMenuCliente extends JFrame {
     private final GestorClientes gc;
     private final GestorPersistencia gp;
     private final GestorVentas gvtas;
-    private final GestorMascota gm; // Nuevo atributo agregado
+    private final GestorMascota gm;
 
     private JPanel contentPane;
     private JLabel lblBienvenida;
