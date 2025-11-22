@@ -66,19 +66,7 @@ public class VentanaMenuCliente extends JFrame {
     }
 
     private void onPagar() {
-        modelado.HistoriaClinica.Turno turnoParaCobrar = null;
-
-        if (gt.getListaTurnos() != null && !gt.getListaTurnos().isEmpty()) {
-            // Obtenemos el primer turno disponible para simular el cobro
-            turnoParaCobrar = gt.getListaTurnos().get(0);
-        }
-
-        if (turnoParaCobrar == null) {
-            JOptionPane.showMessageDialog(this, "No hay turnos agendados para simular el cobro. ¡Agende uno primero!", "Error de Flujo", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        new DialogoProcesoPago(this, clienteActual, gvtas, turnoParaCobrar, gt).setVisible(true);
+        new DialogoProcesoPago(this,clienteActual,gvtas,gt).setVisible(true);
     }
 
     private void onCerrarSesion() {

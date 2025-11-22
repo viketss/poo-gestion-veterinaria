@@ -60,7 +60,6 @@ public class Main {
             if (login.isAccesoExitoso()) {
                 clienteActual = login.getClienteLogueado();
 
-                // 2. Pasar gestorMascota como nuevo argumento
                 new VentanaMenuCliente(
                         clienteActual,
                         app.gestorTurnos,

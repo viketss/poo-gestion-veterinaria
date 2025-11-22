@@ -15,9 +15,10 @@ public class Turno {
     private Veterinario veterinario;
     private HorarioTurno horario;
     private int costoConsulta;
+    private EstadoTurno estadoTurno;
 
     // constructor
-    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario,HorarioTurno horario, int costoConsulta) {
+    public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario,HorarioTurno horario, int costoConsulta, EstadoTurno estadoTurno) {
         this.mascota = mascota;
         this.motivoDeConsulta = motivoDeConsulta;
         this.tratamientos = new ArrayList<>();
@@ -25,6 +26,8 @@ public class Turno {
         this.idTurno = idTurno;
         this.veterinario = veterinario;
         this.horario = horario;
+        this.costoConsulta = 20000;
+        this.estadoTurno = EstadoTurno.PENDIENTE;
     }
 
     // getters y setters
@@ -78,6 +81,18 @@ public class Turno {
     public float calcularCostoTurno(int costoConsulta, Tratamiento tratamiento){
         float costoFinal = costoConsulta + tratamiento.calcularCostoMedicamento();
         return costoFinal;
+    }
+
+    public void setCostoConsulta(int costoConsulta) {
+        this.costoConsulta = costoConsulta;
+    }
+
+    public EstadoTurno getEstadoTurno() {
+        return estadoTurno;
+    }
+
+    public void setEstadoTurno(EstadoTurno estadoTurno) {
+        this.estadoTurno = estadoTurno;
     }
 
     @Override

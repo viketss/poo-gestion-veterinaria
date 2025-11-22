@@ -7,6 +7,7 @@ import modelado.Personas.Cliente;
 import modelado.Personas.Veterinario;
 import modelado.HistoriaClinica.Turno;
 import modelado.HistoriaClinica.HorarioTurno;
+import modelado.HistoriaClinica.EstadoTurno;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,10 @@ public class GestorTurnos {
 
         for (Turno t : listaTurnos) {
             if (t.getVeterinario().equals(vet) && t.getFecha().equals(fecha)) {
-                turnosHoy++;
+                // Solo contamos turnos PENDIENTES, asumiendo que un turno PAGADO/CANCELADO ya no cuenta como cupo
+                if (t.getEstadoTurno() == EstadoTurno.PENDIENTE) {
+                    turnosHoy++;
+                }
             }
         }
         return turnosHoy < MAX_TURNOS_POR_DIA;
@@ -48,11 +52,28 @@ public class GestorTurnos {
 
     private boolean horarioEstaOcupado(Veterinario vet, String fecha, HorarioTurno horario) {
         for (Turno t : listaTurnos) {
-            if (t.getVeterinario().equals(vet) && t.getFecha().equals(fecha) && t.getHorario().equals(horario)) {
+            if (t.getVeterinario().equals(vet) && t.getFecha().equals(fecha) && t.getHorario().equals(horario) && t.getEstadoTurno() == EstadoTurno.PENDIENTE) {
                 return true;
             }
         }
         return false;
+    }
+    public List<modelado.HistoriaClinica.Turno> getTurnosPendientesPorCliente(modelado.Personas.Cliente cliente) {
+        List<modelado.HistoriaClinica.Turno> pendientes = new ArrayList<>();
+
+        if (listaTurnos == null) {
+            return pendientes; // Lista vacía si no hay turnos
+        }
+
+        for (modelado.HistoriaClinica.Turno t : listaTurnos) {
+            // Verifica si el turno pertenece al cliente y si su estado es PENDIENTE
+            if (t.getMascota().getDueno().getDni() == cliente.getDni() &&
+                    t.getEstadoTurno() == modelado.HistoriaClinica.EstadoTurno.PENDIENTE) {
+
+                pendientes.add(t);
+            }
+        }
+        return pendientes;
     }
 
     public String solicitarTurno(Cliente cliente, Mascota mascota, Veterinario veterinario, String fechaDeseada, HorarioTurno horario) {
@@ -80,7 +101,8 @@ public class GestorTurnos {
                 nuevoIdTurno,
                 veterinario,
                 horario,
-                20000
+                20000,
+                EstadoTurno.PENDIENTE
         );
         this.listaTurnos.add(nuevoTurno);
 
@@ -97,7 +119,7 @@ public class GestorTurnos {
         }
     }
 
-    public float simularAtencion(Turno turno) {
+    public float simularAtencionYAsignarCosto(Turno turno) {
 
         int costoBaseConsulta = turno.getCostoConsulta();
 
@@ -121,35 +143,43 @@ public class GestorTurnos {
         return costoTotal;
     }
 
-    public void confirmarTurno() {
-        System.out.println("Turno confirmado");
-    }
+    /**
+     * Marca un turno como PAGADO, actualiza su estado en la lista persistida
+     * y limpia la agenda del veterinario (setea turnoVeterinario en null).
+     * @param turno El objeto Turno a finalizar.
+     */
+    public void finalizarYMarcarComoPagado(Turno turno) {
+        if (turno == null) {
+            System.err.println("ERROR: No se puede finalizar un turno nulo.");
+            return;
+        }
 
-    public void cancelarTurno() {
-        System.out.println("Turno cancelado");
-    }
+        turno.setEstadoTurno(EstadoTurno.PAGADO);
 
-    public GestorPersistencia getGp() {
-        return gp;
-    }
+        Veterinario veterinario = turno.getVeterinario();
 
-    public GestorClientes getGestorClientes() {
-        return gestorClientes;
-    }
+        if (veterinario != null) {
+            // Elimina el turno de la agenda del veterinario (libera el cupo)
+            veterinario.setTurnoVeterinario(null);
+            System.out.println("LOG: Turno ID " + turno.getIdTurno() + " marcado como PAGADO y cupo liberado para " + veterinario.getNombre());
+        }
 
-    public GestorVeterinarios getGestorVeterinarios() {
-        return gestorVeterinarios;
-    }
-
-    public GestorMedicamentos getGestorMedicamentos() {
-        return gestorMedicamentos;
+        try {
+            this.gp.guardarTurnos(this.listaTurnos);
+        } catch (Exception e) {
+            System.err.println("ERROR al persistir los turnos después de marcar como pagado: " + e.getMessage());
+        }
     }
 
     public List<Turno> getListaTurnos() {
         return listaTurnos;
     }
 
-    public void setListaTurnos(List<Turno> listaTurnos) {
-        this.listaTurnos = listaTurnos;
+    public void confirmarTurno() {
+        System.out.println("Turno confirmado");
+    }
+
+    public void cancelarTurno() {
+        System.out.println("Turno cancelado");
     }
 }
