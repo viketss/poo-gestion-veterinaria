@@ -70,4 +70,18 @@ public class GestorClientes {
         }
         return null;
     }
+    public boolean mascotaYaExiste(modelado.Personas.Cliente cliente, String nombreMascota) {
+        if (cliente == null || nombreMascota == null || nombreMascota.trim().isEmpty()) {
+            return false;
+        }
+
+        // Buscamos dentro de la lista de mascotas del cliente actual
+        for (modelado.Mascotas.Mascota m : cliente.getMascotas()) {
+            // Usamos equalsIgnoreCase() para que "Fido" y "fido" se consideren el mismo nombre
+            if (m.getNombre().trim().equalsIgnoreCase(nombreMascota.trim())) {
+                return true; // Duplicado encontrado
+            }
+        }
+        return false; // Nombre único para este cliente
+    }
 }

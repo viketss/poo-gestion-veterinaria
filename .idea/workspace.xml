@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: mejor interfaz de Pagos">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistencia/GestorPersistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" afterDir="false" />
-    </list>
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="reform: arreglos a la persistencia para hacerla más robusta" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763838062585</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="reform: arreglos a la persistencia para hacerla más robusta">
+      <option name="closed" value="true" />
+      <created>1763840309916</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1763840309916</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +166,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="feat: nuevo calculo de costo del Turno" />
     <MESSAGE value="feat: mejor interfaz de Pagos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: mejor interfaz de Pagos" />
+    <MESSAGE value="reform: arreglos a la persistencia para hacerla más robusta" />
+    <option name="LAST_COMMIT_MESSAGE" value="reform: arreglos a la persistencia para hacerla más robusta" />
   </component>
 </project>

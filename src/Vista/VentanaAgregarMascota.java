@@ -3,6 +3,7 @@ package Vista;
 import javax.swing.*;
 
 import Gestores.GestorMascota;
+import Gestores.GestorClientes;
 import modelado.Personas.Cliente;
 import modelado.Mascotas.TipoMascota;
 
@@ -19,12 +20,14 @@ public class VentanaAgregarMascota extends JFrame {
     private JButton btnCancelar;
 
     private final GestorMascota gestorMascota;
+    private final GestorClientes gestorClientes;
     private final Cliente clienteActual;
 
-    public VentanaAgregarMascota(Cliente clienteActual, GestorMascota gestorMascota) {
+    public VentanaAgregarMascota(Cliente clienteActual, GestorMascota gestorMascota, GestorClientes gestorClientes) {
         super("Agregar Mascota - Cliente: " + clienteActual.getNombre());
         this.clienteActual = clienteActual;
         this.gestorMascota = gestorMascota;
+        this.gestorClientes = gestorClientes;
 
 
         setContentPane(contentPane);
@@ -65,6 +68,13 @@ public class VentanaAgregarMascota extends JFrame {
             if (nombre.isEmpty() || raza.isEmpty() || tipoString == null) {
                 JOptionPane.showMessageDialog(this, "Todos los campos obligatorios deben estar completos.", "Error de Datos", JOptionPane.ERROR_MESSAGE);
                 return;
+            }
+            if (gestorClientes.mascotaYaExiste(clienteActual, nombre)) {
+                JOptionPane.showMessageDialog(this,
+                        "Ya existe una mascota con el nombre '" + nombre + "' registrada a su nombre.",
+                        "Error de Registro",
+                        JOptionPane.ERROR_MESSAGE);
+                return; // Detener el proceso
             }
 
             gestorMascota.agregarMascotaACliente(

@@ -77,7 +77,7 @@ public class VentanaMenuCliente extends JFrame {
     // Método para lanzar la ventana de registro de mascotas
     private void onAgregarMascota() {
         // Lanza la ventana de registro pasándole el Cliente actual y el GestorMascota
-        VentanaAgregarMascota ventanaMascota = new VentanaAgregarMascota(this.clienteActual, this.gm);
+        VentanaAgregarMascota ventanaMascota = new VentanaAgregarMascota(this.clienteActual, this.gm, this.gc);
         ventanaMascota.setVisible(true);
     }
 }
