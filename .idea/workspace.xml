@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="reform: arreglos a la persistencia para hacerla más robusta" />
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: funcion para que no haya mascotas duplicadas con un mismo dueño">
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaAgregarMascota.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaAgregarMascota.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763840309916</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat: funcion para que no haya mascotas duplicadas con un mismo dueño">
+      <option name="closed" value="true" />
+      <created>1763913179794</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1763913179794</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +177,7 @@
     <MESSAGE value="feat: nuevo calculo de costo del Turno" />
     <MESSAGE value="feat: mejor interfaz de Pagos" />
     <MESSAGE value="reform: arreglos a la persistencia para hacerla más robusta" />
-    <option name="LAST_COMMIT_MESSAGE" value="reform: arreglos a la persistencia para hacerla más robusta" />
+    <MESSAGE value="feat: funcion para que no haya mascotas duplicadas con un mismo dueño" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: funcion para que no haya mascotas duplicadas con un mismo dueño" />
   </component>
 </project>
