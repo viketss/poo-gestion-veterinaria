@@ -102,10 +102,10 @@ public class GestorPersistencia {
             System.err.println("Error al guardar turnos: " + e.getMessage());
         }
     }
-    public void guardarPago(long dniCliente, double montoFinal, String metodoPago) {
+    public void guardarPago(long dniCliente, double montoFinal, String metodoPago, String fechaTurno) { // <--- Nuevo parámetro
 
         try (FileWriter writer = new FileWriter(ARCHIVO_PAGOS, true)) {
-            String linea = dniCliente + ";" + montoFinal + ";" + metodoPago;
+            String linea = dniCliente + ";" + montoFinal + ";" + metodoPago + ";" + fechaTurno;
             writer.write(linea + "\n");
 
             System.out.println("Pago guardado con éxito.");

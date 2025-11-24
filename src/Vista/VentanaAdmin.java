@@ -50,9 +50,7 @@ public class VentanaAdmin extends JFrame {
     }
 
     private void initComponents() {
-        String[] columnas = {"DNI Cliente", "Monto Final ($)", "Método de Pago"};
-
-        // 1. Configuración de la tabla
+        String[] columnas = {"DNI Cliente", "Monto Final ($)", "Método de Pago", "Fecha Turno"};
         DefaultTableModel model = new DefaultTableModel(columnas, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {

@@ -165,17 +165,17 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
                 "Confirmar Pago", JOptionPane.YES_NO_OPTION);
 
         if (respuesta == JOptionPane.YES_OPTION) {
-            // Registro en ventas
-            boolean exito = gestorVentas.procesarYRegistrarPago(clienteLogueado, totalPagado, metodo);
+
+            String fechaDelTurno = turnoSeleccionado.getFecha();
+
+            boolean exito = gestorVentas.procesarYRegistrarPago(clienteLogueado, totalPagado, metodo, fechaDelTurno);
 
             if (exito) {
-                // Finalización del turno (Cambio de estado a PAGADO y liberación de agenda)
                 gestorTurnos.finalizarYMarcarComoPagado(turnoSeleccionado);
-
-                JOptionPane.showMessageDialog(this, "Pago exitoso. El turno ha sido finalizado.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Pago exitoso.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(this, "Error al registrar el pago en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error al registrar.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

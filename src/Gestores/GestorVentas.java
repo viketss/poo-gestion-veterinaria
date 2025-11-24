@@ -29,9 +29,9 @@ public class GestorVentas {
         return metodoPago.pagar(montoBase);
     }
 
-    public boolean procesarYRegistrarPago(Cliente cliente, double montoSubtotal, IMetodoPago metodoPagoSeleccionado) {
+    public boolean procesarYRegistrarPago(Cliente cliente, double montoSubtotal, IMetodoPago metodoPagoSeleccionado, String fechaTurno) {
         if (cliente == null || metodoPagoSeleccionado == null) {
-            System.out.println("Error: Cliente o método de pago no especificado.");
+            System.out.println("Error: Datos incompletos.");
             return false;
         }
 
@@ -41,13 +41,12 @@ public class GestorVentas {
         long dniCliente = cliente.getDni();
         String metodoPagoNombre = metodoPagoSeleccionado.getClass().getSimpleName();
 
-        gp.guardarPago(dniCliente, totalPagado, metodoPagoNombre);
+        gp.guardarPago(dniCliente, totalPagado, metodoPagoNombre, fechaTurno);
 
-        String nuevoRegistro = dniCliente + ";" + totalPagado + ";" + metodoPagoNombre;
-        this.historialPagosLeidos.add(nuevoRegistro);
+        String nuevoRegistro = dniCliente + ";" + totalPagado + ";" + metodoPagoNombre + ";" + fechaTurno;
+        this.historialPagosLeidos.add(nuevoRegistro); // Descomentar si usas esta lista
 
-        System.out.println("Pago finalizado y registrado. Total: $" + totalPagado);
-
+        System.out.println("Pago registrado. Fecha Turno: " + fechaTurno);
         return true;
     }
 
@@ -58,10 +57,15 @@ public class GestorVentas {
         for (String linea : lineasPagos) {
             String[] partes = linea.split(";");
 
-            if (partes.length == 3) {
+            if (partes.length == 4) {
                 historial.add(partes);
-            } else {
-                System.err.println("Advertencia: Línea de pago corrupta o incompleta: " + linea);
+            }
+            else if (partes.length == 3) {
+                String[] filaAdaptada = {partes[0], partes[1], partes[2], "S/D"};
+                historial.add(filaAdaptada);
+            }
+            else {
+                System.err.println("Línea ignorada: " + linea);
             }
         }
         return historial;
