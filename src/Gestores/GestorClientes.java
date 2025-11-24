@@ -5,16 +5,22 @@ import Persistencia.GestorPersistencia;
 import java.util.List;
 
 public class GestorClientes {
-
+    // ATRIBUTOS
     private List<Cliente> listaClientes;
     private final GestorPersistencia gestorPersistencia;
 
-    // Constructor modificado para recibir también la Persistencia
+    // CONSTRUCTOR
     public GestorClientes(List<Cliente> listaClientes, GestorPersistencia gp) {
         this.listaClientes = listaClientes;
         this.gestorPersistencia = gp;
     }
 
+    // GETTERS Y SETTERS
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    // METODOS
     public Cliente buscarCliente(String nombre) {
         for (Cliente cliente : this.listaClientes) {
             if (cliente.getNombre().equals(nombre)) {
@@ -28,12 +34,10 @@ public class GestorClientes {
     }
 
     public boolean agregarCliente(Cliente cliente) {
-
         if (existeClienteConDNI(cliente.getDni())) {
             System.out.println("Error: Ya existe un cliente con el DNI " + cliente.getDni());
             return false;
         }
-
         listaClientes.add(cliente);
 
         gestorPersistencia.guardarClientes(listaClientes);
@@ -50,10 +54,6 @@ public class GestorClientes {
         return false;
     }
 
-    public List<Cliente> getListaClientes() {
-        return listaClientes;
-    }
-
     public Cliente buscarLogin(String nombre, long dni) {
         for (Cliente cliente : this.listaClientes) {
             if (cliente.getNombre().equals(nombre) && cliente.getDni() == dni) {
@@ -62,6 +62,7 @@ public class GestorClientes {
         }
         return null;
     }
+
     public Cliente buscarClientePorDni(long dni) {
         for (Cliente c : listaClientes) {
             if (c.getDni() == dni) {
@@ -70,18 +71,19 @@ public class GestorClientes {
         }
         return null;
     }
+
     public boolean mascotaYaExiste(modelado.Personas.Cliente cliente, String nombreMascota) {
         if (cliente == null || nombreMascota == null || nombreMascota.trim().isEmpty()) {
             return false;
         }
 
-        // Buscamos dentro de la lista de mascotas del cliente actual
+        // Busqueda dentro de la lista de mascotas del cliente actual
         for (modelado.Mascotas.Mascota m : cliente.getMascotas()) {
-            // Usamos equalsIgnoreCase() para que "Fido" y "fido" se consideren el mismo nombre
+            // la busqueda ignora mayusculas y minusculas
             if (m.getNombre().trim().equalsIgnoreCase(nombreMascota.trim())) {
-                return true; // Duplicado encontrado
+                return true; // se encuentra duplicado
             }
         }
-        return false; // Nombre único para este cliente
+        return false; // unico nombre para este cliente
     }
 }

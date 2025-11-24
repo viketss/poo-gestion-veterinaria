@@ -46,7 +46,7 @@ public class DialogoHistoriaClinica extends JDialog {
 
     private void cargarHistoriaClinica() {
         // 1. Generar datos simulados si la mascota no tiene historial
-        gestorHistoria.generarHistorialSimulado(mascota);
+        gestorHistoria.generarHistorial(mascota);
 
         // 2. Obtener la lista de Turnos (Ingresos)
         List<Turno> ingresos = mascota.getHistoriaClinica().getHistorialDeTurnos();

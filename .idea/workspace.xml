@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: vista de historia clinica terminadaaaa" />
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: prueba final">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorHistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorHistoriaClinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoHistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoHistoriaClinica.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -220,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764010958285</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat: prueba final">
+      <option name="closed" value="true" />
+      <created>1764011250791</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1764011250791</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +262,7 @@
     <MESSAGE value="feat: logica del gestor de historia clinica + ventana de historia clinica" />
     <MESSAGE value="feat: vista de historia clinica" />
     <MESSAGE value="feat: vista de historia clinica terminadaaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: vista de historia clinica terminadaaaa" />
+    <MESSAGE value="feat: prueba final" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: prueba final" />
   </component>
 </project>

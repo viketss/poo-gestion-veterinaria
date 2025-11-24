@@ -13,34 +13,36 @@ import java.util.List;
 import java.util.Random;
 
 public class GestorHistoriaClinica {
+    // ATRIBUTOS
     private GestorMedicamentos gestorMedicamentos;
     private Random random;
 
-    // Constructor simplificado: Ya no pide GestorVeterinarios
+    // CONSTRUCTOR
     public GestorHistoriaClinica(GestorMedicamentos gestorMed) {
         this.gestorMedicamentos = gestorMed;
         this.random = new Random();
     }
 
-    public void generarHistorialSimulado(Mascota mascota) {
-        // 1. Validar si ya tiene historial
+    // METODOS
+    public void generarHistorial(Mascota mascota) {
+        // validar si ya tiene historial
         if (!mascota.getHistoriaClinica().getHistorialDeTurnos().isEmpty()) {
             return;
         }
 
-        // 2. Generar entre 1 y 4 registros
+        // generar 4 a 6 registros (supuestamente administrados al sistema por el veterinario)
         int cantidadVisitas = random.nextInt(3) + 4;
 
         for (int i = 0; i < cantidadVisitas; i++) {
-            // --- A. DÍA (FECHA) ---
+            // 1. dia (fecha de los turnos)
             LocalDate fechaRandom = LocalDate.now().minusDays(random.nextInt(700));
-            String fechaStr = fechaRandom.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            String fechaStr = fechaRandom.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")); // formato de fecha
 
-            // --- B. TRATAMIENTO Y MEDICAMENTOS ---
-            TipoTratamiento[] tipos = TipoTratamiento.values();
+            // 2. tratamiento y medicamentos
+            TipoTratamiento[] tipos = TipoTratamiento.values(); // los valores del enum de tratamiento
             TipoTratamiento tipoSeleccionado = tipos[random.nextInt(tipos.length)]; // elige tratamiento al azar
 
-            // Usamos el Gestor de Medicamentos para crear el tratamiento con sus insumos
+            // tratamiento con sus insumos (desde gestor de medicamentos)
             Tratamiento tratamientoSimulado = gestorMedicamentos.simularAsignacionTratamiento(
                     tipoSeleccionado.getDescripcion(),
                     0.0f
