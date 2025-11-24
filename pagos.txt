@@ -6,3 +6,4 @@
 45300955;26250.0;PagoTranferencia
 44935555;20088.0;PagoEfectivo
 45235050;18711.0;PagoEfectivo
+44935555;21262.5;PagoEfectivo
