@@ -6,11 +6,11 @@ import SOLID.S.ProcesarPago;
 import Persistencia.GestorPersistencia;
 
 public class GestorVentas {
-
+    // ATRIBUTOS
     private GestorPersistencia persistencia;
     private List<String> historialPagosLeidos;
 
-
+    // CONSTRUCTOR
     public GestorVentas(GestorPersistencia persistencia) {
         this.persistencia = persistencia;
         this.historialPagosLeidos = cargarHistorialPagos();
@@ -20,7 +20,7 @@ public class GestorVentas {
         return persistencia.cargarPagos();
     }
 
-
+    // METODOS
     public double calcularTotalFinal(double montoBase, IMetodoPago metodoPago) {
         if (metodoPago == null) {
             return montoBase;
@@ -36,7 +36,7 @@ public class GestorVentas {
 
         /* GRASP BAJO ACOPLAMIENTO: GestorVentas depende de interfaz
         IMetodoPago, no de PagoTarjeta
-        * */
+        */
         ProcesarPago procesador = new ProcesarPago(metodoPagoSeleccionado);
         double totalPagado = procesador.pagar(montoSubtotal);
 

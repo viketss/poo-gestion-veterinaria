@@ -29,7 +29,6 @@ public class VentanaAgregarMascota extends JFrame {
         this.gestorMascota = gestorMascota;
         this.gestorClientes = gestorClientes;
 
-
         setContentPane(contentPane);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

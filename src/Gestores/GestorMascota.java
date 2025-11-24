@@ -6,16 +6,17 @@ import modelado.Mascotas.TipoMascota;
 import Persistencia.GestorPersistencia;
 
 public class GestorMascota {
-
+    // ATRIBUTOS
     private final GestorClientes gestorClientes;
     private final GestorPersistencia gestorPersistencia;
 
+    // CONSTRUCTOR
     public GestorMascota(GestorClientes gestorClientes, GestorPersistencia gestorPersistencia) {
         this.gestorClientes = gestorClientes;
         this.gestorPersistencia = gestorPersistencia;
     }
 
-
+    // METODOS
     public Mascota agregarMascotaACliente(
             Cliente dueno,
             String nombre,

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorTurnos {
-
+    // ATRIBUTOS
     private final GestorPersistencia gp;
     private final GestorClientes gestorClientes;
     private final GestorVeterinarios gestorVeterinarios;
@@ -22,17 +22,16 @@ public class GestorTurnos {
     private List<Turno> listaTurnos;
     private static final int MAX_TURNOS_POR_DIA = 3;
 
+    // CONSTRUCTOR
     public GestorTurnos(GestorPersistencia gp, GestorClientes gc, GestorVeterinarios gv, GestorMedicamentos gm) {
         this.gp = gp;
         this.gestorClientes = gc;
         this.gestorVeterinarios = gv;
         this.gestorMedicamentos = gm;
-
-        // Cargar y reconstruir las asociaciones
         this.listaTurnos = cargarYReconstruirTurnos();
     }
 
-
+    // METODOS
     private boolean tieneCupoDisponible(Veterinario vet, String fecha) {
         int turnosHoy = 0;
 
@@ -94,7 +93,7 @@ public class GestorTurnos {
                             idTurno,
                             veterinario,
                             horario,
-                            20000, // Costo fijo por ahora
+                            20000, // Costo fijo del turno
                             estado
                     );
                     turnosCargados.add(turno);
@@ -184,7 +183,7 @@ public class GestorTurnos {
             return;
         }
 
-        turno.setEstadoTurno(EstadoTurno.PAGADO); // Usando getEstadoTurno()
+        turno.setEstadoTurno(EstadoTurno.PAGADO);
 
         Veterinario veterinario = turno.getVeterinario();
 

@@ -73,7 +73,6 @@ public class Turno {
     public void setHorario(HorarioTurno horario) {
         this.horario = horario;
     }
-
     public int getCostoConsulta() {
         return costoConsulta;
     }
@@ -95,6 +94,7 @@ public class Turno {
         this.estadoTurno = estadoTurno;
     }
 
+    // metodos
     public String obtenerDetalleMedicamentos() {
         StringBuilder sb = new StringBuilder();
         sb.append("--- Detalle de Costos ---\n");

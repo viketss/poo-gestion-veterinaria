@@ -26,7 +26,7 @@ public class DialogoHistoriaClinica extends JDialog {
 
         setContentPane(contentPane);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(700, 500); // Un poco más ancho para que entre la tabla
+        setSize(700, 500); // un poco mas ancho para que entre la tabla
         setLocationRelativeTo(parent);
 
         configurarComponentes();
@@ -38,22 +38,22 @@ public class DialogoHistoriaClinica extends JDialog {
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 14));
 
         txtHistoria.setEditable(false);
-        // Usamos Monospaced para que las columnas se alineen perfectamente
+        // monospaced para que se las columnas esten bien alineadas
         txtHistoria.setFont(new Font("Monospaced", Font.PLAIN, 12));
 
         btnCerrar.addActionListener(e -> dispose());
     }
 
     private void cargarHistoriaClinica() {
-        // 1. Generar datos simulados si la mascota no tiene historial
+        // 1.generar datos para el historial
         gestorHistoria.generarHistorial(mascota);
 
-        // 2. Obtener la lista de Turnos (Ingresos)
+        // 2.obtener lista de turnos
         List<Turno> ingresos = mascota.getHistoriaClinica().getHistorialDeTurnos();
 
         StringBuilder sb = new StringBuilder();
 
-        // Encabezado de la "Tabla" de texto
+        // encabezado de la tabla
         sb.append(String.format("%-12s | %-35s | %-30s\n", "FECHA", "TRATAMIENTO", "MEDICAMENTOS"));
         sb.append("------------------------------------------------------------------------------------------\n");
 
@@ -63,37 +63,35 @@ public class DialogoHistoriaClinica extends JDialog {
             for (Turno t : ingresos) {
                 String fecha = t.getFecha();
 
-                // Iterar sobre los tratamientos del turno
+                // iterar sobre los tratamientos del turno
                 for (Tratamiento trat : t.getTratamientos()) {
 
-                    // --- CORRECCIÓN AQUÍ ---
-                    // Accedemos al ENUM a través de getTipo()
+                    // acceso al enum de tratamientos
                     String nombreTratamiento = trat.getDescripcion();
 
-                    // Armar String de medicamentos
+                    // string de medicamentos
                     StringBuilder medsStr = new StringBuilder();
                     if (trat.getMedicamentos().isEmpty()) {
                         medsStr.append("-");
                     } else {
                         for (int i = 0; i < trat.getMedicamentos().size(); i++) {
                             Medicamento m = trat.getMedicamentos().get(i);
-                            // Accedemos al nombre del medicamento (sea por Enum o String según tu clase)
-                            medsStr.append(m.getNombreMedicamento()); // O m.getTipo().getNombre()
+                            // acceso al nombre del medicamento
+                            medsStr.append(m.getNombreMedicamento());
                             if (i < trat.getMedicamentos().size() - 1) {
                                 medsStr.append(", ");
                             }
                         }
                     }
 
-                    // Imprimir fila formateada
-                    // %-35s reserva 35 caracteres para el tratamiento
+                    // imprimir la fila formateada
                     sb.append(String.format("%-12s | %-35s | %s\n",
                             fecha,
                             cortarTexto(nombreTratamiento, 35),
                             medsStr.toString()
                     ));
 
-                    fecha = ""; // Para que no repita la fecha si hay varios tratamientos el mismo día
+                    fecha = ""; // para que no repita la fecha si hay varios tratamientos el mismo día
                 }
                 sb.append("------------------------------------------------------------------------------------------\n");
             }
@@ -103,7 +101,7 @@ public class DialogoHistoriaClinica extends JDialog {
         txtHistoria.setCaretPosition(0);
     }
 
-    // Ayuda visual para cortar textos muy largos y que no rompan la tabla
+    // por si hay textos muy largos, que no se rompa el formato
     private String cortarTexto(String texto, int max) {
         if (texto.length() > max) {
             return texto.substring(0, max - 3) + "...";

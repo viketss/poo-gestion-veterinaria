@@ -7,15 +7,17 @@ import java.util.List;
 import java.util.Random;
 
 public class GestorMedicamentos {
-
+    // ATRIBUTOS
     private final List<Medicamento> inventarioBase;
     private final Random random;
 
+    // CONSTRUCTOR
     public GestorMedicamentos() {
         this.inventarioBase = inicializarInventarioBase();
         this.random = new Random();
     }
 
+    // METODOS
     private List<Medicamento> inicializarInventarioBase() {
         List<Medicamento> medicamentos = new ArrayList<>();
 
@@ -31,19 +33,19 @@ public class GestorMedicamentos {
 
         List<Medicamento> medicamentosAsignados = new ArrayList<>();
 
-        // Elegir el primer medicamento al azar
+        // elegir medicamento al azar (gestionado por el veterinario)
         int index1 = random.nextInt(inventarioBase.size());
         medicamentosAsignados.add(inventarioBase.get(index1));
 
-        // Elegir el segundo medicamento al azar, asegurando que no sea el mismo
+        // elegir el segundo medicamento (chequea que no se repita)
         int index2 = random.nextInt(inventarioBase.size());
         while (index2 == index1) {
             index2 = random.nextInt(inventarioBase.size());
         }
         medicamentosAsignados.add(inventarioBase.get(index2));
 
-        // Crear el Tratamiento (constructor: descripcion, costoBase, medicamentos)
-        Tratamiento tratamiento = new Tratamiento(descripcion, costoBase, medicamentosAsignados);
+        // crear el tratamiento
+        Tratamiento tratamiento = new Tratamiento(descripcion, medicamentosAsignados);
 
         return tratamiento;
     }

@@ -5,16 +5,17 @@ import Persistencia.GestorPersistencia;
 import java.util.List;
 
 public class GestorVeterinarios {
-
+    // ATRIBUTOS
     private final GestorPersistencia gp;
     private List<Veterinario> listaVeterinarios;
 
-
+    // CONSTRUCTOR
     public GestorVeterinarios(List<Veterinario> listaVeterinarios, GestorPersistencia gp) {
         this.listaVeterinarios = listaVeterinarios;
         this.gp = gp;
     }
 
+    // METODOS
     public Veterinario buscarVeterinarioPorNombre(String nombreVeterinario) {
         for (Veterinario veterinario : this.listaVeterinarios) {
             if (veterinario.getNombre().equals(nombreVeterinario)) {
@@ -25,6 +26,7 @@ public class GestorVeterinarios {
         System.out.println("Veterinario no encontrado.");
         return null;
     }
+
     public Veterinario buscarVeterinarioPorDni(long dni) {
         for (Veterinario v : listaVeterinarios) {
             if (v.getDni() == dni) {
@@ -33,15 +35,13 @@ public class GestorVeterinarios {
         }
         return null;
     }
-    public List<Veterinario> getListaVeterinarios() {
-        return listaVeterinarios;
-    }
 
     public void agregarVeterinario(Veterinario nuevoVeterinario){
         listaVeterinarios.add(nuevoVeterinario);
         this.gp.guardarVeterinarios(this.listaVeterinarios);
     }
 
+    // GETTERS Y SETTERS
     public List<Veterinario> getVeterinarios() {
         return listaVeterinarios;
     }

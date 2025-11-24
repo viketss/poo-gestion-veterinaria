@@ -8,7 +8,7 @@ public class Tratamiento {
     private List<Medicamento> medicamentos; // 1 tratamiento .. n medicamentos - asociacion
 
     // constructor
-    public Tratamiento(String descripcion, float costoBase, List<Medicamento> medicamentos) {
+    public Tratamiento(String descripcion, List<Medicamento> medicamentos) {
         this.descripcion = descripcion;
         this.medicamentos = medicamentos; // asociacion
     }
@@ -37,7 +37,7 @@ public class Tratamiento {
     }
 
     public void administrarMedicamento(Medicamento medicamento) {
-        System.out.println("El tratamiento ha sido realizado con el medicamento: " +medicamento);
+        System.out.println("El tratamiento ha sido realizado con el medicamento: " + medicamento);
     }
 
     // tostring

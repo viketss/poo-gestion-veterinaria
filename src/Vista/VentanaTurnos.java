@@ -25,7 +25,6 @@ public class VentanaTurnos extends JFrame {
     private List<Mascota> mascotasCliente;
     private List<Veterinario> veterinariosDisponibles;
 
-
     private JPanel contentPane;
     private JComboBox<String> cmbMascota;
     private JComboBox<String> cmbVeterinario;
@@ -39,7 +38,7 @@ public class VentanaTurnos extends JFrame {
     private JLabel lblFecha;
     private JLabel lblHorario;
 
-
+    // constructor
     public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas, GestorMascota gm, GestorHistoriaClinica ghc) {
         this.clienteActual = clienteActual;
         this.gt = gt;

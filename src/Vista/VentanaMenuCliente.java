@@ -28,7 +28,7 @@ public class VentanaMenuCliente extends JFrame {
     private JButton btnAgregarMascota; // Asumiendo que este botón existe en el formulario
     private JButton btnVerHistorial;
 
-    // Constructor modificado para recibir los 7 gestores
+    // CONSTRUCTOR
     public VentanaMenuCliente(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas, GestorMascota gm, GestorHistoriaClinica ghc) {
         super("Menú Principal - Cliente: " + clienteActual.getNombre());
         this.clienteActual = clienteActual;
@@ -37,7 +37,7 @@ public class VentanaMenuCliente extends JFrame {
         this.gc = gc;
         this.gp = gp;
         this.gvtas = gvtas;
-        this.gm = gm; // Asignación del nuevo GestorMascota
+        this.gm = gm;
         this.ghc = ghc;
 
         setContentPane(contentPane);
@@ -59,12 +59,10 @@ public class VentanaMenuCliente extends JFrame {
         btnPagar.addActionListener(e -> onPagar());
         btnCerrarSesion.addActionListener(e -> onCerrarSesion());
 
-        // Listener para la nueva funcionalidad
         if (btnAgregarMascota != null) {
             btnAgregarMascota.addActionListener(e -> onAgregarMascota());
         }
 
-        // Listener para el Historial
         if (btnVerHistorial != null) {
             btnVerHistorial.addActionListener(e -> onVerHistorial());
         }
@@ -72,7 +70,6 @@ public class VentanaMenuCliente extends JFrame {
 
     private void onSolicitarTurno() {
         this.dispose();
-        // Llamada corregida con los 7 argumentos
         new VentanaTurnos(clienteActual, gt, gv, gc, gp, gvtas, gm, this.ghc).setVisible(true);
     }
 
@@ -85,14 +82,13 @@ public class VentanaMenuCliente extends JFrame {
         new DialogoLogin(null, this.gc, this.gp).setVisible(true);
     }
 
-    // Método para lanzar la ventana de registro de mascotas
+    // metodo para lanzar la ventana de registro de mascotas
     private void onAgregarMascota() {
-        // Lanza la ventana de registro pasándole el Cliente actual y el GestorMascota
         VentanaAgregarMascota ventanaMascota = new VentanaAgregarMascota(this.clienteActual, this.gm, this.gc);
         ventanaMascota.setVisible(true);
     }
 
-    // --- 4. NUEVA FUNCIONALIDAD: VER HISTORIAL ---
+    // metodo para ver el historial
     private void onVerHistorial() {
         List<Mascota> mascotas = clienteActual.getMascotas();
 
@@ -103,7 +99,7 @@ public class VentanaMenuCliente extends JFrame {
 
         Mascota mascotaSeleccionada = mascotas.get(0);
 
-        // Si hay más de una, preguntar cuál
+        // si hay más de una mascota, preguntar cuál
         if (mascotas.size() > 1) {
             mascotaSeleccionada = (Mascota) JOptionPane.showInputDialog(
                     this,
@@ -117,7 +113,6 @@ public class VentanaMenuCliente extends JFrame {
         }
 
         if (mascotaSeleccionada != null) {
-            // Abrimos el diálogo pasando la mascota y el gestor simulador
             new DialogoHistoriaClinica(this, mascotaSeleccionada, this.ghc).setVisible(true);
         }
     }

@@ -8,7 +8,6 @@ public enum HorarioTurno {
     H_15_00,
     H_16_00;
 
-    // Opcional: Para mostrar un nombre más amigable en la GUI
     @Override
     public String toString() {
         return this.name().replace("H_", "").replace("_", ":");

@@ -15,6 +15,7 @@ public enum TipoTratamiento {
         this.descripcion = descripcion;
     }
 
+    // getters y setters
     public String getDescripcion() {
         return descripcion;
     }

@@ -10,6 +10,7 @@ public enum TipoMascota {
 
     private final String nombre;
 
+    // CONSTRUCTOR
     TipoMascota(String nombre) {
         this.nombre = nombre;
     }

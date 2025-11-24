@@ -4,16 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: prueba final">
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: no muestra mas los logs por consola">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorHistoriaClinica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorHistoriaClinica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorMascota.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorMascota.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorMedicamentos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorMedicamentos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoHistoriaClinica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoHistoriaClinica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/HistoriaClinica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/HistoriaClinica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorHistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorHistoriaClinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVeterinarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVeterinarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/HorarioTurno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/HorarioTurno.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/TipoTratamiento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/TipoTratamiento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Tratamiento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Tratamiento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorMascota.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorMascota.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gestores/GestorMedicamentos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorMedicamentos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/HistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/HistoriaClinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorTurnos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVeterinarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoHistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoHistoriaClinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaAgregarMascota.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaAgregarMascota.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/HorarioTurno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/HorarioTurno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/TipoTratamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/TipoTratamiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Tratamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Tratamiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/Mascotas/TipoMascota.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Mascotas/TipoMascota.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/Personas/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Personas/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/Personas/Veterinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/Personas/Veterinario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764011250791</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="feat: no muestra mas los logs por consola">
+      <option name="closed" value="true" />
+      <created>1764014681929</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1764014681929</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +293,7 @@
     <MESSAGE value="feat: vista de historia clinica" />
     <MESSAGE value="feat: vista de historia clinica terminadaaaa" />
     <MESSAGE value="feat: prueba final" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: prueba final" />
+    <MESSAGE value="feat: no muestra mas los logs por consola" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: no muestra mas los logs por consola" />
   </component>
 </project>

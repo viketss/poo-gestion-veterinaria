@@ -11,7 +11,7 @@ public class Cliente extends Persona {
 
     // constructor
     public Cliente(String nombre, String apellido, long dni, List<Mascota> mascotas, long telefono) {
-        super(nombre, apellido, dni); // llamar al constructor de la clase padre
+        super(nombre, apellido, dni);
         this.mascotas = new ArrayList<>();
         this.telefono = telefono;
     }
@@ -33,9 +33,6 @@ public class Cliente extends Persona {
         mascotas.add(mascota);
     }
 
-    public void obtenerInfoDeContacto() {
-        System.out.println(getTelefono());
-    }
 
     public Mascota buscarMascota(String nombreMascota) {
         for (Mascota mascota : this.mascotas) {

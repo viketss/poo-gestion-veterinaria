@@ -31,21 +31,12 @@ public class Main {
         List<Cliente> clientesIniciales = gestorPersistencia.cargarClientes();
         List<Veterinario> veterinariosCargados = gestorPersistencia.cargarVeterinarios();
 
+        // inicializar gestores
         gestorClientes = new GestorClientes(clientesIniciales, gestorPersistencia);
-
         gestorVeterinarios = new GestorVeterinarios(veterinariosCargados, gestorPersistencia);
-
         gestorVentas = new GestorVentas(gestorPersistencia);
-
-
-        // 1. Inicialización de GestorMascota
         gestorMascota = new GestorMascota(gestorClientes, gestorPersistencia);
-
-        // --- AGREGAR ESTA INICIALIZACIÓN ---
-        // Le pasamos el gestorMedicamentos que ya tenías creado arriba
         gestorHistoriaClinica = new GestorHistoriaClinica(gestorMedicamentos);
-        // -----------------------------------
-
         gestorTurnos = new GestorTurnos(gestorPersistencia, gestorClientes, gestorVeterinarios,gestorMedicamentos);
 
         if (clientesIniciales.isEmpty()) {

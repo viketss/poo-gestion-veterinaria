@@ -19,17 +19,16 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
     private final GestorTurnos gestorTurnos;
     private final Cliente clienteLogueado;
 
-    // Lista de turnos cargados en memoria para este diálogo
     private List<Turno> turnosPendientes;
 
-    // --- Componentes de la GUI ---
+    // componentes de la GUI
     private JPanel contentPane;
     private JTextField txtMonto;
     private JComboBox<String> cmbMetodoPago;
     private JComboBox<String> cmbElegirTurno;
     private JButton btnPagar;
     private JButton btnCancelar;
-    private JTextArea txtDetalle; // Componente para mostrar los medicamentos
+    private JTextArea txtDetalle; // componente para mostrar los medicamentos
 
     public DialogoProcesoPago(JFrame parent, Cliente cliente, GestorVentas gestorVentas, GestorTurnos gestorTurnos) {
         super(parent, "Procesar Pago - Cliente: " + cliente.getNombre() + " " + cliente.getApellido(), true);
@@ -38,7 +37,7 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
         this.clienteLogueado = cliente;
         this.gestorTurnos = gestorTurnos;
 
-        // Obtener los turnos pendientes específicos de este cliente
+        // obtener los turnos pendientes de este cliente
         this.turnosPendientes = this.gestorTurnos.getTurnosPendientesPorCliente(clienteLogueado);
 
         setContentPane(contentPane);
@@ -52,23 +51,22 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
     }
 
     private void setupComponentData() {
-        // 1. Configurar Métodos de Pago
+        // configuracion de los metodos de pago
         String[] metodos = {"Seleccione Método", "Efectivo (10% Desc.)", "Tarjeta (5% Recargo)", "Transferencia (Sin costo)"};
         cmbMetodoPago.removeAllItems();
         for (String metodo : metodos) {
             cmbMetodoPago.addItem(metodo);
         }
 
-        // 2. Configurar Componentes de Texto
+        // configuracion componentes de texto
         txtMonto.setEditable(false);
         if (txtDetalle != null) {
             txtDetalle.setEditable(false);
-            // Opcional: Hacer que haga salto de línea automático
             txtDetalle.setLineWrap(true);
             txtDetalle.setWrapStyleWord(true);
         }
 
-        // 3. Cargar Turnos Pendientes
+        // cargar turnos pendientes
         cmbElegirTurno.removeAllItems();
 
         if (turnosPendientes.isEmpty()) {
@@ -78,7 +76,7 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
             if (txtDetalle != null) txtDetalle.setText("Sin items a cobrar.");
         } else {
             for (Turno t : turnosPendientes) {
-                // Formato: ID - Fecha (Horario) | Vet: Nombre Apellido
+                // Formato: ID - fecha (horario) | vet: nombre apellido
                 String nombreVeterinario = t.getVeterinario().getNombre() + " " + t.getVeterinario().getApellido();
                 String info = String.format("ID: %d - %s (%s) | Vet: %s",
                         t.getIdTurno(),
@@ -89,7 +87,6 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
             }
             btnPagar.setEnabled(true);
 
-            // Calcular automáticamente el primer elemento
             recalcularMonto();
         }
     }
@@ -101,13 +98,13 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
             btnCancelar.addActionListener(e -> dispose());
         }
 
-        // Recalcular monto y detalle al cambiar de turno
+        // recalcular monto y detalle al cambiar de turno
         cmbElegirTurno.addActionListener(e -> recalcularMonto());
     }
 
     /**
      * Simula la atención médica para el turno seleccionado, obtiene el costo total
-     * y actualiza la caja de texto de monto y el área de detalle.
+     * y actualiza la caja de texto de monto y el area de detalle.
      */
     private void recalcularMonto() {
         int selectedIndex = cmbElegirTurno.getSelectedIndex();
@@ -115,11 +112,11 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
         if (selectedIndex != -1 && !turnosPendientes.isEmpty()) {
             Turno turnoSeleccionado = turnosPendientes.get(selectedIndex);
 
-            // 1. Calcular Monto (Lógica en GestorTurnos -> Simulación -> Tratamiento)
+            // calcular monto (logica en el gestor de turnos)
             float nuevoMonto = gestorTurnos.simularAtencionYAsignarCosto(turnoSeleccionado);
             txtMonto.setText(String.format("%.2f", nuevoMonto));
 
-            // 2. Mostrar Detalle de Medicamentos
+            // mostrar detalle de medicamentos
             if (txtDetalle != null) {
                 txtDetalle.setText(turnoSeleccionado.obtenerDetalleMedicamentos());
             }
@@ -141,7 +138,6 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
     }
 
     private void realizarPago() {
-        // Validaciones iniciales
         int selectedIndex = cmbElegirTurno.getSelectedIndex();
         if (selectedIndex == -1 || turnosPendientes.isEmpty()) {
             return;
@@ -156,20 +152,20 @@ public class DialogoProcesoPago extends JDialog implements ActionListener {
             return;
         }
 
-        // Cálculo final con el método de pago (SOLID OCP)
+        // calculo final con el metodo de pago (SOLID OCP)
         double totalPagado = gestorVentas.calcularTotalFinal(monto, metodo);
 
-        // Confirmación
+        // confirmacion
         int respuesta = JOptionPane.showConfirmDialog(this,
                 String.format("Total final: $%.2f\n¿Confirmar pago del Turno ID %d?", totalPagado, turnoSeleccionado.getIdTurno()),
                 "Confirmar Pago", JOptionPane.YES_NO_OPTION);
 
         if (respuesta == JOptionPane.YES_OPTION) {
-            // Registro en ventas
+            // registro en ventas
             boolean exito = gestorVentas.procesarYRegistrarPago(clienteLogueado, totalPagado, metodo);
 
             if (exito) {
-                // Finalización del turno (Cambio de estado a PAGADO y liberación de agenda)
+                // finalización del turno (cambio de estado a PAGADO y se libera la agenda)
                 gestorTurnos.finalizarYMarcarComoPagado(turnoSeleccionado);
 
                 JOptionPane.showMessageDialog(this, "Pago exitoso. El turno ha sido finalizado.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
