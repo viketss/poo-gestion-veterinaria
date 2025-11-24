@@ -65,7 +65,7 @@ public class Main {
                         app.gestorClientes,
                         app.gestorPersistencia,
                         app.gestorVentas,
-                        app.gestorMascota, // <- Nuevo argumento
+                        app.gestorMascota,
                         app.gestorHistoriaClinica
                 ).setVisible(true);
             } else {
