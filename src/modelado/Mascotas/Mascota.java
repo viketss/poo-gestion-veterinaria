@@ -85,7 +85,6 @@ public class Mascota {
                 " - Raza: " + raza +
                 " - Dueño: " + dueno.getNombre() + " " + dueno.getApellido() +
                 " - Vacunado: " + (vacunado ? "Sí" : "No") +
-                " - Edad: " + edad +
-                " - ID historia clinica: " + historiaClinica.getId();
+                " - Edad: " + edad;
     }
 }

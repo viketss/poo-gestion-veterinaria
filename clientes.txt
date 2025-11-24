@@ -7,4 +7,4 @@ Juan;Perez;44935502;1158647799;1;Milo,Labrador,PERRO,10,true
 Juan;Perez;44935502;1158647744;1;Mila,Siames,GATO,8,true
 Tomas;Flory;45235050;1173693466;3;Toti,Tigre,OTRO,4,true|Shakira,Piton,REPTIL,12,true|Fido,Border Collie,PERRO,4,true
 katia;cuomo;44935555;1155555555;2;Aras,calle,PERRO,6,true|jose,loro,PAJARO,2,true
-emma;stone;66666666;12345678;1;pipo,dalmata,PERRO,6,true
+emma;stone;66666666;12345678;2;pipo,dalmata,PERRO,6,true|blue,guacamayo,PAJARO,2,true

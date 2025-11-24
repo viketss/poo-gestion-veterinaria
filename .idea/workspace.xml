@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: arreglo de comentarios">
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: me olvide un comentario :D">
       <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764017564782</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat: me olvide un comentario :D">
+      <option name="closed" value="true" />
+      <created>1764017849765</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1764017849765</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,6 +286,7 @@
     <MESSAGE value="feat: prueba final" />
     <MESSAGE value="feat: no muestra mas los logs por consola" />
     <MESSAGE value="feat: arreglo de comentarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: arreglo de comentarios" />
+    <MESSAGE value="feat: me olvide un comentario :D" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: me olvide un comentario :D" />
   </component>
 </project>
