@@ -37,32 +37,6 @@ public class HistoriaClinica {
     }
 
     // metodos
-    public void generarReporte() {
-        System.out.println("\n----- Reporte de Historia Clínica -----");
-        System.out.println("ID: " + id);
-
-        System.out.println("\nTurnos registrados: " + historialDeTurnos.size());
-        if (historialDeTurnos.isEmpty()) {
-            System.out.println("  - No hay turnos registrados.");
-        } else {
-            int i = 1;
-            for (Turno t : historialDeTurnos) {
-                System.out.println("  " + i++ + ") " + t);
-            }
-        }
-
-        System.out.println("Tratamientos registrados: " + historialDeTratamientos.size());
-        if (historialDeTratamientos.isEmpty()) {
-            System.out.println("  - No hay tratamientos registrados.");
-        } else {
-            int i = 1;
-            for (Tratamiento tr : historialDeTratamientos) {
-                System.out.println("  " + i++ + ") " + tr);
-            }
-        }
-        System.out.println("---------------------------------------------\n");
-    }
-    
     public void agregarTurno(Turno turno) {
         historialDeTurnos.add(turno);
         System.out.println("Turno registrado con exito.\n");
