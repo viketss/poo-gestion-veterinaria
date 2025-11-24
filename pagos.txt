@@ -4,3 +4,4 @@
 44935502;10500.0;PagoTarjeta
 45235050;5913.0;PagoEfectivo
 45300955;26250.0;PagoTranferencia
+45235050;18711.0;PagoEfectivo

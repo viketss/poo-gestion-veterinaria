@@ -95,6 +95,24 @@ public class Turno {
         this.estadoTurno = estadoTurno;
     }
 
+    public String obtenerDetalleMedicamentos() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Detalle de Medicamentos ---\n");
+
+        if (tratamientos.isEmpty()) {
+            sb.append("(No se aplicaron tratamientos)");
+            return sb.toString();
+        }
+
+        for (Tratamiento t : tratamientos) {
+            for (Medicamento m : t.getMedicamentos()) {
+                sb.append("• ").append(m.getNombreMedicamento())
+                        .append(" ($").append(m.getPrecio()).append(")\n");
+            }
+        }
+        return sb.toString();
+    }
+
     @Override
     public String toString() {
         return "Turno{" +
