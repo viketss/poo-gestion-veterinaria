@@ -29,7 +29,7 @@ public class GestorHistoriaClinica {
         }
 
         // 2. Generar entre 1 y 4 registros
-        int cantidadVisitas = random.nextInt(4) + 1;
+        int cantidadVisitas = random.nextInt(3) + 4;
 
         for (int i = 0; i < cantidadVisitas; i++) {
             // --- A. DÍA (FECHA) ---

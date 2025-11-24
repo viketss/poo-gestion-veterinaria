@@ -7,3 +7,4 @@
 44935555;20088.0;PagoEfectivo
 45235050;18711.0;PagoEfectivo
 44935555;27066.375;PagoTarjeta
+44935555;23100.0;PagoTranferencia
