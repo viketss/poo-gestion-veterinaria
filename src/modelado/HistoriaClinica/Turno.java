@@ -21,7 +21,7 @@ public class Turno {
     public Turno(Mascota mascota, String motivoDeConsulta, List<Tratamiento> tratamientos, String fecha, int idTurno, Veterinario veterinario,HorarioTurno horario, int costoConsulta, EstadoTurno estadoTurno) {
         this.mascota = mascota;
         this.motivoDeConsulta = motivoDeConsulta;
-        this.tratamientos = new ArrayList<>();
+        this.tratamientos = (tratamientos != null) ? tratamientos : new ArrayList<>();
         this.fecha = fecha;
         this.idTurno = idTurno;
         this.veterinario = veterinario;

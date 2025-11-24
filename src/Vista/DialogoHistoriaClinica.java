@@ -10,7 +10,7 @@ import modelado.HistoriaClinica.Turno;
 import modelado.HistoriaClinica.Tratamiento;
 import modelado.HistoriaClinica.Medicamento;
 
-public class DialogoHistorialClinico extends JDialog {
+public class DialogoHistoriaClinica extends JDialog {
     private JPanel contentPane;
     private JTextArea txtHistoria;
     private JButton btnCerrar;
@@ -19,7 +19,7 @@ public class DialogoHistorialClinico extends JDialog {
     private Mascota mascota;
     private GestorHistoriaClinica gestorHistoria;
 
-    public DialogoHistorialClinico(JFrame parent, Mascota mascota, GestorHistoriaClinica gestorHistoria) {
+    public DialogoHistoriaClinica(JFrame parent, Mascota mascota, GestorHistoriaClinica gestorHistoria) {
         super(parent, "Historia Clínica", true);
         this.mascota = mascota;
         this.gestorHistoria = gestorHistoria;

@@ -1,11 +1,7 @@
 package Vista;
 
-import Gestores.GestorClientes;
-import Gestores.GestorTurnos;
-import Gestores.GestorVeterinarios;
+import Gestores.*;
 import Persistencia.GestorPersistencia;
-import Gestores.GestorVentas;
-import Gestores.GestorMascota;
 
 import modelado.Mascotas.Mascota;
 import modelado.Personas.Cliente;
@@ -24,6 +20,7 @@ public class VentanaTurnos extends JFrame {
     private final GestorPersistencia gp;
     private final GestorVentas gvtas;
     private final GestorMascota gm;
+    private final GestorHistoriaClinica ghc; // <--- 1. AGREGAR ESTO
 
     private List<Mascota> mascotasCliente;
     private List<Veterinario> veterinariosDisponibles;
@@ -43,7 +40,7 @@ public class VentanaTurnos extends JFrame {
     private JLabel lblHorario;
 
 
-    public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas, GestorMascota gm) {
+    public VentanaTurnos(Cliente clienteActual, GestorTurnos gt, GestorVeterinarios gv, GestorClientes gc, GestorPersistencia gp, GestorVentas gvtas, GestorMascota gm, GestorHistoriaClinica ghc) {
         this.clienteActual = clienteActual;
         this.gt = gt;
         this.gv = gv;
@@ -55,6 +52,7 @@ public class VentanaTurnos extends JFrame {
 
         this.mascotasCliente = clienteActual.getMascotas();
         this.veterinariosDisponibles = gv.getVeterinarios();
+        this.ghc = ghc;
 
         setTitle("Solicitar Turno - Cliente: " + clienteActual.getNombre());
         setContentPane(contentPane);
@@ -123,7 +121,7 @@ public class VentanaTurnos extends JFrame {
 
             if (!resultado.startsWith("Error")) {
                 dispose();
-                new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas, gm).setVisible(true);
+                new VentanaMenuCliente(clienteActual, gt, gv, gc, gp, gvtas, gm, this.ghc).setVisible(true);
             }
 
         } catch (IllegalArgumentException ex) {
