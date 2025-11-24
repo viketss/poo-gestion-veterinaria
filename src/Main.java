@@ -19,6 +19,7 @@ public class Main {
     public GestorVentas gestorVentas;
     public GestorMascota gestorMascota;
     GestorMedicamentos gestorMedicamentos = new GestorMedicamentos();
+    public GestorHistoriaClinica gestorHistoriaClinica;
 
     public static Cliente clienteActual = null;
 
@@ -36,8 +37,14 @@ public class Main {
 
         gestorVentas = new GestorVentas(gestorPersistencia);
 
+
         // 1. Inicialización de GestorMascota
         gestorMascota = new GestorMascota(gestorClientes, gestorPersistencia);
+
+        // --- AGREGAR ESTA INICIALIZACIÓN ---
+        // Le pasamos el gestorMedicamentos que ya tenías creado arriba
+        gestorHistoriaClinica = new GestorHistoriaClinica(gestorMedicamentos);
+        // -----------------------------------
 
         gestorTurnos = new GestorTurnos(gestorPersistencia, gestorClientes, gestorVeterinarios,gestorMedicamentos);
 
@@ -67,7 +74,8 @@ public class Main {
                         app.gestorClientes,
                         app.gestorPersistencia,
                         app.gestorVentas,
-                        app.gestorMascota // <- Nuevo argumento
+                        app.gestorMascota, // <- Nuevo argumento
+                        app.gestorHistoriaClinica
                 ).setVisible(true);
             } else {
                 System.exit(0);

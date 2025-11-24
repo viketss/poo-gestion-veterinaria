@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: print de medicamentos">
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: prueba final">
+      <change afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorHistoriaClinica.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoHistoriaClinica.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/DialogoHistoriaClinica.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/DialogoHistoriaClinica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/TipoTratamiento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/TipoTratamiento.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pagos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pagos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorHistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorHistoriaClinica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/TipoTratamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/TipoTratamiento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/turnos.txt" afterDir="false" />
     </list>
@@ -18,13 +34,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -36,7 +57,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/viketss/poo-gestion-veterinaria.git&quot;,
-    &quot;accountId&quot;: &quot;7e647311-bf48-41ac-a318-24b6e9f494bd&quot;
+    &quot;accountId&quot;: &quot;c47f2715-c3fb-4486-9ab4-bf2a91ddbf2a&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -48,19 +69,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;312&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "312",
+    "git-widget-placeholder": "Merging main",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="" />
@@ -173,7 +201,55 @@
       <option name="project" value="LOCAL" />
       <updated>1764002557274</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat: enum TipoTratamiento con los tratamientos para el historial clinico">
+      <option name="closed" value="true" />
+      <created>1764008050920</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764008050920</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: logica del gestor de historia clinica + ventana de historia clinica">
+      <option name="closed" value="true" />
+      <created>1764009067689</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1764009067689</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: vista de historia clinica">
+      <option name="closed" value="true" />
+      <created>1764009741320</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1764009741320</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: vista de historia clinica terminadaaaa">
+      <option name="closed" value="true" />
+      <created>1764010948213</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1764010948213</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: vista de historia clinica terminadaaaa">
+      <option name="closed" value="true" />
+      <created>1764010958285</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1764010958285</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: prueba final">
+      <option name="closed" value="true" />
+      <created>1764011250791</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1764011250791</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +274,11 @@
     <MESSAGE value="reform: arreglos a la persistencia para hacerla más robusta" />
     <MESSAGE value="feat: funcion para que no haya mascotas duplicadas con un mismo dueño" />
     <MESSAGE value="feat: print de medicamentos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: print de medicamentos" />
+    <MESSAGE value="feat: enum TipoTratamiento con los tratamientos para el historial clinico" />
+    <MESSAGE value="feat: logica del gestor de historia clinica + ventana de historia clinica" />
+    <MESSAGE value="feat: vista de historia clinica" />
+    <MESSAGE value="feat: vista de historia clinica terminadaaaa" />
+    <MESSAGE value="feat: prueba final" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: prueba final" />
   </component>
 </project>

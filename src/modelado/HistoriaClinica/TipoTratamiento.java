@@ -5,7 +5,6 @@ public enum TipoTratamiento {
     ANALISIS_SANGRE("Análisis de sangre"),
     ECOGRAFIA("Ecografía"),
     VACUNA_ANTIRRABICA("Vacuna antirrabica"),
-    VACUNA_QUINTUPLE("Vacuna quintuple"),
     DESPARASITACION("Desparasitación interna"),
     SUTURA("Sutura de herida");
 
