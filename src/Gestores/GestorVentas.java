@@ -1,4 +1,5 @@
 package Gestores;
+import java.util.ArrayList;
 import java.util.List;
 import modelado.Personas.Cliente;
 import SOLID.OyL.IMetodoPago;
@@ -7,17 +8,17 @@ import Persistencia.GestorPersistencia;
 
 public class GestorVentas {
 
-    private GestorPersistencia persistencia;
-    private List<String> historialPagosLeidos;
+    private final GestorPersistencia gp;
+    private final List<String> historialPagosLeidos;
 
 
     public GestorVentas(GestorPersistencia persistencia) {
-        this.persistencia = persistencia;
+        this.gp = persistencia;
         this.historialPagosLeidos = cargarHistorialPagos();
     }
 
     private List<String> cargarHistorialPagos() {
-        return persistencia.cargarPagos();
+        return gp.cargarPagos();
     }
 
 
@@ -34,16 +35,13 @@ public class GestorVentas {
             return false;
         }
 
-        /* GRASP BAJO ACOPLAMIENTO: GestorVentas depende de interfaz
-        IMetodoPago, no de PagoTarjeta
-        * */
         ProcesarPago procesador = new ProcesarPago(metodoPagoSeleccionado);
         double totalPagado = procesador.pagar(montoSubtotal);
 
         long dniCliente = cliente.getDni();
         String metodoPagoNombre = metodoPagoSeleccionado.getClass().getSimpleName();
 
-        persistencia.guardarPago(dniCliente, totalPagado, metodoPagoNombre);
+        gp.guardarPago(dniCliente, totalPagado, metodoPagoNombre);
 
         String nuevoRegistro = dniCliente + ";" + totalPagado + ";" + metodoPagoNombre;
         this.historialPagosLeidos.add(nuevoRegistro);
@@ -51,6 +49,22 @@ public class GestorVentas {
         System.out.println("Pago finalizado y registrado. Total: $" + totalPagado);
 
         return true;
+    }
+
+    public List<String[]> getHistorialPagosEstructurado() {
+        List<String> lineasPagos = gp.cargarPagos();
+        List<String[]> historial = new ArrayList<>();
+
+        for (String linea : lineasPagos) {
+            String[] partes = linea.split(";");
+
+            if (partes.length == 3) {
+                historial.add(partes);
+            } else {
+                System.err.println("Advertencia: Línea de pago corrupta o incompleta: " + linea);
+            }
+        }
+        return historial;
     }
 
     public List<String> getHistorialPagos() {
