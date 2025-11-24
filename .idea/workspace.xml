@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: funcion para que no haya mascotas duplicadas con un mismo dueño">
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaAgregarMascota.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaAgregarMascota.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pagos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pagos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turnos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/turnos.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
