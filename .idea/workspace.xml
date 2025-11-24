@@ -5,10 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: funcion para que no haya mascotas duplicadas con un mismo dueño">
+      <change afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/TipoTratamiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorMascota.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorMascota.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorTurnos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVentas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVentas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Persistencia/GestorPersistencia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Persistencia/GestorPersistencia.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoEfectivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoEfectivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTarjeta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTarjeta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTranferencia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/SOLID/OyL/PagoTranferencia.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoProcesoPago.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoRegistrar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaAgregarMascota.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaAgregarMascota.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/HistoriaClinica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/HistoriaClinica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Medicamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Medicamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Tratamiento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Tratamiento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Mascotas/Mascota.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Mascotas/Mascota.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Persona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Veterinario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/Personas/Veterinario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pagos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pagos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoProcesoPago.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turnos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/turnos.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +42,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
