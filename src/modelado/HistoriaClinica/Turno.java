@@ -97,17 +97,23 @@ public class Turno {
 
     public String obtenerDetalleMedicamentos() {
         StringBuilder sb = new StringBuilder();
-        sb.append("--- Detalle de Medicamentos ---\n");
+        sb.append("--- Detalle de Costos ---\n");
+        sb.append("Consulta Base: $").append(this.costoConsulta).append("\n");
+        sb.append("--- Medicamentos Aplicados ---\n");
 
         if (tratamientos.isEmpty()) {
-            sb.append("(No se aplicaron tratamientos)");
+            sb.append("(Ninguno)");
             return sb.toString();
         }
 
         for (Tratamiento t : tratamientos) {
             for (Medicamento m : t.getMedicamentos()) {
+
+                float costoTotalMed = m.calcularCostoPorDias(m.getCantidadDiasDosis());
                 sb.append("• ").append(m.getNombreMedicamento())
-                        .append(" ($").append(m.getPrecio()).append(")\n");
+                        .append(" (").append(m.getCantidadDiasDosis()).append(" dosis)")
+                        .append(" -> $").append(String.format("%.2f", costoTotalMed))
+                        .append("\n");
             }
         }
         return sb.toString();
