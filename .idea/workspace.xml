@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: print de medicamentos mas lindo" />
+    <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: funcion para que no haya mascotas duplicadas con un mismo dueño">
+      <change afterPath="$PROJECT_DIR$/src/Vista/DialogoClaveAdmin.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/DialogoClaveAdmin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/VentanaAdmin.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vista/VentanaAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVentas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorVentas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorVentas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoLogin.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoLogin.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/DialogoLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/DialogoLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,13 +28,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -43,19 +63,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;312&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "312",
+    "git-widget-placeholder": "Tomas",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="" />
@@ -152,31 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763913179794</updated>
     </task>
-    <task id="LOCAL-00012" summary="feat: print de medicamentos">
+    <task id="LOCAL-00012" summary="feat: funcion para que no haya mascotas duplicadas con un mismo dueño">
       <option name="closed" value="true" />
-      <created>1764002542595</created>
+      <created>1763913184991</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1764002542595</updated>
+      <updated>1763913184991</updated>
     </task>
-    <task id="LOCAL-00013" summary="feat: print de medicamentos">
-      <option name="closed" value="true" />
-      <created>1764002557274</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1764002557274</updated>
-    </task>
-    <task id="LOCAL-00014" summary="feat: print de medicamentos mas lindo">
-      <option name="closed" value="true" />
-      <created>1764005781614</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1764005781614</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,8 +204,6 @@
     <MESSAGE value="feat: mejor interfaz de Pagos" />
     <MESSAGE value="reform: arreglos a la persistencia para hacerla más robusta" />
     <MESSAGE value="feat: funcion para que no haya mascotas duplicadas con un mismo dueño" />
-    <MESSAGE value="feat: print de medicamentos" />
-    <MESSAGE value="feat: print de medicamentos mas lindo" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: print de medicamentos mas lindo" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: funcion para que no haya mascotas duplicadas con un mismo dueño" />
   </component>
 </project>
