@@ -5,26 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b36884a9-6923-4968-bb42-dcf6a335eba7" name="Changes" comment="feat: prueba final">
-      <change afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorHistoriaClinica.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoHistoriaClinica.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/DialogoHistoriaClinica.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/DialogoHistoriaClinica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaMenuCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/VentanaTurnos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/TipoTratamiento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/TipoTratamiento.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/Turno.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pagos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorClientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorClientes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorHistoriaClinica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorHistoriaClinica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorMedicamentos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Gestores/GestorMedicamentos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoHistoriaClinica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/Vista/DialogoHistoriaClinica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/HistoriaClinica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/poo-gestion-veterinaria/modelado/HistoriaClinica/HistoriaClinica.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gestores/GestorHistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorHistoriaClinica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaMenuCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/VentanaTurnos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/TipoTratamiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/TipoTratamiento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/Turno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turnos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/turnos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gestores/GestorMedicamentos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gestores/GestorMedicamentos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelado/HistoriaClinica/HistoriaClinica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelado/HistoriaClinica/HistoriaClinica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "312",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",

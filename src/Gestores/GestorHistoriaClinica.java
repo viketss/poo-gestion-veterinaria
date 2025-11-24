@@ -51,21 +51,20 @@ public class GestorHistoriaClinica {
             List<Tratamiento> listaTratamientos = new ArrayList<>();
             listaTratamientos.add(tratamientoSimulado);
 
-            // --- C. CREAR EL REGISTRO (Turno) ---
-            // Llenamos con NULL lo que no nos interesa (Veterinario, Horario)
+            // 3. crear el turno
+            // null para lo que no se incluye (veterinario, horario)
             Turno turnoSimulado = new Turno(
                     mascota,
-                    tipoSeleccionado.toString(), // Motivo = Nombre del tratamiento
+                    tipoSeleccionado.toString(), //nombre del tratamiento
                     listaTratamientos,
                     fechaStr,
                     0,
-                    null,                   // Veterinario: NULL (No interesa)
-                    null,                   // Horario: NULL (No interesa)
+                    null,
+                    null,
                     0,
                     EstadoTurno.PAGADO
             );
-            // --- D. GUARDAR (ESTO FALTABA) ---
-            // Importante: Usar el método que agrega el turno a la lista de la historia
+            // 4. guardar
             mascota.getHistoriaClinica().agregarTurno(turnoSimulado);
         }
     }

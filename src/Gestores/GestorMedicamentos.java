@@ -45,7 +45,6 @@ public class GestorMedicamentos {
         // Crear el Tratamiento (constructor: descripcion, costoBase, medicamentos)
         Tratamiento tratamiento = new Tratamiento(descripcion, costoBase, medicamentosAsignados);
 
-        System.out.println("LOG: Tratamiento simulado creado con 2 medicamentos.");
         return tratamiento;
     }
 }

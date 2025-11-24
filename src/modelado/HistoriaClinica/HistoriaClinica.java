@@ -39,7 +39,6 @@ public class HistoriaClinica {
     // metodos
     public void agregarTurno(Turno turno) {
         historialDeTurnos.add(turno);
-        System.out.println("Turno registrado con exito.\n");
     }
 
     public void agregarTratamiento(Tratamiento tratamiento) {
