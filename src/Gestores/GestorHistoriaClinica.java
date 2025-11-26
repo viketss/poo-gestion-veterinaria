@@ -24,7 +24,7 @@ public class GestorHistoriaClinica {
     }
 
     // METODOS
-    public void generarHistorial(Mascota mascota) {
+    public void generarHistoriaClinica(Mascota mascota) {
         // validar si ya tiene historial
         if (!mascota.getHistoriaClinica().getHistorialDeTurnos().isEmpty()) {
             return;
@@ -67,5 +67,6 @@ public class GestorHistoriaClinica {
             // 4. guardar
             mascota.getHistoriaClinica().agregarTurno(turnoSimulado);
         }
+        System.out.println("Historia clínica de " + mascota.getNombre() + " creada con éxito.");
     }
 }

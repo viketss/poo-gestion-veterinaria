@@ -76,25 +76,22 @@ public class Turno {
     public int getCostoConsulta() {
         return costoConsulta;
     }
+    public void setCostoConsulta(int costoConsulta) {
+        this.costoConsulta = costoConsulta;
+    }
+    public EstadoTurno getEstadoTurno() {
+        return estadoTurno;
+    }
+    public void setEstadoTurno(EstadoTurno estadoTurno) {
+        this.estadoTurno = estadoTurno;
+    }
 
+    // METODOS
     public float calcularCostoTurno(int costoConsulta, Tratamiento tratamiento){
         float costoFinal = costoConsulta + tratamiento.calcularCostoMedicamento();
         return costoFinal;
     }
 
-    public void setCostoConsulta(int costoConsulta) {
-        this.costoConsulta = costoConsulta;
-    }
-
-    public EstadoTurno getEstadoTurno() {
-        return estadoTurno;
-    }
-
-    public void setEstadoTurno(EstadoTurno estadoTurno) {
-        this.estadoTurno = estadoTurno;
-    }
-
-    // metodos
     public String obtenerDetalleMedicamentos() {
         StringBuilder sb = new StringBuilder();
         sb.append("--- Detalle de Costos ---\n");

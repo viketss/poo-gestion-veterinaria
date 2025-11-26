@@ -23,16 +23,12 @@ public class Cliente extends Persona {
     public long getTelefono() {
         return telefono;
     }
-    public void setTelefono(long telefono) {
-        this.telefono = telefono;
-    }
 
     // metodos
     public void agregarMascota(Mascota mascota) {
         System.out.println("Agregando mascota: " + mascota.getNombre());
         mascotas.add(mascota);
     }
-
 
     public Mascota buscarMascota(String nombreMascota) {
         for (Mascota mascota : this.mascotas) {
@@ -44,7 +40,6 @@ public class Cliente extends Persona {
         System.out.println("Mascota no encontrada en esta lista.");
         return null; // Retorna null si no se encontró coincidencia
     }
-
     // tostring
     @Override
     public String toString() {

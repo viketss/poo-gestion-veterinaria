@@ -68,10 +68,6 @@ public class Mascota {
     }
 
     // metodos
-    public void mostrarFichaClinica() {
-        System.out.println(getHistoriaClinica());
-    }
-
     public void vacunar(Mascota mascota) {
         this.vacunado = true;
         System.out.println(mascota.getNombre() +" fue vacunado.");

@@ -23,12 +23,8 @@ public class HistoriaClinica {
     public void setHistorialDeTurnos(List<Turno> historialDeTurnos) {
         this.historialDeTurnos = historialDeTurnos;
     }
-    public List<Tratamiento> getHistorialDeTratamientos() {
-        return historialDeTratamientos;
-    }
-    public void setHistorialDeTratamientos(List<Tratamiento> historialDeTratamientos) {
-        this.historialDeTratamientos = historialDeTratamientos;
-    }
+    public List<Tratamiento> getHistorialDeTratamientos() {return historialDeTratamientos;}
+    public void setHistorialDeTratamientos(List<Tratamiento> historialDeTratamientos) {this.historialDeTratamientos = historialDeTratamientos;}
     public int getId() {
         return id;
     }
